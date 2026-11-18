@@ -1,0 +1,1418 @@
+# timestamp | level | source | entity | code | message
+# Filtered extract from the WCS, fleet manager, charger and conveyor controllers. Local time.
+2026-11-10 00:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5600 released 1823 order lines
+2026-11-10 00:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 00:01:05 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-480271 tote TT-70417 from L-04-04-2 to PS3
+2026-11-10 00:02:07 | INFO  | WCS      | R18    | -        | TASK_ASSIGN T-480271 -> R18 (group G3)
+2026-11-10 00:06:29 | INFO  | FLEET    | R18    | -        | TASK_COMPLETE T-480271 tote TT-70417 delivered to PS3 in 3m19s
+2026-11-10 00:22:00 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-480948 tote TT-70478 from L-01-09-6 to PS6
+2026-11-10 00:23:31 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-480948 -> R36 (group G6)
+2026-11-10 00:27:22 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-480948 tote TT-70478 delivered to PS6 in 5m10s
+2026-11-10 00:29:51 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-481185 tote TT-70501 from L-02-02-3 to PS2
+2026-11-10 00:30:17 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-481185 -> R11 (group G2)
+2026-11-10 00:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 00:34:33 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-481185 tote TT-70501 delivered to PS2 in 3m16s
+2026-11-10 00:45:56 | INFO  | FLEET    | R31    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 00:47:03 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-481766 tote TT-70554 from L-08-33-3 to PS5
+2026-11-10 00:48:54 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-481766 -> R32 (group G5)
+2026-11-10 00:48:59 | INFO  | CHARGER  | C1     | -        | CHARGE_START R31 SoC 15%
+2026-11-10 00:50:47 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-481867 tote TT-70564 from L-11-08-2 to PS3
+2026-11-10 00:51:00 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-481867 -> R19 (group G3)
+2026-11-10 00:52:36 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-481766 tote TT-70554 delivered to PS5 in 4m23s
+2026-11-10 00:55:02 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-481867 tote TT-70564 delivered to PS3 in 3m15s
+2026-11-10 01:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5601 released 1993 order lines
+2026-11-10 01:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 01:00:35 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-482214 tote TT-70593 from L-03-12-1 to PS4
+2026-11-10 01:01:47 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-482214 -> R27 (group G4)
+2026-11-10 01:05:41 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-482214 tote TT-70593 delivered to PS4 in 6m14s
+2026-11-10 01:17:36 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-482778 tote TT-70645 from L-06-18-1 to PS2
+2026-11-10 01:18:07 | INFO  | WCS      | R10    | -        | TASK_ASSIGN T-482778 -> R10 (group G2)
+2026-11-10 01:19:24 | INFO  | CHARGER  | C1     | -        | CHARGE_END R31 SoC 90%
+2026-11-10 01:22:32 | INFO  | FLEET    | R10    | -        | TASK_COMPLETE T-482778 tote TT-70645 delivered to PS2 in 3m11s
+2026-11-10 01:27:49 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-483084 tote TT-70674 from L-02-30-3 to PS5
+2026-11-10 01:28:19 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-483084 -> R34 (group G5)
+2026-11-10 01:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 01:32:20 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-483084 tote TT-70674 delivered to PS5 in 3m35s
+2026-11-10 01:37:17 | INFO  | FLEET    | R16    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 01:40:37 | INFO  | CHARGER  | C2     | -        | CHARGE_START R16 SoC 15%
+2026-11-10 01:43:47 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-483633 tote TT-70721 from L-05-37-3 to PS1
+2026-11-10 01:44:15 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-483633 -> R05 (group G1)
+2026-11-10 01:48:29 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-483633 tote TT-70721 delivered to PS1 in 5m37s
+2026-11-10 01:55:14 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-484021 tote TT-70757 from L-01-27-1 to PS2
+2026-11-10 01:56:22 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-484021 -> R12 (group G2)
+2026-11-10 02:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5602 released 1778 order lines
+2026-11-10 02:00:13 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-484195 tote TT-70774 from L-12-20-1 to PS6
+2026-11-10 02:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 02:00:40 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-484021 tote TT-70757 delivered to PS2 in 3m21s
+2026-11-10 02:01:15 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-484195 -> R39 (group G6)
+2026-11-10 02:05:26 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-484195 tote TT-70774 delivered to PS6 in 6m03s
+2026-11-10 02:11:02 | INFO  | CHARGER  | C2     | -        | CHARGE_END R16 SoC 90%
+2026-11-10 02:14:26 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-484650 tote TT-70814 from L-01-15-5 to PS6
+2026-11-10 02:15:57 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-484650 -> R40 (group G6)
+2026-11-10 02:19:23 | INFO  | FLEET    | R40    | -        | TASK_COMPLETE T-484650 tote TT-70814 delivered to PS6 in 6m47s
+2026-11-10 02:25:37 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-485002 tote TT-70849 from L-03-26-1 to PS5
+2026-11-10 02:26:03 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-485002 -> R32 (group G5)
+2026-11-10 02:30:27 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-485002 tote TT-70849 delivered to PS5 in 4m15s
+2026-11-10 02:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 02:40:28 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-485511 tote TT-70893 from L-12-21-3 to PS3
+2026-11-10 02:41:14 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-485511 -> R17 (group G3)
+2026-11-10 02:42:45 | INFO  | FLEET    | R09    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 02:43:31 | INFO  | FLEET    | R11    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 02:45:04 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-485511 tote TT-70893 delivered to PS3 in 4m08s
+2026-11-10 02:45:43 | INFO  | CHARGER  | C1     | -        | CHARGE_START R09 SoC 15%
+2026-11-10 02:45:59 | INFO  | FLEET    | R34    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 02:46:57 | INFO  | CHARGER  | C3     | -        | CHARGE_START R11 SoC 15%
+2026-11-10 02:54:47 | INFO  | FLEET    | R35    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 02:56:39 | INFO  | FLEET    | R22    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 02:57:20 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-486061 tote TT-70943 from L-03-29-4 to PS1
+2026-11-10 02:58:07 | INFO  | WCS      | R04    | -        | TASK_ASSIGN T-486061 -> R04 (group G1)
+2026-11-10 02:58:33 | INFO  | FLEET    | R04    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 02:59:46 | INFO  | CHARGER  | C2     | -        | CHARGE_START R22 SoC 15%
+2026-11-10 03:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5603 released 1918 order lines
+2026-11-10 03:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=3 queued_charge=2 blocked=0 fault=0
+2026-11-10 03:02:34 | INFO  | FLEET    | R04    | -        | TASK_COMPLETE T-486061 tote TT-70943 delivered to PS1 in 5m49s
+2026-11-10 03:03:10 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-486269 tote TT-70962 from L-05-08-1 to PS4
+2026-11-10 03:04:52 | INFO  | WCS      | R25    | -        | TASK_ASSIGN T-486269 -> R25 (group G4)
+2026-11-10 03:08:45 | INFO  | FLEET    | R25    | -        | TASK_COMPLETE T-486269 tote TT-70962 delivered to PS4 in 3m13s
+2026-11-10 03:09:28 | INFO  | FLEET    | R07    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 03:16:05 | INFO  | CHARGER  | C1     | -        | CHARGE_END R09 SoC 90%
+2026-11-10 03:16:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R34 SoC 13%
+2026-11-10 03:17:20 | INFO  | CHARGER  | C3     | -        | CHARGE_END R11 SoC 90%
+2026-11-10 03:17:32 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-486717 tote TT-71005 from L-04-23-4 to PS2
+2026-11-10 03:17:34 | INFO  | FLEET    | R12    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 03:17:42 | INFO  | CHARGER  | C3     | -        | CHARGE_START R35 SoC 14%
+2026-11-10 03:18:43 | INFO  | WCS      | R08    | -        | TASK_ASSIGN T-486717 -> R08 (group G2)
+2026-11-10 03:22:19 | INFO  | FLEET    | R08    | -        | TASK_COMPLETE T-486717 tote TT-71005 delivered to PS2 in 5m52s
+2026-11-10 03:26:06 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-487034 tote TT-71031 from L-09-36-2 to PS1
+2026-11-10 03:27:06 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-487034 -> R05 (group G1)
+2026-11-10 03:30:22 | INFO  | CHARGER  | C2     | -        | CHARGE_END R22 SoC 90%
+2026-11-10 03:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=2 queued_charge=3 blocked=0 fault=0
+2026-11-10 03:31:51 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-487034 tote TT-71031 delivered to PS1 in 4m07s
+2026-11-10 03:35:58 | INFO  | FLEET    | R19    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 03:36:43 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-487353 tote TT-71060 from L-04-26-3 to PS1
+2026-11-10 03:37:37 | INFO  | WCS      | R01    | -        | TASK_ASSIGN T-487353 -> R01 (group G1)
+2026-11-10 03:38:52 | INFO  | CHARGER  | C2     | -        | CHARGE_START R19 SoC 15%
+2026-11-10 03:41:37 | INFO  | FLEET    | R01    | -        | TASK_COMPLETE T-487353 tote TT-71060 delivered to PS1 in 5m58s
+2026-11-10 03:47:02 | INFO  | CHARGER  | C1     | -        | CHARGE_END R34 SoC 90%
+2026-11-10 03:47:46 | INFO  | CHARGER  | C1     | -        | CHARGE_START R04 SoC 12%
+2026-11-10 03:48:17 | INFO  | CHARGER  | C3     | -        | CHARGE_END R35 SoC 90%
+2026-11-10 03:48:48 | INFO  | CHARGER  | C3     | -        | CHARGE_START R07 SoC 13%
+2026-11-10 03:49:05 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-487772 tote TT-71099 from L-11-29-2 to PS1
+2026-11-10 03:50:07 | INFO  | WCS      | R03    | -        | TASK_ASSIGN T-487772 -> R03 (group G1)
+2026-11-10 03:54:02 | INFO  | FLEET    | R03    | -        | TASK_COMPLETE T-487772 tote TT-71099 delivered to PS1 in 6m03s
+2026-11-10 04:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5604 released 2196 order lines
+2026-11-10 04:00:26 | INFO  | FLEET    | R26    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 04:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=3 queued_charge=1 blocked=0 fault=0
+2026-11-10 04:01:18 | INFO  | FLEET    | R02    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 04:02:24 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-488224 tote TT-71140 from L-07-32-1 to PS5
+2026-11-10 04:03:27 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-488224 -> R33 (group G5)
+2026-11-10 04:03:49 | INFO  | CHARGER  | C4     | -        | CHARGE_START R26 SoC 15%
+2026-11-10 04:07:11 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-488224 tote TT-71140 delivered to PS5 in 5m13s
+2026-11-10 04:08:13 | INFO  | FLEET    | R25    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 04:09:18 | INFO  | CHARGER  | C2     | -        | CHARGE_END R19 SoC 90%
+2026-11-10 04:11:58 | INFO  | CHARGER  | C2     | -        | CHARGE_START R25 SoC 15%
+2026-11-10 04:14:39 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-488610 tote TT-71175 from L-03-03-5 to PS3
+2026-11-10 04:15:15 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-488610 -> R19 (group G3)
+2026-11-10 04:16:11 | INFO  | FLEET    | R29    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 04:19:04 | INFO  | CHARGER  | C1     | -        | CHARGE_END R04 SoC 90%
+2026-11-10 04:19:04 | INFO  | CHARGER  | C3     | -        | CHARGE_END R07 SoC 90%
+2026-11-10 04:19:41 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-488610 tote TT-71175 delivered to PS3 in 5m31s
+2026-11-10 04:19:43 | INFO  | CHARGER  | C1     | -        | CHARGE_START R12 SoC 12%
+2026-11-10 04:19:49 | INFO  | CHARGER  | C3     | -        | CHARGE_START R02 SoC 14%
+2026-11-10 04:24:29 | INFO  | FLEET    | R36    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 04:30:08 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-489151 tote TT-71222 from L-02-18-4 to PS5
+2026-11-10 04:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=34 charging=4 queued_charge=2 blocked=0 fault=0
+2026-11-10 04:31:12 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-489151 -> R32 (group G5)
+2026-11-10 04:34:24 | INFO  | CHARGER  | C4     | -        | CHARGE_END R26 SoC 90%
+2026-11-10 04:35:41 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-489151 tote TT-71222 delivered to PS5 in 4m40s
+2026-11-10 04:42:12 | INFO  | CHARGER  | C2     | -        | CHARGE_END R25 SoC 90%
+2026-11-10 04:44:50 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-489607 tote TT-71266 from L-06-31-5 to PS1
+2026-11-10 04:45:22 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-489607 -> R05 (group G1)
+2026-11-10 04:49:58 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-489607 tote TT-71266 delivered to PS1 in 5m24s
+2026-11-10 04:50:17 | INFO  | CHARGER  | C3     | -        | CHARGE_END R02 SoC 90%
+2026-11-10 04:50:52 | INFO  | CHARGER  | C3     | -        | CHARGE_START R29 SoC 13%
+2026-11-10 04:51:13 | INFO  | CHARGER  | C1     | -        | CHARGE_END R12 SoC 90%
+2026-11-10 04:51:31 | INFO  | CHARGER  | C1     | -        | CHARGE_START R36 SoC 13%
+2026-11-10 04:52:57 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-489848 tote TT-71289 from L-10-15-1 to PS2
+2026-11-10 04:53:03 | INFO  | WCS      | R10    | -        | TASK_ASSIGN T-489848 -> R10 (group G2)
+2026-11-10 04:57:51 | INFO  | FLEET    | R10    | -        | TASK_COMPLETE T-489848 tote TT-71289 delivered to PS2 in 6m33s
+2026-11-10 05:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5605 released 1859 order lines
+2026-11-10 05:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 05:05:15 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-490290 tote TT-71327 from L-02-16-6 to PS5
+2026-11-10 05:06:34 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-490290 -> R31 (group G5)
+2026-11-10 05:10:52 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-490290 tote TT-71327 delivered to PS5 in 3m48s
+2026-11-10 05:15:37 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-490630 tote TT-71358 from L-03-12-2 to PS5
+2026-11-10 05:16:51 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-490630 -> R31 (group G5)
+2026-11-10 05:20:47 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-490630 tote TT-71358 delivered to PS5 in 5m58s
+2026-11-10 05:21:20 | INFO  | CHARGER  | C3     | -        | CHARGE_END R29 SoC 90%
+2026-11-10 05:22:22 | INFO  | CHARGER  | C1     | -        | CHARGE_END R36 SoC 90%
+2026-11-10 05:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 05:33:12 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-491222 tote TT-71413 from L-10-10-5 to PS1
+2026-11-10 05:34:51 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-491222 -> R07 (group G1)
+2026-11-10 05:38:56 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-491222 tote TT-71413 delivered to PS1 in 6m34s
+2026-11-10 05:40:38 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-491462 tote TT-71432 from L-02-04-2 to PS2
+2026-11-10 05:41:01 | INFO  | WCS      | R09    | -        | TASK_ASSIGN T-491462 -> R09 (group G2)
+2026-11-10 05:42:33 | INFO  | FLEET    | R27    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 05:45:33 | INFO  | FLEET    | R09    | -        | TASK_COMPLETE T-491462 tote TT-71432 delivered to PS2 in 6m00s
+2026-11-10 05:45:45 | INFO  | CHARGER  | C2     | -        | CHARGE_START R27 SoC 15%
+2026-11-10 05:46:14 | INFO  | FLEET    | R24    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 05:49:44 | INFO  | CHARGER  | C4     | -        | CHARGE_START R24 SoC 15%
+2026-11-10 05:53:03 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-491872 tote TT-71471 from L-06-12-3 to PS5
+2026-11-10 05:54:09 | INFO  | WCS      | R28    | -        | TASK_ASSIGN T-491872 -> R28 (group G5)
+2026-11-10 05:58:37 | INFO  | FLEET    | R28    | -        | TASK_COMPLETE T-491872 tote TT-71471 delivered to PS5 in 4m49s
+2026-11-10 06:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5606 released 2165 order lines
+2026-11-10 06:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 06:01:06 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-492147 tote TT-71495 from L-06-26-5 to PS5
+2026-11-10 06:02:19 | INFO  | WCS      | R30    | -        | TASK_ASSIGN T-492147 -> R30 (group G5)
+2026-11-10 06:06:20 | INFO  | FLEET    | R30    | -        | TASK_COMPLETE T-492147 tote TT-71495 delivered to PS5 in 4m10s
+2026-11-10 06:16:06 | INFO  | CHARGER  | C2     | -        | CHARGE_END R27 SoC 90%
+2026-11-10 06:19:51 | INFO  | FLEET    | R32    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 06:20:20 | INFO  | CHARGER  | C4     | -        | CHARGE_END R24 SoC 90%
+2026-11-10 06:22:46 | INFO  | CHARGER  | C1     | -        | CHARGE_START R32 SoC 15%
+2026-11-10 06:23:35 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-492881 tote TT-71563 from L-06-12-6 to PS4
+2026-11-10 06:24:56 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-492881 -> R27 (group G4)
+2026-11-10 06:28:59 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-492881 tote TT-71563 delivered to PS4 in 5m14s
+2026-11-10 06:29:21 | INFO  | FLEET    | R01    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 06:30:01 | INFO  | FLEET    | R39    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 06:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 06:32:45 | INFO  | CHARGER  | C3     | -        | CHARGE_START R01 SoC 15%
+2026-11-10 06:34:11 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-493224 tote TT-71595 from L-05-19-2 to PS5
+2026-11-10 06:35:00 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-493224 -> R34 (group G5)
+2026-11-10 06:39:44 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-493224 tote TT-71595 delivered to PS5 in 6m54s
+2026-11-10 06:41:50 | INFO  | FLEET    | R20    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 06:44:39 | INFO  | CHARGER  | C2     | -        | CHARGE_START R20 SoC 15%
+2026-11-10 06:45:40 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-493587 tote TT-71629 from L-06-40-2 to PS1
+2026-11-10 06:46:06 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-493587 -> R06 (group G1)
+2026-11-10 06:50:36 | INFO  | FLEET    | R13    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 06:50:59 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-493587 tote TT-71629 delivered to PS1 in 6m09s
+2026-11-10 06:53:08 | INFO  | CHARGER  | C1     | -        | CHARGE_END R32 SoC 90%
+2026-11-10 06:53:40 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-493844 tote TT-71651 from L-06-21-2 to PS6
+2026-11-10 06:53:47 | INFO  | CHARGER  | C1     | -        | CHARGE_START R39 SoC 14%
+2026-11-10 06:54:52 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-493844 -> R35 (group G6)
+2026-11-10 06:58:45 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-493844 tote TT-71651 delivered to PS6 in 5m28s
+2026-11-10 07:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5607 released 2009 order lines
+2026-11-10 07:00:16 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-494084 tote TT-71672 from L-12-05-3 to PS3
+2026-11-10 07:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=3 queued_charge=1 blocked=0 fault=0
+2026-11-10 07:01:46 | INFO  | WCS      | R15    | -        | TASK_ASSIGN T-494084 -> R15 (group G3)
+2026-11-10 07:03:12 | INFO  | CHARGER  | C3     | -        | CHARGE_END R01 SoC 90%
+2026-11-10 07:03:54 | INFO  | CHARGER  | C3     | -        | CHARGE_START R13 SoC 14%
+2026-11-10 07:05:00 | INFO  | FLEET    | R15    | -        | TASK_COMPLETE T-494084 tote TT-71672 delivered to PS3 in 3m24s
+2026-11-10 07:06:31 | INFO  | FLEET    | R06    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 07:15:16 | INFO  | CHARGER  | C2     | -        | CHARGE_END R20 SoC 90%
+2026-11-10 07:19:22 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-494724 tote TT-71729 from L-07-32-4 to PS6
+2026-11-10 07:20:24 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-494724 -> R40 (group G6)
+2026-11-10 07:24:06 | INFO  | FLEET    | R40    | -        | TASK_COMPLETE T-494724 tote TT-71729 delivered to PS6 in 6m50s
+2026-11-10 07:24:25 | INFO  | CHARGER  | C1     | -        | CHARGE_END R39 SoC 90%
+2026-11-10 07:24:44 | INFO  | CHARGER  | C1     | -        | CHARGE_START R06 SoC 14%
+2026-11-10 07:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 07:33:18 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-495174 tote TT-71771 from L-08-05-1 to PS6
+2026-11-10 07:34:15 | INFO  | CHARGER  | C3     | -        | CHARGE_END R13 SoC 90%
+2026-11-10 07:34:20 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-495174 -> R35 (group G6)
+2026-11-10 07:36:19 | INFO  | FLEET    | R08    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 07:36:52 | INFO  | FLEET    | R10    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 07:38:16 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-495174 tote TT-71771 delivered to PS6 in 3m04s
+2026-11-10 07:39:39 | INFO  | CHARGER  | C3     | -        | CHARGE_START R08 SoC 15%
+2026-11-10 07:41:57 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-495448 tote TT-71795 from L-12-05-5 to PS2
+2026-11-10 07:42:21 | INFO  | WCS      | R09    | -        | TASK_ASSIGN T-495448 -> R09 (group G2)
+2026-11-10 07:43:29 | INFO  | FLEET    | R38    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 07:46:38 | INFO  | FLEET    | R09    | -        | TASK_COMPLETE T-495448 tote TT-71795 delivered to PS2 in 6m45s
+2026-11-10 07:48:06 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-495665 tote TT-71818 from L-07-11-1 to PS4
+2026-11-10 07:49:13 | INFO  | WCS      | R24    | -        | TASK_ASSIGN T-495665 -> R24 (group G4)
+2026-11-10 07:53:12 | INFO  | FLEET    | R24    | -        | TASK_COMPLETE T-495665 tote TT-71818 delivered to PS4 in 6m44s
+2026-11-10 07:55:09 | INFO  | CHARGER  | C1     | -        | CHARGE_END R06 SoC 90%
+2026-11-10 07:55:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R10 SoC 14%
+2026-11-10 08:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5608 released 1868 order lines
+2026-11-10 08:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=2 queued_charge=1 blocked=0 fault=0
+2026-11-10 08:06:42 | INFO  | FLEET    | R05    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 08:08:06 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-496331 tote TT-71878 from L-05-20-2 to PS6
+2026-11-10 08:09:25 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-496331 -> R35 (group G6)
+2026-11-10 08:10:03 | INFO  | CHARGER  | C3     | -        | CHARGE_END R08 SoC 90%
+2026-11-10 08:10:36 | INFO  | CHARGER  | C3     | -        | CHARGE_START R38 SoC 13%
+2026-11-10 08:11:36 | INFO  | FLEET    | R30    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 08:12:40 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-496447 tote TT-71889 from L-02-19-6 to PS3
+2026-11-10 08:13:30 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-496447 -> R19 (group G3)
+2026-11-10 08:13:36 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-496331 tote TT-71878 delivered to PS6 in 6m09s
+2026-11-10 08:17:12 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-496447 tote TT-71889 delivered to PS3 in 3m01s
+2026-11-10 08:21:08 | INFO  | FLEET    | R18    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 08:24:31 | INFO  | CHARGER  | C2     | -        | CHARGE_START R18 SoC 15%
+2026-11-10 08:26:05 | INFO  | CHARGER  | C1     | -        | CHARGE_END R10 SoC 90%
+2026-11-10 08:26:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R05 SoC 14%
+2026-11-10 08:27:50 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-496960 tote TT-71933 from L-08-08-3 to PS2
+2026-11-10 08:28:30 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-496960 -> R12 (group G2)
+2026-11-10 08:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=3 queued_charge=1 blocked=0 fault=0
+2026-11-10 08:31:51 | INFO  | FLEET    | R33    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 08:32:31 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-496960 tote TT-71933 delivered to PS2 in 5m05s
+2026-11-10 08:41:04 | INFO  | CHARGER  | C3     | -        | CHARGE_END R38 SoC 90%
+2026-11-10 08:41:39 | INFO  | CHARGER  | C3     | -        | CHARGE_START R30 SoC 13%
+2026-11-10 08:46:11 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-497593 tote TT-71990 from L-06-25-3 to PS5
+2026-11-10 08:47:02 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-497593 -> R32 (group G5)
+2026-11-10 08:51:16 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-497593 tote TT-71990 delivered to PS5 in 6m29s
+2026-11-10 08:52:42 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-497784 tote TT-72010 from L-01-10-6 to PS2
+2026-11-10 08:53:05 | INFO  | WCS      | R08    | -        | TASK_ASSIGN T-497784 -> R08 (group G2)
+2026-11-10 08:55:24 | INFO  | CHARGER  | C2     | -        | CHARGE_END R18 SoC 90%
+2026-11-10 08:56:58 | INFO  | FLEET    | R17    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 08:57:11 | INFO  | CHARGER  | C1     | -        | CHARGE_END R05 SoC 90%
+2026-11-10 08:57:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R33 SoC 14%
+2026-11-10 08:57:42 | INFO  | FLEET    | R08    | -        | TASK_COMPLETE T-497784 tote TT-72010 delivered to PS2 in 5m51s
+2026-11-10 08:59:44 | INFO  | CHARGER  | C2     | -        | CHARGE_START R17 SoC 15%
+2026-11-10 09:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5609 released 1929 order lines
+2026-11-10 09:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-10 09:05:32 | INFO  | FLEET    | R37    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 09:08:26 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-498309 tote TT-72058 from L-01-25-5 to PS4
+2026-11-10 09:09:43 | INFO  | WCS      | R26    | -        | TASK_ASSIGN T-498309 -> R26 (group G4)
+2026-11-10 09:10:34 | INFO  | FLEET    | R40    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 09:12:14 | INFO  | CHARGER  | C3     | -        | CHARGE_END R30 SoC 90%
+2026-11-10 09:12:37 | INFO  | CHARGER  | C3     | -        | CHARGE_START R37 SoC 14%
+2026-11-10 09:13:55 | INFO  | FLEET    | R26    | -        | TASK_COMPLETE T-498309 tote TT-72058 delivered to PS4 in 6m36s
+2026-11-10 09:15:36 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-498545 tote TT-72077 from L-07-03-5 to PS4
+2026-11-10 09:16:51 | INFO  | WCS      | R26    | -        | TASK_ASSIGN T-498545 -> R26 (group G4)
+2026-11-10 09:20:36 | INFO  | FLEET    | R26    | -        | TASK_COMPLETE T-498545 tote TT-72077 delivered to PS4 in 4m07s
+2026-11-10 09:28:22 | INFO  | CHARGER  | C1     | -        | CHARGE_END R33 SoC 90%
+2026-11-10 09:28:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R40 SoC 14%
+2026-11-10 09:30:05 | INFO  | CHARGER  | C2     | -        | CHARGE_END R17 SoC 90%
+2026-11-10 09:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 09:31:27 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-499064 tote TT-72125 from L-04-09-1 to PS2
+2026-11-10 09:32:43 | INFO  | WCS      | R08    | -        | TASK_ASSIGN T-499064 -> R08 (group G2)
+2026-11-10 09:36:27 | INFO  | FLEET    | R08    | -        | TASK_COMPLETE T-499064 tote TT-72125 delivered to PS2 in 4m52s
+2026-11-10 09:38:37 | INFO  | FLEET    | R21    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 09:41:07 | ERROR | FLEET    | R07    | AMR-305  | Safety field obstruction - emergency stop in aisle A04
+2026-11-10 09:41:35 | INFO  | CHARGER  | C2     | -        | CHARGE_START R21 SoC 15%
+2026-11-10 09:43:19 | INFO  | CHARGER  | C3     | -        | CHARGE_END R37 SoC 90%
+2026-11-10 09:43:22 | WARN  | FLEET    | R03    | AMR-207  | Path blocked >120 s in aisle A04 (obstacle: R07)
+2026-11-10 09:46:24 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-499565 tote TT-72171 from L-12-05-1 to PS2
+2026-11-10 09:46:51 | WARN  | FLEET    | R05    | AMR-207  | Path blocked >120 s in aisle A04 (obstacle: R03)
+2026-11-10 09:47:25 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-499565 -> R12 (group G2)
+2026-11-10 09:51:35 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-499565 tote TT-72171 delivered to PS2 in 5m54s
+2026-11-10 09:52:33 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-499776 tote TT-72188 from L-12-40-5 to PS5
+2026-11-10 09:53:26 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-499776 -> R34 (group G5)
+2026-11-10 09:57:07 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-499776 tote TT-72188 delivered to PS5 in 6m09s
+2026-11-10 09:59:12 | INFO  | CHARGER  | C1     | -        | CHARGE_END R40 SoC 90%
+2026-11-10 10:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5610 released 1977 order lines
+2026-11-10 10:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=1 queued_charge=0 blocked=2 fault=1
+2026-11-10 10:01:40 | INFO  | FLEET    | A04    | -        | Aisle A04 maintenance mode ON (user eng_oncall)
+2026-11-10 10:02:55 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-500083 tote TT-72218 from L-10-07-3 to PS5
+2026-11-10 10:03:56 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-500083 -> R32 (group G5)
+2026-11-10 10:05:02 | INFO  | FLEET    | R07    | -        | E-stop reset; robot available
+2026-11-10 10:05:30 | INFO  | FLEET    | A04    | -        | Aisle A04 maintenance mode OFF (user eng_oncall)
+2026-11-10 10:07:22 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-500083 tote TT-72218 delivered to PS5 in 6m16s
+2026-11-10 10:12:01 | INFO  | CHARGER  | C2     | -        | CHARGE_END R21 SoC 90%
+2026-11-10 10:18:11 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-500636 tote TT-72268 from L-10-31-1 to PS6
+2026-11-10 10:19:25 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-500636 -> R37 (group G6)
+2026-11-10 10:23:09 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-500636 tote TT-72268 delivered to PS6 in 6m02s
+2026-11-10 10:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 10:30:57 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-501016 tote TT-72302 from L-12-31-3 to PS3
+2026-11-10 10:31:01 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-501016 -> R17 (group G3)
+2026-11-10 10:35:21 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-501016 tote TT-72302 delivered to PS3 in 5m19s
+2026-11-10 10:40:28 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-501337 tote TT-72332 from L-03-20-6 to PS4
+2026-11-10 10:41:17 | INFO  | WCS      | R24    | -        | TASK_ASSIGN T-501337 -> R24 (group G4)
+2026-11-10 10:45:46 | INFO  | FLEET    | R24    | -        | TASK_COMPLETE T-501337 tote TT-72332 delivered to PS4 in 6m38s
+2026-11-10 10:51:51 | INFO  | FLEET    | R15    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 10:52:09 | INFO  | FLEET    | R23    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 10:54:44 | INFO  | CHARGER  | C2     | -        | CHARGE_START R15 SoC 15%
+2026-11-10 10:55:52 | INFO  | CHARGER  | C4     | -        | CHARGE_START R23 SoC 15%
+2026-11-10 10:58:31 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-501937 tote TT-72387 from L-04-27-6 to PS1
+2026-11-10 10:59:33 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-501937 -> R07 (group G1)
+2026-11-10 10:59:54 | INFO  | FLEET    | R28    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 11:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5611 released 1767 order lines
+2026-11-10 11:00:08 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-502001 tote TT-72392 from L-05-33-4 to PS5
+2026-11-10 11:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 11:01:56 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-502001 -> R33 (group G5)
+2026-11-10 11:02:31 | INFO  | CHARGER  | C1     | -        | CHARGE_START R28 SoC 15%
+2026-11-10 11:03:55 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-501937 tote TT-72387 delivered to PS1 in 5m52s
+2026-11-10 11:05:15 | INFO  | FLEET    | R14    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 11:05:36 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-502001 tote TT-72392 delivered to PS5 in 3m11s
+2026-11-10 11:08:52 | INFO  | CHARGER  | C3     | -        | CHARGE_START R14 SoC 15%
+2026-11-10 11:14:11 | INFO  | FLEET    | R03    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 11:15:58 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-502489 tote TT-72437 from L-01-30-1 to PS2
+2026-11-10 11:16:45 | INFO  | WCS      | R10    | -        | TASK_ASSIGN T-502489 -> R10 (group G2)
+2026-11-10 11:20:12 | INFO  | FLEET    | R10    | -        | TASK_COMPLETE T-502489 tote TT-72437 delivered to PS2 in 5m23s
+2026-11-10 11:25:11 | INFO  | CHARGER  | C2     | -        | CHARGE_END R15 SoC 90%
+2026-11-10 11:26:21 | INFO  | CHARGER  | C4     | -        | CHARGE_END R23 SoC 90%
+2026-11-10 11:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=2 queued_charge=1 blocked=0 fault=0
+2026-11-10 11:31:23 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-503039 tote TT-72487 from L-02-02-2 to PS5
+2026-11-10 11:32:38 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-503039 -> R32 (group G5)
+2026-11-10 11:33:20 | INFO  | CHARGER  | C1     | -        | CHARGE_END R28 SoC 90%
+2026-11-10 11:33:34 | INFO  | CHARGER  | C1     | -        | CHARGE_START R03 SoC 14%
+2026-11-10 11:36:28 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-503039 tote TT-72487 delivered to PS5 in 4m55s
+2026-11-10 11:39:25 | INFO  | CHARGER  | C3     | -        | CHARGE_END R14 SoC 90%
+2026-11-10 11:43:53 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-503432 tote TT-72522 from L-03-17-6 to PS5
+2026-11-10 11:44:05 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-503432 -> R33 (group G5)
+2026-11-10 11:48:13 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-503588 tote TT-72536 from L-11-15-6 to PS2
+2026-11-10 11:48:18 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-503432 tote TT-72522 delivered to PS5 in 3m24s
+2026-11-10 11:49:41 | INFO  | WCS      | R10    | -        | TASK_ASSIGN T-503588 -> R10 (group G2)
+2026-11-10 11:53:26 | INFO  | FLEET    | R10    | -        | TASK_COMPLETE T-503588 tote TT-72536 delivered to PS2 in 3m55s
+2026-11-10 12:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5612 released 1805 order lines
+2026-11-10 12:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 12:04:13 | INFO  | CHARGER  | C1     | -        | CHARGE_END R03 SoC 90%
+2026-11-10 12:10:51 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-504331 tote TT-72602 from L-11-12-5 to PS1
+2026-11-10 12:11:14 | INFO  | WCS      | R01    | -        | TASK_ASSIGN T-504331 -> R01 (group G1)
+2026-11-10 12:15:16 | INFO  | FLEET    | R01    | -        | TASK_COMPLETE T-504331 tote TT-72602 delivered to PS1 in 5m45s
+2026-11-10 12:23:16 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-504747 tote TT-72642 from L-07-23-4 to PS6
+2026-11-10 12:24:29 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-504747 -> R36 (group G6)
+2026-11-10 12:25:38 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-504828 tote TT-72649 from L-06-36-6 to PS1
+2026-11-10 12:26:18 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-504828 -> R05 (group G1)
+2026-11-10 12:28:19 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-504747 tote TT-72642 delivered to PS6 in 6m37s
+2026-11-10 12:30:19 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-504828 tote TT-72649 delivered to PS1 in 3m30s
+2026-11-10 12:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 12:37:41 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-505209 tote TT-72685 from L-06-18-3 to PS3
+2026-11-10 12:38:57 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-505209 -> R20 (group G3)
+2026-11-10 12:42:41 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-505209 tote TT-72685 delivered to PS3 in 5m12s
+2026-11-10 12:50:20 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-505636 tote TT-72722 from L-10-26-6 to PS5
+2026-11-10 12:51:08 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-505636 -> R33 (group G5)
+2026-11-10 12:55:46 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-505636 tote TT-72722 delivered to PS5 in 3m41s
+2026-11-10 13:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5613 released 2034 order lines
+2026-11-10 13:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 13:07:02 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-506198 tote TT-72774 from L-07-25-6 to PS3
+2026-11-10 13:08:45 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-506198 -> R19 (group G3)
+2026-11-10 13:12:36 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-506198 tote TT-72774 delivered to PS3 in 4m21s
+2026-11-10 13:23:22 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-506724 tote TT-72823 from L-09-31-6 to PS6
+2026-11-10 13:24:19 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-506724 -> R39 (group G6)
+2026-11-10 13:28:54 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-506724 tote TT-72823 delivered to PS6 in 4m53s
+2026-11-10 13:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 13:34:47 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-507084 tote TT-72855 from L-02-31-2 to PS5
+2026-11-10 13:35:46 | INFO  | WCS      | R30    | -        | TASK_ASSIGN T-507084 -> R30 (group G5)
+2026-11-10 13:39:51 | INFO  | FLEET    | R30    | -        | TASK_COMPLETE T-507084 tote TT-72855 delivered to PS5 in 4m43s
+2026-11-10 13:41:55 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-507309 tote TT-72875 from L-06-15-6 to PS6
+2026-11-10 13:42:26 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-507309 -> R37 (group G6)
+2026-11-10 13:46:22 | INFO  | FLEET    | R16    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 13:46:50 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-507309 tote TT-72875 delivered to PS6 in 5m23s
+2026-11-10 13:49:45 | INFO  | CHARGER  | C2     | -        | CHARGE_START R16 SoC 15%
+2026-11-10 13:52:55 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-507685 tote TT-72909 from L-02-31-1 to PS5
+2026-11-10 13:53:37 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-507685 -> R33 (group G5)
+2026-11-10 13:57:37 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-507685 tote TT-72909 delivered to PS5 in 3m30s
+2026-11-10 14:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5614 released 1770 order lines
+2026-11-10 14:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 14:03:26 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-508037 tote TT-72943 from L-07-34-3 to PS5
+2026-11-10 14:04:55 | INFO  | WCS      | R28    | -        | TASK_ASSIGN T-508037 -> R28 (group G5)
+2026-11-10 14:08:54 | INFO  | FLEET    | R28    | -        | TASK_COMPLETE T-508037 tote TT-72943 delivered to PS5 in 4m08s
+2026-11-10 14:15:55 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-508452 tote TT-72979 from L-08-10-3 to PS3
+2026-11-10 14:16:11 | INFO  | WCS      | R21    | -        | TASK_ASSIGN T-508452 -> R21 (group G3)
+2026-11-10 14:20:16 | INFO  | CHARGER  | C2     | -        | CHARGE_END R16 SoC 90%
+2026-11-10 14:20:49 | INFO  | FLEET    | R21    | -        | TASK_COMPLETE T-508452 tote TT-72979 delivered to PS3 in 3m31s
+2026-11-10 14:24:30 | INFO  | FLEET    | R11    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 14:27:32 | INFO  | CHARGER  | C1     | -        | CHARGE_START R11 SoC 15%
+2026-11-10 14:29:28 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-508899 tote TT-73020 from L-11-04-1 to PS6
+2026-11-10 14:30:13 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-508899 -> R37 (group G6)
+2026-11-10 14:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 14:34:48 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-508899 tote TT-73020 delivered to PS6 in 4m36s
+2026-11-10 14:38:27 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-509190 tote TT-73046 from L-10-28-6 to PS4
+2026-11-10 14:39:27 | INFO  | WCS      | R25    | -        | TASK_ASSIGN T-509190 -> R25 (group G4)
+2026-11-10 14:43:30 | INFO  | FLEET    | R25    | -        | TASK_COMPLETE T-509190 tote TT-73046 delivered to PS4 in 6m00s
+2026-11-10 14:44:33 | INFO  | FLEET    | R19    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 14:47:50 | INFO  | CHARGER  | C2     | -        | CHARGE_START R19 SoC 15%
+2026-11-10 14:48:48 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-509527 tote TT-73078 from L-06-01-3 to PS5
+2026-11-10 14:49:33 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-509527 -> R34 (group G5)
+2026-11-10 14:50:51 | INFO  | FLEET    | R31    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 14:53:12 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-509527 tote TT-73078 delivered to PS5 in 3m43s
+2026-11-10 14:53:47 | INFO  | CHARGER  | C3     | -        | CHARGE_START R31 SoC 15%
+2026-11-10 14:58:14 | INFO  | CHARGER  | C1     | -        | CHARGE_END R11 SoC 90%
+2026-11-10 15:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5615 released 1997 order lines
+2026-11-10 15:00:08 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-509926 tote TT-73112 from L-12-23-3 to PS6
+2026-11-10 15:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 15:01:24 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-509926 -> R35 (group G6)
+2026-11-10 15:05:32 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-509926 tote TT-73112 delivered to PS6 in 5m10s
+2026-11-10 15:08:18 | INFO  | FLEET    | R34    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 15:11:53 | INFO  | CHARGER  | C1     | -        | CHARGE_START R34 SoC 15%
+2026-11-10 15:13:33 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-510359 tote TT-73152 from L-08-34-5 to PS1
+2026-11-10 15:14:27 | INFO  | WCS      | R03    | -        | TASK_ASSIGN T-510359 -> R03 (group G1)
+2026-11-10 15:18:20 | INFO  | CHARGER  | C2     | -        | CHARGE_END R19 SoC 90%
+2026-11-10 15:18:56 | INFO  | FLEET    | R03    | -        | TASK_COMPLETE T-510359 tote TT-73152 delivered to PS1 in 4m21s
+2026-11-10 15:24:01 | INFO  | CHARGER  | C3     | -        | CHARGE_END R31 SoC 90%
+2026-11-10 15:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 15:31:14 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-510946 tote TT-73205 from L-07-02-2 to PS3
+2026-11-10 15:32:08 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-510946 -> R20 (group G3)
+2026-11-10 15:36:13 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-510946 tote TT-73205 delivered to PS3 in 3m37s
+2026-11-10 15:42:09 | INFO  | CHARGER  | C1     | -        | CHARGE_END R34 SoC 90%
+2026-11-10 15:44:56 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-511370 tote TT-73245 from L-12-03-4 to PS2
+2026-11-10 15:45:16 | INFO  | WCS      | R13    | -        | TASK_ASSIGN T-511370 -> R13 (group G2)
+2026-11-10 15:48:07 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-511501 tote TT-73258 from L-01-04-6 to PS6
+2026-11-10 15:49:28 | INFO  | WCS      | R38    | -        | TASK_ASSIGN T-511501 -> R38 (group G6)
+2026-11-10 15:49:49 | INFO  | FLEET    | R13    | -        | TASK_COMPLETE T-511370 tote TT-73245 delivered to PS2 in 3m38s
+2026-11-10 15:53:24 | INFO  | FLEET    | R38    | -        | TASK_COMPLETE T-511501 tote TT-73258 delivered to PS6 in 3m35s
+2026-11-10 15:55:08 | INFO  | FLEET    | R35    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 15:56:00 | INFO  | FLEET    | R04    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 15:58:53 | INFO  | CHARGER  | C1     | -        | CHARGE_START R35 SoC 15%
+2026-11-10 15:59:51 | INFO  | FLEET    | R09    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 15:59:57 | INFO  | CHARGER  | C3     | -        | CHARGE_START R04 SoC 15%
+2026-11-10 16:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5616 released 1977 order lines
+2026-11-10 16:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 16:01:48 | INFO  | FLEET    | R36    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 16:04:26 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-512032 tote TT-73304 from L-12-01-3 to PS4
+2026-11-10 16:05:06 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-512032 -> R27 (group G4)
+2026-11-10 16:09:42 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-512032 tote TT-73304 delivered to PS4 in 5m39s
+2026-11-10 16:15:12 | INFO  | WMS      | -      | -        | Slotting batch SLT-8841 applied: 212 locations re-coded (range L-07-*)
+2026-11-10 16:18:28 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512506: unknown storage location L-07-21-6
+2026-11-10 16:19:18 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512531: unknown storage location L-07-21-1
+2026-11-10 16:20:11 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512575: unknown storage location L-07-16-4
+2026-11-10 16:21:49 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512585: unknown storage location L-07-26-3
+2026-11-10 16:22:27 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512624: unknown storage location L-07-20-6
+2026-11-10 16:23:23 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512672: unknown storage location L-07-33-2
+2026-11-10 16:24:36 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512711: unknown storage location L-07-39-4
+2026-11-10 16:24:39 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512688: unknown storage location L-07-12-4
+2026-11-10 16:25:29 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512721: unknown storage location L-07-15-6
+2026-11-10 16:25:41 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512725: unknown storage location L-07-34-1
+2026-11-10 16:26:19 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512758: unknown storage location L-07-16-5
+2026-11-10 16:26:41 | INFO  | FLEET    | R29    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 16:26:51 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512778: unknown storage location L-07-31-3
+2026-11-10 16:27:04 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512800: unknown storage location L-07-03-5
+2026-11-10 16:27:06 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512788: unknown storage location L-07-30-6
+2026-11-10 16:27:10 | INFO  | FLEET    | R02    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 16:28:11 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512822: unknown storage location L-07-12-4
+2026-11-10 16:28:49 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512837: unknown storage location L-07-33-1
+2026-11-10 16:29:19 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512853: unknown storage location L-07-21-5
+2026-11-10 16:29:23 | INFO  | CHARGER  | C1     | -        | CHARGE_END R35 SoC 90%
+2026-11-10 16:29:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R09 SoC 13%
+2026-11-10 16:30:21 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512909: unknown storage location L-07-12-2
+2026-11-10 16:30:25 | INFO  | CHARGER  | C3     | -        | CHARGE_END R04 SoC 90%
+2026-11-10 16:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=2 queued_charge=2 blocked=0 fault=0
+2026-11-10 16:30:38 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512892: unknown storage location L-07-17-6
+2026-11-10 16:30:51 | INFO  | CHARGER  | C3     | -        | CHARGE_START R36 SoC 13%
+2026-11-10 16:31:25 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-512941: unknown storage location L-07-08-1
+2026-11-10 16:32:55 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512977: unknown storage location L-07-39-6
+2026-11-10 16:33:08 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513005: unknown storage location L-07-01-2
+2026-11-10 16:33:39 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-512999: unknown storage location L-07-24-6
+2026-11-10 16:34:54 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513014: unknown storage location L-07-02-2
+2026-11-10 16:35:09 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513051: unknown storage location L-07-31-4
+2026-11-10 16:35:53 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513055: unknown storage location L-07-35-2
+2026-11-10 16:36:47 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513086: unknown storage location L-07-29-4
+2026-11-10 16:37:06 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513137: unknown storage location L-07-28-4
+2026-11-10 16:37:12 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513113: unknown storage location L-07-19-5
+2026-11-10 16:37:12 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-513119 tote TT-73404 from L-02-07-4 to PS5
+2026-11-10 16:37:39 | INFO  | FLEET    | R12    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 16:38:12 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-513119 -> R33 (group G5)
+2026-11-10 16:38:31 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513163: unknown storage location L-07-33-5
+2026-11-10 16:38:33 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513176: unknown storage location L-07-02-4
+2026-11-10 16:39:17 | INFO  | FLEET    | R22    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 16:39:22 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513209: unknown storage location L-07-29-6
+2026-11-10 16:39:26 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513182: unknown storage location L-07-31-1
+2026-11-10 16:40:12 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513212: unknown storage location L-07-31-3
+2026-11-10 16:40:37 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513239: unknown storage location L-07-22-5
+2026-11-10 16:41:24 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513252: unknown storage location L-07-27-6
+2026-11-10 16:41:54 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513267: unknown storage location L-07-11-5
+2026-11-10 16:42:42 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513295: unknown storage location L-07-31-2
+2026-11-10 16:42:49 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-513119 tote TT-73404 delivered to PS5 in 5m53s
+2026-11-10 16:42:53 | INFO  | CHARGER  | C2     | -        | CHARGE_START R22 SoC 15%
+2026-11-10 16:43:06 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513322: unknown storage location L-07-27-4
+2026-11-10 16:44:01 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513358: unknown storage location L-07-23-3
+2026-11-10 16:44:52 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513365: unknown storage location L-07-33-1
+2026-11-10 16:45:14 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513397: unknown storage location L-07-08-5
+2026-11-10 16:46:50 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513440: unknown storage location L-07-23-1
+2026-11-10 16:47:38 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513451: unknown storage location L-07-07-6
+2026-11-10 16:47:53 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513445: unknown storage location L-07-08-1
+2026-11-10 16:48:40 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513477: unknown storage location L-07-08-2
+2026-11-10 16:49:10 | INFO  | WCS      | -      | -        | Location master resync started (user eng_oncall)
+2026-11-10 16:49:21 | ERROR | WCS      | PS6    | WCS-402  | TASK_REJECT T-513514: unknown storage location L-07-09-1
+2026-11-10 16:49:28 | ERROR | WCS      | PS4    | WCS-402  | TASK_REJECT T-513518: unknown storage location L-07-33-4
+2026-11-10 16:52:44 | INFO  | WCS      | -      | -        | Location master resync complete: 212 locations added
+2026-11-10 16:53:30 | INFO  | WMS      | -      | -        | Resent 61 rejected tasks
+2026-11-10 16:54:44 | INFO  | FLEET    | R27    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 16:55:43 | INFO  | FLEET    | R25    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 16:56:02 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-513761 tote TT-73462 from L-07-19-2 to PS2
+2026-11-10 16:57:31 | INFO  | WCS      | R14    | -        | TASK_ASSIGN T-513761 -> R14 (group G2)
+2026-11-10 16:57:46 | INFO  | CHARGER  | C4     | -        | CHARGE_START R27 SoC 15%
+2026-11-10 17:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5617 released 2050 order lines
+2026-11-10 17:00:06 | INFO  | CHARGER  | C1     | -        | CHARGE_END R09 SoC 90%
+2026-11-10 17:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=33 charging=4 queued_charge=3 blocked=0 fault=0
+2026-11-10 17:00:49 | INFO  | CHARGER  | C1     | -        | CHARGE_START R29 SoC 13%
+2026-11-10 17:01:20 | INFO  | CHARGER  | C3     | -        | CHARGE_END R36 SoC 90%
+2026-11-10 17:01:34 | INFO  | CHARGER  | C3     | -        | CHARGE_START R02 SoC 13%
+2026-11-10 17:01:58 | INFO  | FLEET    | R14    | -        | TASK_COMPLETE T-513761 tote TT-73462 delivered to PS2 in 4m44s
+2026-11-10 17:07:53 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-514117 tote TT-73493 from L-01-06-1 to PS3
+2026-11-10 17:08:42 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-514117 -> R19 (group G3)
+2026-11-10 17:12:31 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-514117 tote TT-73493 delivered to PS3 in 4m05s
+2026-11-10 17:13:20 | INFO  | CHARGER  | C2     | -        | CHARGE_END R22 SoC 90%
+2026-11-10 17:13:38 | INFO  | CHARGER  | C2     | -        | CHARGE_START R25 SoC 14%
+2026-11-10 17:20:18 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-514537 tote TT-73533 from L-11-15-4 to PS1
+2026-11-10 17:21:29 | INFO  | WCS      | R04    | -        | TASK_ASSIGN T-514537 -> R04 (group G1)
+2026-11-10 17:24:49 | INFO  | FLEET    | R32    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 17:25:03 | INFO  | FLEET    | R04    | -        | TASK_COMPLETE T-514537 tote TT-73533 delivered to PS1 in 3m52s
+2026-11-10 17:26:47 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-514747 tote TT-73551 from L-11-21-4 to PS1
+2026-11-10 17:27:06 | INFO  | WCS      | R01    | -        | TASK_ASSIGN T-514747 -> R01 (group G1)
+2026-11-10 17:28:05 | INFO  | CHARGER  | C4     | -        | CHARGE_END R27 SoC 90%
+2026-11-10 17:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=3 queued_charge=2 blocked=0 fault=0
+2026-11-10 17:31:01 | INFO  | CHARGER  | C1     | -        | CHARGE_END R29 SoC 90%
+2026-11-10 17:31:54 | INFO  | FLEET    | R01    | -        | TASK_COMPLETE T-514747 tote TT-73551 delivered to PS1 in 3m00s
+2026-11-10 17:31:56 | INFO  | CHARGER  | C1     | -        | CHARGE_START R12 SoC 12%
+2026-11-10 17:32:02 | INFO  | CHARGER  | C3     | -        | CHARGE_END R02 SoC 90%
+2026-11-10 17:32:09 | INFO  | FLEET    | R24    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 17:32:33 | INFO  | CHARGER  | C3     | -        | CHARGE_START R32 SoC 14%
+2026-11-10 17:32:39 | INFO  | FLEET    | R26    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 17:35:34 | INFO  | CHARGER  | C4     | -        | CHARGE_START R24 SoC 15%
+2026-11-10 17:38:17 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-515135 tote TT-73587 from L-06-29-5 to PS6
+2026-11-10 17:39:05 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-515135 -> R40 (group G6)
+2026-11-10 17:40:09 | INFO  | FLEET    | R07    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 17:43:23 | INFO  | FLEET    | R40    | -        | TASK_COMPLETE T-515135 tote TT-73587 delivered to PS6 in 5m11s
+2026-11-10 17:44:16 | INFO  | CHARGER  | C2     | -        | CHARGE_END R25 SoC 90%
+2026-11-10 17:44:42 | INFO  | CHARGER  | C2     | -        | CHARGE_START R26 SoC 14%
+2026-11-10 17:49:54 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-515513 tote TT-73620 from L-05-25-6 to PS4
+2026-11-10 17:50:51 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-515513 -> R27 (group G4)
+2026-11-10 17:54:26 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-515513 tote TT-73620 delivered to PS4 in 4m07s
+2026-11-10 18:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5618 released 2109 order lines
+2026-11-10 18:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=4 queued_charge=1 blocked=0 fault=0
+2026-11-10 18:02:30 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-515920 tote TT-73658 from L-02-27-5 to PS6
+2026-11-10 18:03:07 | INFO  | CHARGER  | C1     | -        | CHARGE_END R12 SoC 90%
+2026-11-10 18:03:24 | INFO  | CHARGER  | C3     | -        | CHARGE_END R32 SoC 90%
+2026-11-10 18:03:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R07 SoC 14%
+2026-11-10 18:03:43 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-515920 -> R39 (group G6)
+2026-11-10 18:06:01 | INFO  | CHARGER  | C4     | -        | CHARGE_END R24 SoC 90%
+2026-11-10 18:07:28 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-515920 tote TT-73658 delivered to PS6 in 4m39s
+2026-11-10 18:08:53 | INFO  | FLEET    | R20    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 18:11:35 | INFO  | CHARGER  | C4     | -        | CHARGE_START R20 SoC 15%
+2026-11-10 18:15:21 | INFO  | CHARGER  | C2     | -        | CHARGE_END R26 SoC 90%
+2026-11-10 18:16:31 | INFO  | FLEET    | R13    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 18:18:58 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-516446 tote TT-73708 from L-12-09-4 to PS3
+2026-11-10 18:19:07 | INFO  | WCS      | R18    | -        | TASK_ASSIGN T-516446 -> R18 (group G3)
+2026-11-10 18:19:34 | INFO  | CHARGER  | C3     | -        | CHARGE_START R13 SoC 15%
+2026-11-10 18:23:56 | INFO  | FLEET    | R18    | -        | TASK_COMPLETE T-516446 tote TT-73708 delivered to PS3 in 6m28s
+2026-11-10 18:24:55 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-516659 tote TT-73726 from L-06-01-6 to PS1
+2026-11-10 18:25:33 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-516659 -> R06 (group G1)
+2026-11-10 18:29:49 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-516659 tote TT-73726 delivered to PS1 in 4m42s
+2026-11-10 18:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-10 18:34:23 | INFO  | CHARGER  | C1     | -        | CHARGE_END R07 SoC 90%
+2026-11-10 18:41:22 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-517210 tote TT-73776 from L-11-16-4 to PS5
+2026-11-10 18:42:02 | INFO  | CHARGER  | C4     | -        | CHARGE_END R20 SoC 90%
+2026-11-10 18:42:43 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-517210 -> R33 (group G5)
+2026-11-10 18:46:41 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-517210 tote TT-73776 delivered to PS5 in 6m09s
+2026-11-10 18:50:15 | INFO  | CHARGER  | C3     | -        | CHARGE_END R13 SoC 90%
+2026-11-10 18:52:25 | INFO  | FLEET    | R08    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 18:55:51 | INFO  | CHARGER  | C1     | -        | CHARGE_START R08 SoC 15%
+2026-11-10 18:56:54 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-517702 tote TT-73820 from L-11-11-5 to PS5
+2026-11-10 18:57:54 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-517702 -> R31 (group G5)
+2026-11-10 19:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5619 released 1803 order lines
+2026-11-10 19:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 19:01:31 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-517702 tote TT-73820 delivered to PS5 in 4m04s
+2026-11-10 19:05:47 | INFO  | FLEET    | R01    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 19:07:14 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-518077 tote TT-73854 from L-05-04-5 to PS3
+2026-11-10 19:08:31 | INFO  | CHARGER  | C3     | -        | CHARGE_START R01 SoC 15%
+2026-11-10 19:08:41 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-518077 -> R19 (group G3)
+2026-11-10 19:12:24 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-518077 tote TT-73854 delivered to PS3 in 6m52s
+2026-11-10 19:15:54 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-518355 tote TT-73878 from L-10-29-1 to PS1
+2026-11-10 19:16:28 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-518355 -> R05 (group G1)
+2026-11-10 19:20:20 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-518355 tote TT-73878 delivered to PS1 in 3m31s
+2026-11-10 19:26:04 | INFO  | CHARGER  | C1     | -        | CHARGE_END R08 SoC 90%
+2026-11-10 19:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-10 19:35:35 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-518987 tote TT-73937 from L-07-27-1 to PS6
+2026-11-10 19:36:00 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-518987 -> R39 (group G6)
+2026-11-10 19:39:09 | INFO  | CHARGER  | C3     | -        | CHARGE_END R01 SoC 90%
+2026-11-10 19:40:52 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-518987 tote TT-73937 delivered to PS6 in 3m50s
+2026-11-10 19:42:52 | INFO  | FLEET    | R39    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 19:45:37 | INFO  | CHARGER  | C1     | -        | CHARGE_START R39 SoC 15%
+2026-11-10 19:45:42 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-519335 tote TT-73969 from L-09-14-6 to PS5
+2026-11-10 19:46:21 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-519335 -> R31 (group G5)
+2026-11-10 19:48:25 | INFO  | FLEET    | R30    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 19:50:23 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-519335 tote TT-73969 delivered to PS5 in 3m52s
+2026-11-10 19:51:40 | INFO  | CHARGER  | C3     | -        | CHARGE_START R30 SoC 15%
+2026-11-10 19:51:45 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-519535 tote TT-73987 from L-10-39-4 to PS4
+2026-11-10 19:52:23 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-519535 -> R27 (group G4)
+2026-11-10 19:56:45 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-519535 tote TT-73987 delivered to PS4 in 6m07s
+2026-11-10 20:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5620 released 2141 order lines
+2026-11-10 20:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 20:01:51 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-519858 tote TT-74015 from L-06-23-6 to PS6
+2026-11-10 20:02:35 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-519858 -> R37 (group G6)
+2026-11-10 20:06:33 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-519858 tote TT-74015 delivered to PS6 in 5m44s
+2026-11-10 20:13:16 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-520250 tote TT-74052 from L-03-27-1 to PS1
+2026-11-10 20:14:12 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-520250 -> R05 (group G1)
+2026-11-10 20:16:05 | INFO  | CHARGER  | C1     | -        | CHARGE_END R39 SoC 90%
+2026-11-10 20:18:12 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-520250 tote TT-74052 delivered to PS1 in 3m59s
+2026-11-10 20:19:15 | INFO  | FLEET    | R37    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 20:19:44 | INFO  | FLEET    | R05    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 20:22:20 | INFO  | CHARGER  | C3     | -        | CHARGE_END R30 SoC 90%
+2026-11-10 20:22:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R37 SoC 15%
+2026-11-10 20:22:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R05 SoC 15%
+2026-11-10 20:24:17 | INFO  | FLEET    | R06    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-10 20:28:11 | INFO  | FLEET    | R10    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 20:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=2 queued_charge=1 blocked=0 fault=0
+2026-11-10 20:30:48 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-520830 tote TT-74102 from L-12-22-1 to PS2
+2026-11-10 20:31:02 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-520830 -> R12 (group G2)
+2026-11-10 20:35:59 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-520830 tote TT-74102 delivered to PS2 in 3m49s
+2026-11-10 20:36:00 | INFO  | FLEET    | R17    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 20:39:49 | INFO  | CHARGER  | C2     | -        | CHARGE_START R17 SoC 15%
+2026-11-10 20:43:47 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-521262 tote TT-74141 from L-08-01-5 to PS4
+2026-11-10 20:44:35 | INFO  | WCS      | R22    | -        | TASK_ASSIGN T-521262 -> R22 (group G4)
+2026-11-10 20:48:59 | INFO  | FLEET    | R22    | -        | TASK_COMPLETE T-521262 tote TT-74141 delivered to PS4 in 6m53s
+2026-11-10 20:53:06 | INFO  | CHARGER  | C3     | -        | CHARGE_END R37 SoC 90%
+2026-11-10 20:53:07 | INFO  | CHARGER  | C1     | -        | CHARGE_END R05 SoC 90%
+2026-11-10 20:53:34 | INFO  | CHARGER  | C1     | -        | CHARGE_START R06 SoC 13%
+2026-11-10 20:53:35 | INFO  | CHARGER  | C3     | -        | CHARGE_START R10 SoC 14%
+2026-11-10 20:57:46 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-521724 tote TT-74183 from L-12-38-2 to PS4
+2026-11-10 20:58:06 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-521724 -> R23 (group G4)
+2026-11-10 21:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5621 released 1770 order lines
+2026-11-10 21:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-10 21:02:24 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-521724 tote TT-74183 delivered to PS4 in 5m32s
+2026-11-10 21:05:27 | INFO  | FLEET    | R38    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 21:06:28 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-522004 tote TT-74211 from L-07-22-3 to PS4
+2026-11-10 21:07:02 | INFO  | FLEET    | R33    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 21:07:08 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-522004 -> R23 (group G4)
+2026-11-10 21:10:05 | INFO  | CHARGER  | C2     | -        | CHARGE_END R17 SoC 90%
+2026-11-10 21:11:26 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-522004 tote TT-74211 delivered to PS4 in 5m53s
+2026-11-10 21:23:13 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-522570 tote TT-74263 from L-12-36-6 to PS5
+2026-11-10 21:24:13 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-522570 -> R29 (group G5)
+2026-11-10 21:24:18 | INFO  | CHARGER  | C1     | -        | CHARGE_END R06 SoC 90%
+2026-11-10 21:24:21 | INFO  | CHARGER  | C3     | -        | CHARGE_END R10 SoC 90%
+2026-11-10 21:24:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R38 SoC 14%
+2026-11-10 21:24:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R33 SoC 14%
+2026-11-10 21:28:39 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-522570 tote TT-74263 delivered to PS5 in 5m43s
+2026-11-10 21:29:34 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-522756 tote TT-74281 from L-11-12-5 to PS6
+2026-11-10 21:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 21:30:45 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-522756 -> R37 (group G6)
+2026-11-10 21:34:07 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-522756 tote TT-74281 delivered to PS6 in 5m35s
+2026-11-10 21:43:56 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-523236 tote TT-74323 from L-12-35-3 to PS5
+2026-11-10 21:44:51 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-523236 -> R31 (group G5)
+2026-11-10 21:48:00 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-523236 tote TT-74323 delivered to PS5 in 3m01s
+2026-11-10 21:54:48 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-523576 tote TT-74356 from L-01-13-3 to PS2
+2026-11-10 21:55:01 | INFO  | CHARGER  | C1     | -        | CHARGE_END R38 SoC 90%
+2026-11-10 21:55:07 | INFO  | CHARGER  | C3     | -        | CHARGE_END R33 SoC 90%
+2026-11-10 21:55:10 | INFO  | WCS      | R14    | -        | TASK_ASSIGN T-523576 -> R14 (group G2)
+2026-11-10 21:59:18 | INFO  | FLEET    | R14    | -        | TASK_COMPLETE T-523576 tote TT-74356 delivered to PS2 in 5m09s
+2026-11-10 22:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5622 released 1858 order lines
+2026-11-10 22:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 22:00:52 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-523789 tote TT-74372 from L-09-03-3 to PS6
+2026-11-10 22:01:06 | INFO  | WCS      | R38    | -        | TASK_ASSIGN T-523789 -> R38 (group G6)
+2026-11-10 22:05:39 | INFO  | FLEET    | R38    | -        | TASK_COMPLETE T-523789 tote TT-74372 delivered to PS6 in 4m47s
+2026-11-10 22:06:23 | INFO  | FLEET    | R40    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-10 22:09:38 | INFO  | CHARGER  | C1     | -        | CHARGE_START R40 SoC 15%
+2026-11-10 22:14:17 | INFO  | FLEET    | R18    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 22:17:54 | INFO  | CHARGER  | C2     | -        | CHARGE_START R18 SoC 15%
+2026-11-10 22:22:42 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-524521 tote TT-74438 from L-09-19-6 to PS5
+2026-11-10 22:23:39 | INFO  | FLEET    | R23    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-10 22:23:59 | INFO  | WCS      | R28    | -        | TASK_ASSIGN T-524521 -> R28 (group G5)
+2026-11-10 22:26:57 | INFO  | CHARGER  | C4     | -        | CHARGE_START R23 SoC 15%
+2026-11-10 22:27:24 | INFO  | FLEET    | R28    | -        | TASK_COMPLETE T-524521 tote TT-74438 delivered to PS5 in 6m26s
+2026-11-10 22:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-10 22:34:39 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-524896 tote TT-74474 from L-12-17-2 to PS3
+2026-11-10 22:35:53 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-524896 -> R19 (group G3)
+2026-11-10 22:39:14 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-524896 tote TT-74474 delivered to PS3 in 5m48s
+2026-11-10 22:40:06 | INFO  | CHARGER  | C1     | -        | CHARGE_END R40 SoC 90%
+2026-11-10 22:45:11 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-525268 tote TT-74509 from L-04-19-4 to PS5
+2026-11-10 22:46:04 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-525268 -> R33 (group G5)
+2026-11-10 22:48:00 | INFO  | CHARGER  | C2     | -        | CHARGE_END R18 SoC 90%
+2026-11-10 22:50:11 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-525268 tote TT-74509 delivered to PS5 in 4m47s
+2026-11-10 22:56:16 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-525643 tote TT-74540 from L-07-18-5 to PS1
+2026-11-10 22:57:10 | INFO  | CHARGER  | C4     | -        | CHARGE_END R23 SoC 90%
+2026-11-10 22:57:10 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-525643 -> R02 (group G1)
+2026-11-10 23:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5623 released 2052 order lines
+2026-11-10 23:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-10 23:01:37 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-525643 tote TT-74540 delivered to PS1 in 5m00s
+2026-11-10 23:05:03 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-525925 tote TT-74567 from L-03-21-5 to PS4
+2026-11-10 23:06:39 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-525925 -> R27 (group G4)
+2026-11-10 23:10:53 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-525925 tote TT-74567 delivered to PS4 in 5m31s
+2026-11-10 23:12:26 | INFO  | FLEET    | R21    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 23:15:46 | INFO  | CHARGER  | C2     | -        | CHARGE_START R21 SoC 15%
+2026-11-10 23:21:14 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-526466 tote TT-74615 from L-12-21-5 to PS5
+2026-11-10 23:22:33 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-526466 -> R29 (group G5)
+2026-11-10 23:24:31 | INFO  | FLEET    | R28    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-10 23:26:04 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-526466 tote TT-74615 delivered to PS5 in 4m26s
+2026-11-10 23:27:43 | INFO  | CHARGER  | C1     | -        | CHARGE_START R28 SoC 15%
+2026-11-10 23:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-10 23:32:01 | INFO  | FLEET    | R14    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-10 23:32:42 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-526832 tote TT-74648 from L-06-15-2 to PS5
+2026-11-10 23:33:21 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-526832 -> R31 (group G5)
+2026-11-10 23:35:57 | INFO  | CHARGER  | C3     | -        | CHARGE_START R14 SoC 15%
+2026-11-10 23:37:23 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-526832 tote TT-74648 delivered to PS5 in 5m13s
+2026-11-10 23:45:42 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-527266 tote TT-74689 from L-11-01-1 to PS5
+2026-11-10 23:46:14 | INFO  | CHARGER  | C2     | -        | CHARGE_END R21 SoC 90%
+2026-11-10 23:46:28 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-527266 -> R31 (group G5)
+2026-11-10 23:50:15 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-527266 tote TT-74689 delivered to PS5 in 4m02s
+2026-11-10 23:57:40 | INFO  | FLEET    | R15    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-10 23:58:14 | INFO  | CHARGER  | C1     | -        | CHARGE_END R28 SoC 90%
+2026-11-10 23:58:46 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-527689 tote TT-74726 from L-07-17-5 to PS3
+2026-11-10 23:59:01 | INFO  | WCS      | R18    | -        | TASK_ASSIGN T-527689 -> R18 (group G3)
+2026-11-11 00:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5624 released 2061 order lines
+2026-11-11 00:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 00:00:31 | INFO  | CHARGER  | C2     | -        | CHARGE_START R15 SoC 15%
+2026-11-11 00:03:58 | INFO  | FLEET    | R18    | -        | TASK_COMPLETE T-527689 tote TT-74726 delivered to PS3 in 5m32s
+2026-11-11 00:06:08 | INFO  | CHARGER  | C3     | -        | CHARGE_END R14 SoC 90%
+2026-11-11 00:08:32 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-528026 tote TT-74756 from L-05-13-3 to PS4
+2026-11-11 00:09:06 | INFO  | WCS      | R22    | -        | TASK_ASSIGN T-528026 -> R22 (group G4)
+2026-11-11 00:13:10 | INFO  | FLEET    | R22    | -        | TASK_COMPLETE T-528026 tote TT-74756 delivered to PS4 in 3m40s
+2026-11-11 00:13:34 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-528173 tote TT-74773 from L-07-07-2 to PS2
+2026-11-11 00:14:44 | INFO  | WCS      | R14    | -        | TASK_ASSIGN T-528173 -> R14 (group G2)
+2026-11-11 00:18:56 | INFO  | FLEET    | R14    | -        | TASK_COMPLETE T-528173 tote TT-74773 delivered to PS2 in 6m41s
+2026-11-11 00:25:05 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-528565 tote TT-74807 from L-08-22-1 to PS6
+2026-11-11 00:26:03 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-528565 -> R35 (group G6)
+2026-11-11 00:27:39 | INFO  | FLEET    | R03    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 00:30:11 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-528565 tote TT-74807 delivered to PS6 in 5m35s
+2026-11-11 00:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 00:30:41 | INFO  | CHARGER  | C1     | -        | CHARGE_START R03 SoC 15%
+2026-11-11 00:31:11 | INFO  | CHARGER  | C2     | -        | CHARGE_END R15 SoC 90%
+2026-11-11 00:37:40 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-528966 tote TT-74844 from L-07-25-4 to PS5
+2026-11-11 00:38:27 | INFO  | WCS      | R31    | -        | TASK_ASSIGN T-528966 -> R31 (group G5)
+2026-11-11 00:42:20 | INFO  | FLEET    | R31    | -        | TASK_COMPLETE T-528966 tote TT-74844 delivered to PS5 in 3m24s
+2026-11-11 00:58:48 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-529645 tote TT-74908 from L-12-40-1 to PS1
+2026-11-11 00:59:37 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-529645 -> R07 (group G1)
+2026-11-11 01:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5625 released 2160 order lines
+2026-11-11 01:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 01:01:11 | INFO  | CHARGER  | C1     | -        | CHARGE_END R03 SoC 90%
+2026-11-11 01:03:02 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-529645 tote TT-74908 delivered to PS1 in 3m22s
+2026-11-11 01:08:18 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-529993 tote TT-74938 from L-05-39-1 to PS1
+2026-11-11 01:09:59 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-529993 -> R07 (group G1)
+2026-11-11 01:13:28 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-529993 tote TT-74938 delivered to PS1 in 6m25s
+2026-11-11 01:22:47 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-530467 tote TT-74978 from L-09-15-2 to PS1
+2026-11-11 01:23:50 | INFO  | WCS      | R04    | -        | TASK_ASSIGN T-530467 -> R04 (group G1)
+2026-11-11 01:26:07 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-530592 tote TT-74990 from L-09-36-2 to PS3
+2026-11-11 01:27:00 | INFO  | WCS      | R15    | -        | TASK_ASSIGN T-530592 -> R15 (group G3)
+2026-11-11 01:27:51 | INFO  | FLEET    | R04    | -        | TASK_COMPLETE T-530467 tote TT-74978 delivered to PS1 in 5m40s
+2026-11-11 01:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 01:31:36 | INFO  | FLEET    | R15    | -        | TASK_COMPLETE T-530592 tote TT-74990 delivered to PS3 in 6m34s
+2026-11-11 01:44:26 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-531182 tote TT-75044 from L-12-23-2 to PS1
+2026-11-11 01:45:54 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-531182 -> R06 (group G1)
+2026-11-11 01:49:32 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-531182 tote TT-75044 delivered to PS1 in 4m10s
+2026-11-11 01:50:51 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-531377 tote TT-75062 from L-02-12-6 to PS2
+2026-11-11 01:51:54 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-531377 -> R12 (group G2)
+2026-11-11 01:55:03 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-531377 tote TT-75062 delivered to PS2 in 6m41s
+2026-11-11 01:59:08 | INFO  | FLEET    | R16    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 02:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5626 released 1968 order lines
+2026-11-11 02:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 02:02:53 | INFO  | CHARGER  | C2     | -        | CHARGE_START R16 SoC 15%
+2026-11-11 02:08:12 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-531973 tote TT-75118 from L-02-17-1 to PS1
+2026-11-11 02:09:37 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-531973 -> R06 (group G1)
+2026-11-11 02:13:31 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-531973 tote TT-75118 delivered to PS1 in 5m22s
+2026-11-11 02:14:57 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-532168 tote TT-75134 from L-05-40-1 to PS6
+2026-11-11 02:15:20 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-532168 -> R36 (group G6)
+2026-11-11 02:19:31 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-532168 tote TT-75134 delivered to PS6 in 6m21s
+2026-11-11 02:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 02:33:22 | INFO  | CHARGER  | C2     | -        | CHARGE_END R16 SoC 90%
+2026-11-11 02:33:36 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-532799 tote TT-75193 from L-10-10-5 to PS6
+2026-11-11 02:34:51 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-532799 -> R37 (group G6)
+2026-11-11 02:36:43 | INFO  | FLEET    | R11    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 02:36:53 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-532894 tote TT-75200 from L-12-28-3 to PS3
+2026-11-11 02:37:08 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-532894 -> R17 (group G3)
+2026-11-11 02:38:20 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-532799 tote TT-75193 delivered to PS6 in 6m10s
+2026-11-11 02:39:44 | INFO  | CHARGER  | C1     | -        | CHARGE_START R11 SoC 15%
+2026-11-11 02:41:43 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-532894 tote TT-75200 delivered to PS3 in 5m56s
+2026-11-11 02:41:43 | INFO  | FLEET    | R19    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 02:44:55 | INFO  | CHARGER  | C2     | -        | CHARGE_START R19 SoC 15%
+2026-11-11 02:55:06 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-533534 tote TT-75258 from L-05-32-5 to PS4
+2026-11-11 02:56:41 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-533534 -> R23 (group G4)
+2026-11-11 03:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5627 released 2165 order lines
+2026-11-11 03:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 03:00:38 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-533534 tote TT-75258 delivered to PS4 in 3m53s
+2026-11-11 03:04:04 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-533815 tote TT-75285 from L-12-05-6 to PS2
+2026-11-11 03:05:54 | INFO  | WCS      | R08    | -        | TASK_ASSIGN T-533815 -> R08 (group G2)
+2026-11-11 03:09:32 | INFO  | FLEET    | R08    | -        | TASK_COMPLETE T-533815 tote TT-75285 delivered to PS2 in 3m52s
+2026-11-11 03:10:02 | INFO  | CHARGER  | C1     | -        | CHARGE_END R11 SoC 90%
+2026-11-11 03:15:12 | INFO  | CHARGER  | C2     | -        | CHARGE_END R19 SoC 90%
+2026-11-11 03:21:16 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-534389 tote TT-75337 from L-04-03-5 to PS5
+2026-11-11 03:22:57 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-534389 -> R32 (group G5)
+2026-11-11 03:26:29 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-534554 tote TT-75350 from L-10-19-2 to PS3
+2026-11-11 03:26:34 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-534389 tote TT-75337 delivered to PS5 in 6m41s
+2026-11-11 03:27:32 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-534554 -> R19 (group G3)
+2026-11-11 03:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 03:31:05 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-534554 tote TT-75350 delivered to PS3 in 6m23s
+2026-11-11 03:44:08 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-535138 tote TT-75406 from L-11-11-5 to PS1
+2026-11-11 03:45:10 | INFO  | WCS      | R04    | -        | TASK_ASSIGN T-535138 -> R04 (group G1)
+2026-11-11 03:49:11 | INFO  | FLEET    | R04    | -        | TASK_COMPLETE T-535138 tote TT-75406 delivered to PS1 in 4m47s
+2026-11-11 03:59:04 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-535640 tote TT-75449 from L-04-32-2 to PS4
+2026-11-11 04:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5628 released 1769 order lines
+2026-11-11 04:00:23 | INFO  | WCS      | R24    | -        | TASK_ASSIGN T-535640 -> R24 (group G4)
+2026-11-11 04:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 04:03:02 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-535773 tote TT-75462 from L-08-30-1 to PS5
+2026-11-11 04:04:14 | INFO  | FLEET    | R24    | -        | TASK_COMPLETE T-535640 tote TT-75449 delivered to PS4 in 3m42s
+2026-11-11 04:04:20 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-535773 -> R33 (group G5)
+2026-11-11 04:08:06 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-535773 tote TT-75462 delivered to PS5 in 5m53s
+2026-11-11 04:08:44 | INFO  | FLEET    | R34    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 04:11:30 | INFO  | CHARGER  | C1     | -        | CHARGE_START R34 SoC 15%
+2026-11-11 04:23:37 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-536421 tote TT-75522 from L-11-25-3 to PS3
+2026-11-11 04:24:57 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-536421 -> R20 (group G3)
+2026-11-11 04:28:31 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-536589 tote TT-75538 from L-07-23-3 to PS4
+2026-11-11 04:28:53 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-536421 tote TT-75522 delivered to PS3 in 3m33s
+2026-11-11 04:29:56 | INFO  | WCS      | R25    | -        | TASK_ASSIGN T-536589 -> R25 (group G4)
+2026-11-11 04:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 04:33:38 | INFO  | FLEET    | R25    | -        | TASK_COMPLETE T-536589 tote TT-75538 delivered to PS4 in 3m32s
+2026-11-11 04:38:17 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-536915 tote TT-75566 from L-02-33-6 to PS4
+2026-11-11 04:39:09 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-536915 -> R23 (group G4)
+2026-11-11 04:42:17 | INFO  | CHARGER  | C1     | -        | CHARGE_END R34 SoC 90%
+2026-11-11 04:43:11 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-536915 tote TT-75566 delivered to PS4 in 4m23s
+2026-11-11 04:57:46 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-537539 tote TT-75625 from L-04-27-3 to PS6
+2026-11-11 04:58:30 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-537539 -> R35 (group G6)
+2026-11-11 05:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5629 released 1920 order lines
+2026-11-11 05:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 05:02:43 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-537539 tote TT-75625 delivered to PS6 in 6m30s
+2026-11-11 05:03:02 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-537740 tote TT-75643 from L-07-02-2 to PS5
+2026-11-11 05:04:36 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-537740 -> R29 (group G5)
+2026-11-11 05:08:37 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-537740 tote TT-75643 delivered to PS5 in 4m08s
+2026-11-11 05:22:16 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-538359 tote TT-75700 from L-03-04-2 to PS5
+2026-11-11 05:23:33 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-538359 -> R29 (group G5)
+2026-11-11 05:27:25 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-538359 tote TT-75700 delivered to PS5 in 3m56s
+2026-11-11 05:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 05:35:01 | INFO  | FLEET    | R36    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 05:35:30 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-538804 tote TT-75737 from L-04-29-5 to PS6
+2026-11-11 05:36:10 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-538804 -> R39 (group G6)
+2026-11-11 05:38:10 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-538896 tote TT-75748 from L-11-33-3 to PS5
+2026-11-11 05:38:37 | INFO  | CHARGER  | C1     | -        | CHARGE_START R36 SoC 15%
+2026-11-11 05:39:43 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-538896 -> R33 (group G5)
+2026-11-11 05:40:14 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-538804 tote TT-75737 delivered to PS6 in 6m38s
+2026-11-11 05:41:00 | WARN  | FLEET    | -      | -        | Fleet manager service restart (scheduled patch FM-3.8.2)
+2026-11-11 05:42:18 | ERROR | FLEET    | -      | AMR-410  | Heartbeat timeout: 40 robots (fleet manager unavailable)
+2026-11-11 05:43:21 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-538896 tote TT-75748 delivered to PS5 in 6m38s
+2026-11-11 05:43:51 | INFO  | FLEET    | -      | -        | Fleet manager online; 40 robots reconnected
+2026-11-11 05:48:42 | INFO  | FLEET    | R04    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 05:51:48 | INFO  | CHARGER  | C3     | -        | CHARGE_START R04 SoC 15%
+2026-11-11 05:57:01 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-539526 tote TT-75804 from L-07-09-1 to PS1
+2026-11-11 05:58:33 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-539526 -> R02 (group G1)
+2026-11-11 06:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5630 released 2165 order lines
+2026-11-11 06:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 06:02:02 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-539683 tote TT-75818 from L-08-40-5 to PS5
+2026-11-11 06:02:55 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-539526 tote TT-75804 delivered to PS1 in 6m52s
+2026-11-11 06:03:34 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-539683 -> R34 (group G5)
+2026-11-11 06:07:32 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-539683 tote TT-75818 delivered to PS5 in 3m05s
+2026-11-11 06:09:25 | INFO  | CHARGER  | C1     | -        | CHARGE_END R36 SoC 90%
+2026-11-11 06:12:22 | INFO  | FLEET    | R35    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 06:15:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R35 SoC 15%
+2026-11-11 06:17:57 | INFO  | FLEET    | R27    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 06:19:41 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-540246 tote TT-75871 from L-09-01-6 to PS6
+2026-11-11 06:20:31 | INFO  | CHARGER  | C2     | -        | CHARGE_START R27 SoC 15%
+2026-11-11 06:20:33 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-540246 -> R39 (group G6)
+2026-11-11 06:22:14 | INFO  | CHARGER  | C3     | -        | CHARGE_END R04 SoC 90%
+2026-11-11 06:24:26 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-540246 tote TT-75871 delivered to PS6 in 5m55s
+2026-11-11 06:24:37 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-540430 tote TT-75884 from L-08-25-3 to PS6
+2026-11-11 06:25:06 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-540430 -> R40 (group G6)
+2026-11-11 06:29:27 | INFO  | FLEET    | R40    | -        | TASK_COMPLETE T-540430 tote TT-75884 delivered to PS6 in 4m16s
+2026-11-11 06:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 06:37:20 | INFO  | FLEET    | R29    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 06:39:09 | ERROR | FLEET    | R31    | AMR-112  | Battery critical (10%) - robot stopped in TR-2
+2026-11-11 06:40:42 | INFO  | CHARGER  | C3     | -        | CHARGE_START R29 SoC 15%
+2026-11-11 06:41:25 | INFO  | FLEET    | R31    | -        | Manual mode (user eng_early)
+2026-11-11 06:43:16 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-541035 tote TT-75942 from L-10-35-4 to PS2
+2026-11-11 06:44:00 | INFO  | WCS      | R09    | -        | TASK_ASSIGN T-541035 -> R09 (group G2)
+2026-11-11 06:45:32 | INFO  | FLEET    | R32    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 06:46:10 | INFO  | CHARGER  | C1     | -        | CHARGE_END R35 SoC 90%
+2026-11-11 06:48:45 | INFO  | FLEET    | R09    | -        | TASK_COMPLETE T-541035 tote TT-75942 delivered to PS2 in 3m36s
+2026-11-11 06:48:48 | INFO  | CHARGER  | C1     | -        | CHARGE_START R32 SoC 15%
+2026-11-11 06:51:22 | INFO  | CHARGER  | C2     | -        | CHARGE_END R27 SoC 90%
+2026-11-11 06:56:51 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-541459 tote TT-75981 from L-11-14-6 to PS1
+2026-11-11 06:57:26 | INFO  | WCS      | R03    | -        | TASK_ASSIGN T-541459 -> R03 (group G1)
+2026-11-11 07:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5631 released 2199 order lines
+2026-11-11 07:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=2 queued_charge=1 blocked=0 fault=0
+2026-11-11 07:01:20 | INFO  | FLEET    | R02    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 07:01:23 | INFO  | FLEET    | R03    | -        | TASK_COMPLETE T-541459 tote TT-75981 delivered to PS1 in 3m09s
+2026-11-11 07:06:23 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-541805 tote TT-76011 from L-09-28-5 to PS6
+2026-11-11 07:07:17 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-541805 -> R39 (group G6)
+2026-11-11 07:10:12 | INFO  | FLEET    | R09    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 07:11:00 | INFO  | CHARGER  | C3     | -        | CHARGE_END R29 SoC 90%
+2026-11-11 07:11:32 | INFO  | CHARGER  | C3     | -        | CHARGE_START R31 SoC 9%
+2026-11-11 07:11:43 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-541805 tote TT-76011 delivered to PS6 in 6m48s
+2026-11-11 07:15:30 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-542116 tote TT-76037 from L-06-36-5 to PS4
+2026-11-11 07:16:19 | INFO  | WCS      | R24    | -        | TASK_ASSIGN T-542116 -> R24 (group G4)
+2026-11-11 07:19:01 | INFO  | CHARGER  | C1     | -        | CHARGE_END R32 SoC 90%
+2026-11-11 07:19:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R02 SoC 14%
+2026-11-11 07:20:36 | INFO  | FLEET    | R24    | -        | TASK_COMPLETE T-542116 tote TT-76037 delivered to PS4 in 5m49s
+2026-11-11 07:29:22 | INFO  | FLEET    | R24    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 07:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=2 queued_charge=1 blocked=0 fault=0
+2026-11-11 07:32:58 | INFO  | CHARGER  | C2     | -        | CHARGE_START R24 SoC 15%
+2026-11-11 07:35:50 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-542754 tote TT-76099 from L-02-15-4 to PS4
+2026-11-11 07:36:06 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-542754 -> R23 (group G4)
+2026-11-11 07:40:13 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-542754 tote TT-76099 delivered to PS4 in 6m50s
+2026-11-11 07:41:52 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-542947 tote TT-76115 from L-07-01-1 to PS5
+2026-11-11 07:42:05 | INFO  | FLEET    | R13    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 07:42:30 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-542947 -> R29 (group G5)
+2026-11-11 07:42:46 | INFO  | FLEET    | R12    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 07:44:04 | INFO  | CHARGER  | C3     | -        | CHARGE_END R31 SoC 90%
+2026-11-11 07:44:40 | INFO  | CHARGER  | C3     | -        | CHARGE_START R09 SoC 13%
+2026-11-11 07:46:12 | INFO  | FLEET    | R20    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 07:46:59 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-542947 tote TT-76115 delivered to PS5 in 6m05s
+2026-11-11 07:48:35 | INFO  | FLEET    | R25    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 07:49:46 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-543222 tote TT-76140 from L-02-39-1 to PS3
+2026-11-11 07:49:47 | INFO  | CHARGER  | C4     | -        | CHARGE_START R20 SoC 15%
+2026-11-11 07:50:00 | INFO  | CHARGER  | C1     | -        | CHARGE_END R02 SoC 90%
+2026-11-11 07:50:50 | INFO  | CHARGER  | C1     | -        | CHARGE_START R12 SoC 14%
+2026-11-11 07:50:59 | INFO  | WCS      | R18    | -        | TASK_ASSIGN T-543222 -> R18 (group G3)
+2026-11-11 07:53:15 | INFO  | FLEET    | R22    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 07:54:25 | INFO  | FLEET    | R18    | -        | TASK_COMPLETE T-543222 tote TT-76140 delivered to PS3 in 5m45s
+2026-11-11 08:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5632 released 2094 order lines
+2026-11-11 08:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=33 charging=4 queued_charge=3 blocked=0 fault=0
+2026-11-11 08:03:02 | INFO  | CHARGER  | C2     | -        | CHARGE_END R24 SoC 90%
+2026-11-11 08:03:48 | INFO  | CHARGER  | C2     | -        | CHARGE_START R25 SoC 14%
+2026-11-11 08:09:12 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-543879 tote TT-76201 from L-08-29-1 to PS1
+2026-11-11 08:10:42 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-543879 -> R07 (group G1)
+2026-11-11 08:12:10 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-543999 tote TT-76210 from L-12-15-5 to PS5
+2026-11-11 08:13:02 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-543999 -> R33 (group G5)
+2026-11-11 08:14:59 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-543879 tote TT-76201 delivered to PS1 in 5m12s
+2026-11-11 08:15:21 | INFO  | CHARGER  | C3     | -        | CHARGE_END R09 SoC 90%
+2026-11-11 08:15:53 | INFO  | CHARGER  | C3     | -        | CHARGE_START R13 SoC 13%
+2026-11-11 08:17:23 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-543999 tote TT-76210 delivered to PS5 in 4m41s
+2026-11-11 08:18:09 | INFO  | FLEET    | R08    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 08:20:10 | INFO  | CHARGER  | C4     | -        | CHARGE_END R20 SoC 90%
+2026-11-11 08:20:31 | INFO  | CHARGER  | C4     | -        | CHARGE_START R22 SoC 13%
+2026-11-11 08:21:09 | INFO  | CHARGER  | C1     | -        | CHARGE_END R12 SoC 90%
+2026-11-11 08:21:54 | INFO  | CHARGER  | C1     | -        | CHARGE_START R08 SoC 15%
+2026-11-11 08:24:25 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-544368 tote TT-76245 from L-07-23-6 to PS2
+2026-11-11 08:25:37 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-544368 -> R12 (group G2)
+2026-11-11 08:29:12 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-544368 tote TT-76245 delivered to PS2 in 3m47s
+2026-11-11 08:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=4 queued_charge=0 blocked=0 fault=0
+2026-11-11 08:34:03 | INFO  | CHARGER  | C2     | -        | CHARGE_END R25 SoC 90%
+2026-11-11 08:46:10 | INFO  | CHARGER  | C3     | -        | CHARGE_END R13 SoC 90%
+2026-11-11 08:47:22 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-545127 tote TT-76315 from L-05-36-5 to PS1
+2026-11-11 08:48:52 | INFO  | WCS      | R03    | -        | TASK_ASSIGN T-545127 -> R03 (group G1)
+2026-11-11 08:51:09 | INFO  | CHARGER  | C4     | -        | CHARGE_END R22 SoC 90%
+2026-11-11 08:51:26 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-545279 tote TT-76327 from L-01-17-2 to PS4
+2026-11-11 08:52:06 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-545279 -> R27 (group G4)
+2026-11-11 08:52:11 | INFO  | CHARGER  | C1     | -        | CHARGE_END R08 SoC 90%
+2026-11-11 08:52:17 | INFO  | FLEET    | R03    | -        | TASK_COMPLETE T-545127 tote TT-76315 delivered to PS1 in 4m38s
+2026-11-11 08:56:35 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-545279 tote TT-76327 delivered to PS4 in 3m32s
+2026-11-11 09:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5633 released 1774 order lines
+2026-11-11 09:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 09:01:18 | INFO  | FLEET    | R26    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 09:04:16 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-545690 tote TT-76366 from L-05-35-5 to PS3
+2026-11-11 09:04:33 | INFO  | CHARGER  | C2     | -        | CHARGE_START R26 SoC 15%
+2026-11-11 09:05:28 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-545690 -> R20 (group G3)
+2026-11-11 09:09:24 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-545690 tote TT-76366 delivered to PS3 in 6m49s
+2026-11-11 09:09:39 | INFO  | FLEET    | R30    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 09:12:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R30 SoC 15%
+2026-11-11 09:15:30 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-546075 tote TT-76399 from L-08-38-1 to PS3
+2026-11-11 09:16:16 | INFO  | WCS      | R15    | -        | TASK_ASSIGN T-546075 -> R15 (group G3)
+2026-11-11 09:20:04 | INFO  | FLEET    | R15    | -        | TASK_COMPLETE T-546075 tote TT-76399 delivered to PS3 in 6m40s
+2026-11-11 09:22:52 | INFO  | FLEET    | R07    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 09:25:52 | INFO  | CHARGER  | C3     | -        | CHARGE_START R07 SoC 15%
+2026-11-11 09:27:34 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-546456 tote TT-76434 from L-07-23-5 to PS6
+2026-11-11 09:28:44 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-546456 -> R35 (group G6)
+2026-11-11 09:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-11 09:32:53 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-546456 tote TT-76434 delivered to PS6 in 5m15s
+2026-11-11 09:35:14 | INFO  | CHARGER  | C2     | -        | CHARGE_END R26 SoC 90%
+2026-11-11 09:40:01 | INFO  | FLEET    | R37    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 09:40:35 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-546896 tote TT-76474 from L-12-22-1 to PS1
+2026-11-11 09:41:30 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-546896 -> R02 (group G1)
+2026-11-11 09:43:23 | INFO  | CHARGER  | C1     | -        | CHARGE_END R30 SoC 90%
+2026-11-11 09:43:36 | INFO  | CHARGER  | C1     | -        | CHARGE_START R37 SoC 15%
+2026-11-11 09:45:20 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-546896 tote TT-76474 delivered to PS1 in 5m13s
+2026-11-11 09:52:01 | INFO  | FLEET    | R01    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 09:56:06 | INFO  | CHARGER  | C3     | -        | CHARGE_END R07 SoC 90%
+2026-11-11 09:56:31 | INFO  | CHARGER  | C3     | -        | CHARGE_START R01 SoC 14%
+2026-11-11 09:57:47 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-547443 tote TT-76525 from L-11-13-4 to PS3
+2026-11-11 09:58:15 | INFO  | WCS      | R16    | -        | TASK_ASSIGN T-547443 -> R16 (group G3)
+2026-11-11 10:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5634 released 2035 order lines
+2026-11-11 10:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 10:02:47 | INFO  | FLEET    | R16    | -        | TASK_COMPLETE T-547443 tote TT-76525 delivered to PS3 in 4m55s
+2026-11-11 10:04:09 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-547677 tote TT-76544 from L-04-40-3 to PS2
+2026-11-11 10:05:06 | INFO  | WCS      | R14    | -        | TASK_ASSIGN T-547677 -> R14 (group G2)
+2026-11-11 10:09:07 | INFO  | FLEET    | R14    | -        | TASK_COMPLETE T-547677 tote TT-76544 delivered to PS2 in 3m43s
+2026-11-11 10:12:42 | INFO  | FLEET    | R05    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 10:14:00 | INFO  | CHARGER  | C1     | -        | CHARGE_END R37 SoC 90%
+2026-11-11 10:15:41 | INFO  | CHARGER  | C1     | -        | CHARGE_START R05 SoC 15%
+2026-11-11 10:22:39 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-548257 tote TT-76600 from L-01-31-3 to PS4
+2026-11-11 10:23:31 | INFO  | WCS      | R24    | -        | TASK_ASSIGN T-548257 -> R24 (group G4)
+2026-11-11 10:26:03 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-548406 tote TT-76611 from L-04-37-2 to PS5
+2026-11-11 10:27:15 | INFO  | FLEET    | R17    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 10:27:23 | INFO  | CHARGER  | C3     | -        | CHARGE_END R01 SoC 90%
+2026-11-11 10:27:51 | INFO  | WCS      | R32    | -        | TASK_ASSIGN T-548406 -> R32 (group G5)
+2026-11-11 10:27:57 | INFO  | FLEET    | R24    | -        | TASK_COMPLETE T-548257 tote TT-76600 delivered to PS4 in 5m31s
+2026-11-11 10:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 10:30:54 | INFO  | CHARGER  | C2     | -        | CHARGE_START R17 SoC 15%
+2026-11-11 10:31:27 | INFO  | FLEET    | R32    | -        | TASK_COMPLETE T-548406 tote TT-76611 delivered to PS5 in 6m34s
+2026-11-11 10:36:07 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-548741 tote TT-76641 from L-11-12-4 to PS5
+2026-11-11 10:37:33 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-548741 -> R33 (group G5)
+2026-11-11 10:41:29 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-548741 tote TT-76641 delivered to PS5 in 5m44s
+2026-11-11 10:45:57 | INFO  | FLEET    | R39    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 10:46:24 | INFO  | CHARGER  | C1     | -        | CHARGE_END R05 SoC 90%
+2026-11-11 10:48:23 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-549128 tote TT-76677 from L-10-07-3 to PS1
+2026-11-11 10:48:48 | INFO  | CHARGER  | C1     | -        | CHARGE_START R39 SoC 15%
+2026-11-11 10:49:55 | INFO  | WCS      | R05    | -        | TASK_ASSIGN T-549128 -> R05 (group G1)
+2026-11-11 10:53:16 | INFO  | FLEET    | R05    | -        | TASK_COMPLETE T-549128 tote TT-76677 delivered to PS1 in 4m35s
+2026-11-11 11:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5635 released 2177 order lines
+2026-11-11 11:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 11:01:03 | INFO  | CHARGER  | C2     | -        | CHARGE_END R17 SoC 90%
+2026-11-11 11:04:11 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-549660 tote TT-76725 from L-10-22-3 to PS2
+2026-11-11 11:05:27 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-549660 -> R11 (group G2)
+2026-11-11 11:09:13 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-549660 tote TT-76725 delivered to PS2 in 6m44s
+2026-11-11 11:12:04 | ERROR | CONVEYOR | M2     | CNV-501  | Merge M2 photo-eye PE-M2-03 blocked >30 s
+2026-11-11 11:13:04 | WARN  | CONVEYOR | PS5    | CNV-520  | Outbound spur PS5 full - station paused
+2026-11-11 11:17:08 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-550097 tote TT-76764 from L-08-12-5 to PS3
+2026-11-11 11:18:43 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-550097 -> R19 (group G3)
+2026-11-11 11:19:03 | INFO  | CONVEYOR | M2     | -        | Merge M2 cleared (operator reset)
+2026-11-11 11:19:06 | INFO  | CHARGER  | C1     | -        | CHARGE_END R39 SoC 90%
+2026-11-11 11:22:14 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-550097 tote TT-76764 delivered to PS3 in 3m46s
+2026-11-11 11:24:37 | ERROR | CONVEYOR | M2     | CNV-501  | Merge M2 photo-eye PE-M2-03 blocked >30 s
+2026-11-11 11:25:37 | WARN  | CONVEYOR | PS5    | CNV-520  | Outbound spur PS5 full - station paused
+2026-11-11 11:27:40 | INFO  | CONVEYOR | M2     | -        | Merge M2 cleared (operator reset)
+2026-11-11 11:28:09 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-550462 tote TT-76797 from L-04-10-6 to PS2
+2026-11-11 11:29:51 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-550462 -> R11 (group G2)
+2026-11-11 11:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 11:31:15 | ERROR | CONVEYOR | M2     | CNV-501  | Merge M2 photo-eye PE-M2-03 blocked >30 s
+2026-11-11 11:32:15 | WARN  | CONVEYOR | PS5    | CNV-520  | Outbound spur PS5 full - station paused
+2026-11-11 11:33:00 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-550462 tote TT-76797 delivered to PS2 in 4m26s
+2026-11-11 11:37:07 | INFO  | FLEET    | R10    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 11:38:00 | INFO  | CONVEYOR | M2     | -        | Section M2 stopped and locked out (user eng_oncall)
+2026-11-11 11:40:47 | INFO  | CHARGER  | C1     | -        | CHARGE_START R10 SoC 15%
+2026-11-11 11:42:18 | INFO  | FLEET    | R23    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 11:43:54 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-550950 tote TT-76842 from L-05-17-5 to PS2
+2026-11-11 11:44:03 | INFO  | WCS      | R13    | -        | TASK_ASSIGN T-550950 -> R13 (group G2)
+2026-11-11 11:44:20 | INFO  | CONVEYOR | M2     | -        | Section M2 restarted; 3 totes passed merge
+2026-11-11 11:45:18 | INFO  | FLEET    | R33    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 11:45:36 | INFO  | CHARGER  | C2     | -        | CHARGE_START R23 SoC 15%
+2026-11-11 11:48:25 | INFO  | FLEET    | R13    | -        | TASK_COMPLETE T-550950 tote TT-76842 delivered to PS2 in 3m44s
+2026-11-11 11:48:33 | INFO  | CHARGER  | C3     | -        | CHARGE_START R33 SoC 15%
+2026-11-11 11:50:47 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-551174 tote TT-76863 from L-08-07-4 to PS1
+2026-11-11 11:51:16 | INFO  | WCS      | R03    | -        | TASK_ASSIGN T-551174 -> R03 (group G1)
+2026-11-11 11:55:23 | INFO  | FLEET    | R03    | -        | TASK_COMPLETE T-551174 tote TT-76863 delivered to PS1 in 5m35s
+2026-11-11 12:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5636 released 1989 order lines
+2026-11-11 12:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-11 12:04:09 | INFO  | FLEET    | R06    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 12:08:55 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-551777 tote TT-76916 from L-07-08-3 to PS3
+2026-11-11 12:09:38 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-551777 -> R20 (group G3)
+2026-11-11 12:11:23 | INFO  | CHARGER  | C1     | -        | CHARGE_END R10 SoC 90%
+2026-11-11 12:11:40 | INFO  | CHARGER  | C1     | -        | CHARGE_START R06 SoC 14%
+2026-11-11 12:13:12 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-551777 tote TT-76916 delivered to PS3 in 4m49s
+2026-11-11 12:16:12 | INFO  | CHARGER  | C2     | -        | CHARGE_END R23 SoC 90%
+2026-11-11 12:16:28 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-552039 tote TT-76942 from L-09-32-6 to PS3
+2026-11-11 12:17:24 | INFO  | WCS      | R15    | -        | TASK_ASSIGN T-552039 -> R15 (group G3)
+2026-11-11 12:19:15 | INFO  | CHARGER  | C3     | -        | CHARGE_END R33 SoC 90%
+2026-11-11 12:21:39 | INFO  | FLEET    | R15    | -        | TASK_COMPLETE T-552039 tote TT-76942 delivered to PS3 in 5m29s
+2026-11-11 12:30:00 | INFO  | CHARGER  | C4     | CHG-250  | Planned maintenance: firmware upgrade, out of service until 17:30
+2026-11-11 12:30:22 | INFO  | FLEET    | R38    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 12:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 12:33:38 | INFO  | CHARGER  | C3     | -        | CHARGE_START R38 SoC 15%
+2026-11-11 12:34:39 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-552623 tote TT-76996 from L-06-27-6 to PS2
+2026-11-11 12:35:25 | INFO  | WCS      | R12    | -        | TASK_ASSIGN T-552623 -> R12 (group G2)
+2026-11-11 12:38:17 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-552759 tote TT-77007 from L-06-19-6 to PS3
+2026-11-11 12:39:41 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-552759 -> R19 (group G3)
+2026-11-11 12:39:54 | INFO  | FLEET    | R12    | -        | TASK_COMPLETE T-552623 tote TT-76996 delivered to PS2 in 3m05s
+2026-11-11 12:42:03 | INFO  | CHARGER  | C1     | -        | CHARGE_END R06 SoC 90%
+2026-11-11 12:43:25 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-552759 tote TT-77007 delivered to PS3 in 5m56s
+2026-11-11 12:45:47 | INFO  | FLEET    | R40    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 12:48:35 | INFO  | CHARGER  | C1     | -        | CHARGE_START R40 SoC 15%
+2026-11-11 12:55:08 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-553334 tote TT-77058 from L-03-12-1 to PS3
+2026-11-11 12:56:15 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-553334 -> R20 (group G3)
+2026-11-11 13:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5637 released 2169 order lines
+2026-11-11 13:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 13:00:42 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-553334 tote TT-77058 delivered to PS3 in 5m47s
+2026-11-11 13:04:03 | INFO  | CHARGER  | C3     | -        | CHARGE_END R38 SoC 90%
+2026-11-11 13:04:39 | INFO  | FLEET    | R28    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 13:07:51 | INFO  | CHARGER  | C3     | -        | CHARGE_START R28 SoC 15%
+2026-11-11 13:09:34 | INFO  | FLEET    | R14    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 13:11:06 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-553839 tote TT-77105 from L-03-26-1 to PS6
+2026-11-11 13:12:39 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-553892 tote TT-77110 from L-02-07-3 to PS1
+2026-11-11 13:12:59 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-553839 -> R35 (group G6)
+2026-11-11 13:13:05 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-553892 -> R02 (group G1)
+2026-11-11 13:16:56 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-553839 tote TT-77105 delivered to PS6 in 6m35s
+2026-11-11 13:17:41 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-553892 tote TT-77110 delivered to PS1 in 6m19s
+2026-11-11 13:19:03 | INFO  | CHARGER  | C1     | -        | CHARGE_END R40 SoC 90%
+2026-11-11 13:19:44 | INFO  | CHARGER  | C1     | -        | CHARGE_START R14 SoC 14%
+2026-11-11 13:27:33 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-554380 tote TT-77154 from L-11-09-2 to PS2
+2026-11-11 13:28:01 | INFO  | WCS      | R09    | -        | TASK_ASSIGN T-554380 -> R09 (group G2)
+2026-11-11 13:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 13:32:02 | INFO  | FLEET    | R09    | -        | TASK_COMPLETE T-554380 tote TT-77154 delivered to PS2 in 5m55s
+2026-11-11 13:38:05 | INFO  | CHARGER  | C3     | -        | CHARGE_END R28 SoC 90%
+2026-11-11 13:41:08 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-554853 tote TT-77197 from L-05-36-4 to PS4
+2026-11-11 13:42:34 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-554853 -> R27 (group G4)
+2026-11-11 13:46:11 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-554853 tote TT-77197 delivered to PS4 in 6m40s
+2026-11-11 13:50:22 | INFO  | CHARGER  | C1     | -        | CHARGE_END R14 SoC 90%
+2026-11-11 13:59:58 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-555445 tote TT-77251 from L-11-35-3 to PS6
+2026-11-11 14:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5638 released 1780 order lines
+2026-11-11 14:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 14:00:30 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-555445 -> R37 (group G6)
+2026-11-11 14:00:42 | INFO  | FLEET    | R18    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 14:00:48 | INFO  | FLEET    | R15    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 14:01:19 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-555503 tote TT-77256 from L-07-17-2 to PS4
+2026-11-11 14:02:00 | INFO  | WCS      | R22    | -        | TASK_ASSIGN T-555503 -> R22 (group G4)
+2026-11-11 14:02:14 | ERROR | CHARGER  | C2     | CHG-214  | Output contactor fault - charging halted
+2026-11-11 14:02:30 | INFO  | FLEET    | R16    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 14:03:03 | WARN  | FLEET    | R15    | -        | Arrived CHG-EAST; queued for charge (unavailable: C2 FAULT, C4 MAINTENANCE)
+2026-11-11 14:03:24 | WARN  | FLEET    | R18    | -        | Arrived CHG-EAST; queued for charge (unavailable: C2 FAULT, C4 MAINTENANCE)
+2026-11-11 14:04:20 | INFO  | FLEET    | R03    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 14:04:34 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-555445 tote TT-77251 delivered to PS6 in 4m51s
+2026-11-11 14:05:01 | INFO  | FLEET    | R19    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 14:05:08 | WARN  | FLEET    | R16    | -        | Arrived CHG-EAST; queued for charge (unavailable: C2 FAULT, C4 MAINTENANCE)
+2026-11-11 14:05:33 | ERROR | WCS      | PS5    | WCS-402  | TASK_REJECT T-555628: unknown storage location L-02-14-3
+2026-11-11 14:06:33 | INFO  | FLEET    | R22    | -        | TASK_COMPLETE T-555503 tote TT-77256 delivered to PS4 in 4m22s
+2026-11-11 14:07:26 | INFO  | FLEET    | R21    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 14:07:31 | INFO  | CHARGER  | C1     | -        | CHARGE_START R03 SoC 15%
+2026-11-11 14:08:05 | WARN  | FLEET    | R19    | -        | Arrived CHG-EAST; queued for charge (unavailable: C2 FAULT, C4 MAINTENANCE)
+2026-11-11 14:09:41 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-555642 tote TT-77268 delivered to PS3 in 4m02s
+2026-11-11 14:10:21 | WARN  | FLEET    | R21    | -        | Arrived CHG-EAST; queued for charge (unavailable: C2 FAULT, C4 MAINTENANCE)
+2026-11-11 14:11:10 | WARN  | WCS      | PS3    | WCS-430  | Task T-555832 for PS3 pending: no available robot in group G3 (pending for PS3: 3)
+2026-11-11 14:12:48 | WARN  | FLEET    | R17    | AMR-207  | Path blocked >120 s in CHG-CORR-E (obstacle: R21 queued)
+2026-11-11 14:13:45 | WARN  | WCS      | PS3    | WCS-430  | Task T-555897 for PS3 pending: no available robot in group G3 (pending for PS3: 5)
+2026-11-11 14:13:55 | WARN  | FLEET    | R20    | AMR-207  | Path blocked >120 s in CHG-CORR-E (obstacle: R17)
+2026-11-11 14:15:42 | WARN  | WCS      | PS3    | WCS-430  | Task T-555969 for PS3 pending: no available robot in group G3 (pending for PS3: 8)
+2026-11-11 14:16:00 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-555979 tote TT-77302 from L-08-31-3 to PS4
+2026-11-11 14:17:26 | WARN  | WCS      | PS3    | WCS-430  | Task T-556021 for PS3 pending: no available robot in group G3 (pending for PS3: 10)
+2026-11-11 14:17:51 | INFO  | WCS      | R25    | -        | TASK_ASSIGN T-555979 -> R25 (group G4)
+2026-11-11 14:18:02 | INFO  | FLEET    | R11    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 14:19:26 | WARN  | WCS      | PS3    | WCS-430  | Task T-556086 for PS3 pending: no available robot in group G3 (pending for PS3: 12)
+2026-11-11 14:21:18 | INFO  | FLEET    | R25    | -        | TASK_COMPLETE T-555979 tote TT-77302 delivered to PS4 in 4m50s
+2026-11-11 14:21:38 | INFO  | CHARGER  | C3     | -        | CHARGE_START R11 SoC 15%
+2026-11-11 14:21:50 | WARN  | WCS      | PS3    | WCS-430  | Task T-556173 for PS3 pending: no available robot in group G3 (pending for PS3: 15)
+2026-11-11 14:23:28 | WARN  | WCS      | PS3    | WCS-430  | Task T-556233 for PS3 pending: no available robot in group G3 (pending for PS3: 19)
+2026-11-11 14:24:25 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-556266 tote TT-77324 from L-07-36-4 to PS5
+2026-11-11 14:25:10 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-556266 -> R29 (group G5)
+2026-11-11 14:25:51 | WARN  | WCS      | PS3    | WCS-430  | Task T-556276 for PS3 pending: no available robot in group G3 (pending for PS3: 21)
+2026-11-11 14:27:21 | WARN  | WCS      | PS3    | WCS-430  | Task T-556346 for PS3 pending: no available robot in group G3 (pending for PS3: 25)
+2026-11-11 14:29:27 | WARN  | WCS      | PS3    | WCS-430  | Task T-556433 for PS3 pending: no available robot in group G3 (pending for PS3: 28)
+2026-11-11 14:29:45 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-556266 tote TT-77324 delivered to PS5 in 6m53s
+2026-11-11 14:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=31 charging=2 queued_charge=5 blocked=2 fault=0
+2026-11-11 14:31:42 | WARN  | WCS      | PS3    | WCS-430  | Task T-556499 for PS3 pending: no available robot in group G3 (pending for PS3: 30)
+2026-11-11 14:33:03 | WARN  | WCS      | PS3    | WCS-430  | Task T-556549 for PS3 pending: no available robot in group G3 (pending for PS3: 34)
+2026-11-11 14:34:05 | INFO  | CONFIG   | G3     | -        | Charger affinity changed: G3 C2,C4 -> C1,C3 (user eng_oncall)
+2026-11-11 14:34:29 | INFO  | FLEET    | R21    | -        | Leaving queue: charger affinity now west
+2026-11-11 14:34:30 | INFO  | FLEET    | R15    | -        | Leaving queue: charger affinity now west
+2026-11-11 14:34:42 | INFO  | FLEET    | R19    | -        | Leaving queue: charger affinity now west
+2026-11-11 14:34:46 | INFO  | FLEET    | R16    | -        | Leaving queue: charger affinity now west
+2026-11-11 14:34:54 | INFO  | FLEET    | R18    | -        | Leaving queue: charger affinity now west
+2026-11-11 14:35:25 | WARN  | WCS      | PS3    | WCS-430  | Task T-556624 for PS3 pending: no available robot in group G3 (pending for PS3: 38)
+2026-11-11 14:37:47 | WARN  | WCS      | PS3    | WCS-430  | Task T-556691 for PS3 pending: no available robot in group G3 (pending for PS3: 42)
+2026-11-11 14:38:06 | INFO  | CHARGER  | C1     | -        | CHARGE_END R03 SoC 90%
+2026-11-11 14:38:12 | INFO  | FLEET    | R17    | -        | Path clear; resuming
+2026-11-11 14:38:40 | INFO  | FLEET    | R20    | -        | Path clear; resuming
+2026-11-11 14:38:55 | INFO  | CHARGER  | C1     | -        | CHARGE_START R15 SoC 13%
+2026-11-11 14:39:52 | WARN  | WCS      | PS3    | WCS-430  | Task T-556760 for PS3 pending: no available robot in group G3 (pending for PS3: 45)
+2026-11-11 14:40:02 | INFO  | CHARGER  | C2     | -        | Isolated and power-cycled (user eng_oncall)
+2026-11-11 14:41:25 | WARN  | WCS      | PS3    | WCS-430  | Task T-556813 for PS3 pending: no available robot in group G3 (pending for PS3: 48)
+2026-11-11 14:41:30 | INFO  | CHARGER  | C2     | -        | Self-test passed; charger available
+2026-11-11 14:42:48 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-556853 tote TT-77378 from L-07-16-5 to PS2
+2026-11-11 14:43:39 | WARN  | WCS      | PS3    | WCS-430  | Task T-556883 for PS3 pending: no available robot in group G3 (pending for PS3: 51)
+2026-11-11 14:43:51 | INFO  | WCS      | R13    | -        | TASK_ASSIGN T-556853 -> R13 (group G2)
+2026-11-11 14:45:00 | INFO  | CONFIG   | G3     | -        | Charger affinity changed: G3 C1,C3 -> C1,C2,C3 (user eng_oncall)
+2026-11-11 14:45:22 | WARN  | WCS      | PS3    | WCS-430  | Task T-556964 for PS3 pending: no available robot in group G3 (pending for PS3: 55)
+2026-11-11 14:45:46 | INFO  | CHARGER  | C2     | -        | CHARGE_START R16 SoC 12%
+2026-11-11 14:47:44 | INFO  | FLEET    | R13    | -        | TASK_COMPLETE T-556853 tote TT-77378 delivered to PS2 in 5m18s
+2026-11-11 14:48:16 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-556730 tote TT-77366 delivered to PS3 in 9m58s
+2026-11-11 14:52:17 | INFO  | CHARGER  | C3     | -        | CHARGE_END R11 SoC 90%
+2026-11-11 14:52:49 | INFO  | CHARGER  | C3     | -        | CHARGE_START R18 SoC 12%
+2026-11-11 14:58:08 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-557382 tote TT-77427 from L-04-05-2 to PS6
+2026-11-11 14:59:07 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-557382 -> R37 (group G6)
+2026-11-11 15:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5639 released 1862 order lines
+2026-11-11 15:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=3 queued_charge=2 blocked=0 fault=0
+2026-11-11 15:03:40 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-557382 tote TT-77427 delivered to PS6 in 6m39s
+2026-11-11 15:07:03 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-557693 tote TT-77453 from L-06-02-2 to PS3
+2026-11-11 15:08:11 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-557693 -> R17 (group G3)
+2026-11-11 15:09:24 | INFO  | CHARGER  | C1     | -        | CHARGE_END R15 SoC 90%
+2026-11-11 15:09:46 | INFO  | CHARGER  | C1     | -        | CHARGE_START R19 SoC 11%
+2026-11-11 15:12:06 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-557693 tote TT-77453 delivered to PS3 in 5m17s
+2026-11-11 15:14:09 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-557921 tote TT-77476 from L-01-15-1 to PS6
+2026-11-11 15:15:31 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-557921 -> R35 (group G6)
+2026-11-11 15:17:06 | INFO  | CHARGER  | C2     | -        | CHARGE_END R16 SoC 90%
+2026-11-11 15:17:47 | INFO  | CHARGER  | C2     | -        | CHARGE_START R21 SoC 11%
+2026-11-11 15:19:13 | INFO  | FLEET    | R35    | -        | TASK_COMPLETE T-557921 tote TT-77476 delivered to PS6 in 5m26s
+2026-11-11 15:24:18 | INFO  | CHARGER  | C3     | -        | CHARGE_END R18 SoC 90%
+2026-11-11 15:28:05 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-558378 tote TT-77517 from L-12-03-3 to PS4
+2026-11-11 15:29:03 | INFO  | WCS      | R23    | -        | TASK_ASSIGN T-558378 -> R23 (group G4)
+2026-11-11 15:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 15:33:17 | INFO  | FLEET    | R23    | -        | TASK_COMPLETE T-558378 tote TT-77517 delivered to PS4 in 6m04s
+2026-11-11 15:41:06 | INFO  | CHARGER  | C1     | -        | CHARGE_END R19 SoC 90%
+2026-11-11 15:44:07 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-558894 tote TT-77564 from L-05-25-1 to PS4
+2026-11-11 15:45:15 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-558894 -> R27 (group G4)
+2026-11-11 15:48:54 | INFO  | FLEET    | R34    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 15:49:13 | INFO  | CHARGER  | C2     | -        | CHARGE_END R21 SoC 90%
+2026-11-11 15:49:24 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-558894 tote TT-77564 delivered to PS4 in 6m15s
+2026-11-11 15:51:50 | INFO  | CHARGER  | C1     | -        | CHARGE_START R34 SoC 15%
+2026-11-11 15:59:42 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-559390 tote TT-77610 from L-12-07-5 to PS1
+2026-11-11 16:00:00 | INFO  | CONFIG   | G3     | -        | Charger affinity changed: G3 C1,C2,C3 -> C2,C4 (user eng_oncall)
+2026-11-11 16:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5640 released 1734 order lines
+2026-11-11 16:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 16:00:30 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-559390 -> R02 (group G1)
+2026-11-11 16:04:24 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-559390 tote TT-77610 delivered to PS1 in 5m59s
+2026-11-11 16:05:16 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-559578 tote TT-77629 from L-09-34-1 to PS2
+2026-11-11 16:06:40 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-559578 -> R11 (group G2)
+2026-11-11 16:10:19 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-559578 tote TT-77629 delivered to PS2 in 4m23s
+2026-11-11 16:12:00 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-559820 tote TT-77648 from L-04-28-3 to PS6
+2026-11-11 16:13:50 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-559820 -> R36 (group G6)
+2026-11-11 16:17:17 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-559820 tote TT-77648 delivered to PS6 in 3m25s
+2026-11-11 16:22:19 | INFO  | CHARGER  | C1     | -        | CHARGE_END R34 SoC 90%
+2026-11-11 16:27:38 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-560304 tote TT-77695 from L-12-31-6 to PS1
+2026-11-11 16:28:23 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-560304 -> R02 (group G1)
+2026-11-11 16:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 16:32:49 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-560304 tote TT-77695 delivered to PS1 in 3m15s
+2026-11-11 16:38:03 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-560670 tote TT-77728 from L-10-22-6 to PS4
+2026-11-11 16:39:22 | INFO  | WCS      | R22    | -        | TASK_ASSIGN T-560670 -> R22 (group G4)
+2026-11-11 16:39:51 | INFO  | FLEET    | R36    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 16:42:50 | INFO  | CHARGER  | C1     | -        | CHARGE_START R36 SoC 15%
+2026-11-11 16:43:41 | INFO  | FLEET    | R22    | -        | TASK_COMPLETE T-560670 tote TT-77728 delivered to PS4 in 4m44s
+2026-11-11 16:56:50 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-561267 tote TT-77781 from L-04-21-5 to PS1
+2026-11-11 16:57:48 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-561267 -> R06 (group G1)
+2026-11-11 17:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5641 released 1985 order lines
+2026-11-11 17:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 17:01:22 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-561267 tote TT-77781 delivered to PS1 in 6m46s
+2026-11-11 17:03:57 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-561514 tote TT-77802 from L-12-09-3 to PS1
+2026-11-11 17:04:31 | INFO  | WCS      | R01    | -        | TASK_ASSIGN T-561514 -> R01 (group G1)
+2026-11-11 17:08:45 | INFO  | FLEET    | R01    | -        | TASK_COMPLETE T-561514 tote TT-77802 delivered to PS1 in 6m35s
+2026-11-11 17:13:08 | INFO  | CHARGER  | C1     | -        | CHARGE_END R36 SoC 90%
+2026-11-11 17:16:22 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-561950 tote TT-77840 from L-10-12-5 to PS5
+2026-11-11 17:17:46 | INFO  | WCS      | R30    | -        | TASK_ASSIGN T-561950 -> R30 (group G5)
+2026-11-11 17:21:29 | INFO  | FLEET    | R30    | -        | TASK_COMPLETE T-561950 tote TT-77840 delivered to PS5 in 5m55s
+2026-11-11 17:29:11 | INFO  | FLEET    | R27    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 17:30:00 | INFO  | CHARGER  | C4     | -        | Maintenance complete; charger available
+2026-11-11 17:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 17:32:50 | INFO  | FLEET    | R04    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 17:32:57 | INFO  | CHARGER  | C2     | -        | CHARGE_START R27 SoC 15%
+2026-11-11 17:33:18 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-562490 tote TT-77891 from L-09-10-4 to PS5
+2026-11-11 17:34:16 | INFO  | WCS      | R34    | -        | TASK_ASSIGN T-562490 -> R34 (group G5)
+2026-11-11 17:35:56 | INFO  | CHARGER  | C1     | -        | CHARGE_START R04 SoC 15%
+2026-11-11 17:36:39 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-562611 tote TT-77901 from L-12-12-1 to PS6
+2026-11-11 17:37:49 | INFO  | WCS      | R37    | -        | TASK_ASSIGN T-562611 -> R37 (group G6)
+2026-11-11 17:38:34 | INFO  | FLEET    | R34    | -        | TASK_COMPLETE T-562490 tote TT-77891 delivered to PS5 in 5m29s
+2026-11-11 17:41:39 | INFO  | FLEET    | R37    | -        | TASK_COMPLETE T-562611 tote TT-77901 delivered to PS6 in 4m20s
+2026-11-11 17:50:33 | INFO  | FLEET    | R32    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 17:53:58 | INFO  | CHARGER  | C3     | -        | CHARGE_START R32 SoC 15%
+2026-11-11 17:59:09 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-563362 tote TT-77969 from L-09-32-5 to PS1
+2026-11-11 18:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5642 released 1972 order lines
+2026-11-11 18:00:18 | INFO  | WCS      | R06    | -        | TASK_ASSIGN T-563362 -> R06 (group G1)
+2026-11-11 18:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-11 18:03:03 | INFO  | CHARGER  | C2     | -        | CHARGE_END R27 SoC 90%
+2026-11-11 18:04:20 | INFO  | FLEET    | R06    | -        | TASK_COMPLETE T-563362 tote TT-77969 delivered to PS1 in 6m41s
+2026-11-11 18:05:53 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-563542 tote TT-77989 from L-11-05-1 to PS1
+2026-11-11 18:06:11 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-563542 -> R02 (group G1)
+2026-11-11 18:06:18 | INFO  | CHARGER  | C1     | -        | CHARGE_END R04 SoC 90%
+2026-11-11 18:07:11 | INFO  | FLEET    | R29    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 18:10:31 | INFO  | CHARGER  | C1     | -        | CHARGE_START R29 SoC 15%
+2026-11-11 18:10:55 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-563542 tote TT-77989 delivered to PS1 in 3m12s
+2026-11-11 18:13:53 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-563812 tote TT-78011 from L-01-37-6 to PS4
+2026-11-11 18:14:42 | INFO  | WCS      | R25    | -        | TASK_ASSIGN T-563812 -> R25 (group G4)
+2026-11-11 18:18:27 | INFO  | FLEET    | R35    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 18:18:31 | INFO  | FLEET    | R25    | -        | TASK_COMPLETE T-563812 tote TT-78011 delivered to PS4 in 5m03s
+2026-11-11 18:24:25 | INFO  | CHARGER  | C3     | -        | CHARGE_END R32 SoC 90%
+2026-11-11 18:24:41 | INFO  | CHARGER  | C3     | -        | CHARGE_START R35 SoC 14%
+2026-11-11 18:29:29 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-564332 tote TT-78059 from L-04-32-1 to PS2
+2026-11-11 18:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 18:30:40 | INFO  | WCS      | R14    | -        | TASK_ASSIGN T-564332 -> R14 (group G2)
+2026-11-11 18:34:03 | INFO  | FLEET    | R14    | -        | TASK_COMPLETE T-564332 tote TT-78059 delivered to PS2 in 5m35s
+2026-11-11 18:41:19 | INFO  | CHARGER  | C1     | -        | CHARGE_END R29 SoC 90%
+2026-11-11 18:47:33 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-564945 tote TT-78115 from L-01-40-3 to PS4
+2026-11-11 18:48:46 | INFO  | WCS      | R22    | -        | TASK_ASSIGN T-564945 -> R22 (group G4)
+2026-11-11 18:51:24 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-565060 tote TT-78125 from L-12-15-5 to PS5
+2026-11-11 18:52:04 | INFO  | FLEET    | R22    | -        | TASK_COMPLETE T-564945 tote TT-78115 delivered to PS4 in 5m04s
+2026-11-11 18:52:12 | INFO  | WCS      | R29    | -        | TASK_ASSIGN T-565060 -> R29 (group G5)
+2026-11-11 18:55:01 | INFO  | CHARGER  | C3     | -        | CHARGE_END R35 SoC 90%
+2026-11-11 18:56:33 | INFO  | FLEET    | R29    | -        | TASK_COMPLETE T-565060 tote TT-78125 delivered to PS5 in 4m36s
+2026-11-11 19:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5643 released 2185 order lines
+2026-11-11 19:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 19:08:44 | INFO  | FLEET    | R02    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 19:10:43 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-565707 tote TT-78184 from L-02-37-3 to PS2
+2026-11-11 19:11:44 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-565707 -> R11 (group G2)
+2026-11-11 19:11:57 | INFO  | CHARGER  | C1     | -        | CHARGE_START R02 SoC 15%
+2026-11-11 19:13:42 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-565791 tote TT-78193 from L-07-33-3 to PS2
+2026-11-11 19:14:34 | INFO  | WCS      | R09    | -        | TASK_ASSIGN T-565791 -> R09 (group G2)
+2026-11-11 19:15:05 | INFO  | FLEET    | R24    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 19:15:42 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-565707 tote TT-78184 delivered to PS2 in 6m56s
+2026-11-11 19:18:38 | INFO  | FLEET    | R09    | -        | TASK_COMPLETE T-565791 tote TT-78193 delivered to PS2 in 6m59s
+2026-11-11 19:18:59 | INFO  | CHARGER  | C2     | -        | CHARGE_START R24 SoC 15%
+2026-11-11 19:28:50 | INFO  | FLEET    | R13    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 19:29:20 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-566328 tote TT-78240 from L-07-28-6 to PS3
+2026-11-11 19:30:15 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-566328 -> R19 (group G3)
+2026-11-11 19:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 19:31:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R13 SoC 15%
+2026-11-11 19:33:16 | INFO  | FLEET    | R20    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 19:34:36 | INFO  | FLEET    | R19    | -        | TASK_COMPLETE T-566328 tote TT-78240 delivered to PS3 in 4m24s
+2026-11-11 19:34:38 | INFO  | FLEET    | R08    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 19:36:30 | INFO  | CHARGER  | C4     | -        | CHARGE_START R20 SoC 15%
+2026-11-11 19:42:20 | INFO  | CHARGER  | C1     | -        | CHARGE_END R02 SoC 90%
+2026-11-11 19:42:39 | INFO  | CHARGER  | C1     | -        | CHARGE_START R08 SoC 14%
+2026-11-11 19:44:00 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-566819 tote TT-78285 from L-08-29-4 to PS6
+2026-11-11 19:45:02 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-566819 -> R40 (group G6)
+2026-11-11 19:49:18 | INFO  | FLEET    | R40    | -        | TASK_COMPLETE T-566819 tote TT-78285 delivered to PS6 in 3m33s
+2026-11-11 19:49:24 | INFO  | CHARGER  | C2     | -        | CHARGE_END R24 SoC 90%
+2026-11-11 19:49:45 | INFO  | FLEET    | R12    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 19:50:01 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-567001 tote TT-78303 from L-04-14-3 to PS3
+2026-11-11 19:51:52 | INFO  | WCS      | R21    | -        | TASK_ASSIGN T-567001 -> R21 (group G3)
+2026-11-11 19:55:17 | INFO  | FLEET    | R21    | -        | TASK_COMPLETE T-567001 tote TT-78303 delivered to PS3 in 4m06s
+2026-11-11 20:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5644 released 2068 order lines
+2026-11-11 20:00:16 | INFO  | FLEET    | R31    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 20:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=3 queued_charge=1 blocked=0 fault=0
+2026-11-11 20:00:56 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-567353 tote TT-78332 from L-03-17-3 to PS4
+2026-11-11 20:01:15 | INFO  | WCS      | R26    | -        | TASK_ASSIGN T-567353 -> R26 (group G4)
+2026-11-11 20:02:05 | INFO  | CHARGER  | C3     | -        | CHARGE_END R13 SoC 90%
+2026-11-11 20:02:36 | INFO  | CHARGER  | C3     | -        | CHARGE_START R12 SoC 14%
+2026-11-11 20:05:14 | INFO  | FLEET    | R26    | -        | TASK_COMPLETE T-567353 tote TT-78332 delivered to PS4 in 5m51s
+2026-11-11 20:07:00 | INFO  | CHARGER  | C4     | -        | CHARGE_END R20 SoC 90%
+2026-11-11 20:13:20 | INFO  | CHARGER  | C1     | -        | CHARGE_END R08 SoC 90%
+2026-11-11 20:13:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R31 SoC 14%
+2026-11-11 20:14:09 | INFO  | FLEET    | R09    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
+2026-11-11 20:16:20 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-567884 tote TT-78382 from L-04-05-6 to PS1
+2026-11-11 20:17:30 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-567884 -> R07 (group G1)
+2026-11-11 20:19:49 | INFO  | FLEET    | R30    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
+2026-11-11 20:21:11 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-567884 tote TT-78382 delivered to PS1 in 6m52s
+2026-11-11 20:27:55 | INFO  | FLEET    | R25    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 20:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=3 queued_charge=2 blocked=0 fault=0
+2026-11-11 20:30:43 | INFO  | CHARGER  | C2     | -        | CHARGE_START R25 SoC 15%
+2026-11-11 20:33:09 | INFO  | CHARGER  | C3     | -        | CHARGE_END R12 SoC 90%
+2026-11-11 20:33:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R09 SoC 14%
+2026-11-11 20:35:46 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-568492 tote TT-78439 from L-11-20-1 to PS6
+2026-11-11 20:36:24 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-568492 -> R39 (group G6)
+2026-11-11 20:40:05 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-568492 tote TT-78439 delivered to PS6 in 3m58s
+2026-11-11 20:41:41 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-568711 tote TT-78456 from L-02-15-6 to PS3
+2026-11-11 20:42:38 | INFO  | WCS      | R21    | -        | TASK_ASSIGN T-568711 -> R21 (group G3)
+2026-11-11 20:44:08 | INFO  | CHARGER  | C1     | -        | CHARGE_END R31 SoC 90%
+2026-11-11 20:44:41 | INFO  | CHARGER  | C1     | -        | CHARGE_START R30 SoC 14%
+2026-11-11 20:46:59 | INFO  | FLEET    | R21    | -        | TASK_COMPLETE T-568711 tote TT-78456 delivered to PS3 in 3m40s
+2026-11-11 20:50:08 | INFO  | FLEET    | R37    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
+2026-11-11 20:58:34 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-569248 tote TT-78507 from L-09-03-3 to PS4
+2026-11-11 20:59:09 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-569248 -> R27 (group G4)
+2026-11-11 21:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5645 released 1760 order lines
+2026-11-11 21:00:05 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-569336 tote TT-78513 from L-10-37-5 to PS6
+2026-11-11 21:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=36 charging=3 queued_charge=1 blocked=0 fault=0
+2026-11-11 21:01:22 | INFO  | CHARGER  | C2     | -        | CHARGE_END R25 SoC 90%
+2026-11-11 21:01:27 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-569336 -> R36 (group G6)
+2026-11-11 21:03:20 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-569248 tote TT-78507 delivered to PS4 in 4m09s
+2026-11-11 21:04:19 | INFO  | CHARGER  | C3     | -        | CHARGE_END R09 SoC 90%
+2026-11-11 21:04:31 | INFO  | CHARGER  | C3     | -        | CHARGE_START R37 SoC 14%
+2026-11-11 21:05:18 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-569336 tote TT-78513 delivered to PS6 in 6m09s
+2026-11-11 21:14:25 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-569778 tote TT-78555 from L-10-04-5 to PS3
+2026-11-11 21:15:05 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-569778 -> R17 (group G3)
+2026-11-11 21:15:11 | INFO  | CHARGER  | C1     | -        | CHARGE_END R30 SoC 90%
+2026-11-11 21:19:25 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-569778 tote TT-78555 delivered to PS3 in 6m49s
+2026-11-11 21:20:16 | INFO  | FLEET    | R22    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 21:23:41 | INFO  | CHARGER  | C2     | -        | CHARGE_START R22 SoC 15%
+2026-11-11 21:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
+2026-11-11 21:35:18 | INFO  | CHARGER  | C3     | -        | CHARGE_END R37 SoC 90%
+2026-11-11 21:35:25 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-570474 tote TT-78618 from L-09-13-4 to PS2
+2026-11-11 21:36:36 | INFO  | WCS      | R13    | -        | TASK_ASSIGN T-570474 -> R13 (group G2)
+2026-11-11 21:37:07 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-570559 tote TT-78624 from L-11-37-1 to PS3
+2026-11-11 21:38:26 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-570559 -> R20 (group G3)
+2026-11-11 21:40:12 | INFO  | FLEET    | R13    | -        | TASK_COMPLETE T-570474 tote TT-78618 delivered to PS2 in 4m15s
+2026-11-11 21:42:27 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-570559 tote TT-78624 delivered to PS3 in 5m22s
+2026-11-11 21:51:10 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-571016 tote TT-78667 from L-11-02-3 to PS3
+2026-11-11 21:52:39 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-571016 -> R17 (group G3)
+2026-11-11 21:54:02 | INFO  | CHARGER  | C2     | -        | CHARGE_END R22 SoC 90%
+2026-11-11 21:54:08 | INFO  | FLEET    | R05    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 21:56:52 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-571016 tote TT-78667 delivered to PS3 in 6m39s
+2026-11-11 21:57:45 | INFO  | CHARGER  | C1     | -        | CHARGE_START R05 SoC 15%
+2026-11-11 22:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5646 released 1794 order lines
+2026-11-11 22:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 22:02:48 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-571359 tote TT-78698 from L-04-24-2 to PS4
+2026-11-11 22:03:54 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-571359 -> R27 (group G4)
+2026-11-11 22:07:05 | INFO  | FLEET    | R27    | -        | TASK_COMPLETE T-571359 tote TT-78698 delivered to PS4 in 3m47s
+2026-11-11 22:12:51 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-571696 tote TT-78729 from L-01-22-6 to PS2
+2026-11-11 22:13:19 | INFO  | WCS      | R08    | -        | TASK_ASSIGN T-571696 -> R08 (group G2)
+2026-11-11 22:14:53 | INFO  | FLEET    | R26    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 22:17:28 | INFO  | FLEET    | R08    | -        | TASK_COMPLETE T-571696 tote TT-78729 delivered to PS2 in 6m01s
+2026-11-11 22:17:58 | INFO  | CHARGER  | C2     | -        | CHARGE_START R26 SoC 15%
+2026-11-11 22:28:15 | INFO  | CHARGER  | C1     | -        | CHARGE_END R05 SoC 90%
+2026-11-11 22:29:35 | INFO  | WMS      | PS2    | -        | TASK_CREATE T-572261 tote TT-78779 from L-09-34-3 to PS2
+2026-11-11 22:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=39 charging=1 queued_charge=0 blocked=0 fault=0
+2026-11-11 22:30:39 | INFO  | WCS      | R11    | -        | TASK_ASSIGN T-572261 -> R11 (group G2)
+2026-11-11 22:34:46 | INFO  | FLEET    | R11    | -        | TASK_COMPLETE T-572261 tote TT-78779 delivered to PS2 in 4m44s
+2026-11-11 22:39:12 | INFO  | FLEET    | R17    | AMR-101  | Charge request at 15% (group G3, affinity C2,C4)
+2026-11-11 22:40:02 | INFO  | FLEET    | R01    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 22:42:58 | INFO  | CHARGER  | C4     | -        | CHARGE_START R17 SoC 15%
+2026-11-11 22:43:33 | INFO  | CHARGER  | C1     | -        | CHARGE_START R01 SoC 15%
+2026-11-11 22:46:11 | INFO  | FLEET    | R07    | AMR-101  | Charge request at 15% (group G1, affinity C1,C3)
+2026-11-11 22:47:16 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-572843 tote TT-78834 from L-10-34-1 to PS6
+2026-11-11 22:48:03 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-572843 -> R36 (group G6)
+2026-11-11 22:48:05 | INFO  | CHARGER  | C2     | -        | CHARGE_END R26 SoC 90%
+2026-11-11 22:49:54 | INFO  | CHARGER  | C3     | -        | CHARGE_START R07 SoC 15%
+2026-11-11 22:52:18 | INFO  | FLEET    | R36    | -        | TASK_COMPLETE T-572843 tote TT-78834 delivered to PS6 in 4m50s
+2026-11-11 22:59:24 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-573255 tote TT-78869 from L-08-01-1 to PS5
+2026-11-11 23:00:05 | INFO  | WMS      | -      | -        | WAVE_RELEASE W-5647 released 1862 order lines
+2026-11-11 23:00:17 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-573255 -> R33 (group G5)
+2026-11-11 23:00:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=37 charging=3 queued_charge=0 blocked=0 fault=0
+2026-11-11 23:01:32 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-573322 tote TT-78877 from L-07-15-4 to PS1
+2026-11-11 23:02:57 | INFO  | WCS      | R02    | -        | TASK_ASSIGN T-573322 -> R02 (group G1)
+2026-11-11 23:04:42 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-573255 tote TT-78869 delivered to PS5 in 5m55s
+2026-11-11 23:06:20 | INFO  | FLEET    | R02    | -        | TASK_COMPLETE T-573322 tote TT-78877 delivered to PS1 in 6m55s
+2026-11-11 23:13:02 | INFO  | CHARGER  | C4     | -        | CHARGE_END R17 SoC 90%
+2026-11-11 23:14:03 | INFO  | CHARGER  | C1     | -        | CHARGE_END R01 SoC 90%
+2026-11-11 23:20:21 | INFO  | CHARGER  | C3     | -        | CHARGE_END R07 SoC 90%
+2026-11-11 23:21:35 | INFO  | WMS      | PS5    | -        | TASK_CREATE T-573969 tote TT-78935 from L-04-33-4 to PS5
+2026-11-11 23:22:01 | INFO  | WCS      | R33    | -        | TASK_ASSIGN T-573969 -> R33 (group G5)
+2026-11-11 23:26:02 | INFO  | FLEET    | R33    | -        | TASK_COMPLETE T-573969 tote TT-78935 delivered to PS5 in 4m59s
+2026-11-11 23:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=40 charging=0 queued_charge=0 blocked=0 fault=0
+2026-11-11 23:32:09 | INFO  | FLEET    | R23    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
+2026-11-11 23:32:22 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-574348 tote TT-78969 from L-07-11-1 to PS3
+2026-11-11 23:33:22 | INFO  | WCS      | R20    | -        | TASK_ASSIGN T-574348 -> R20 (group G3)
+2026-11-11 23:35:50 | INFO  | CHARGER  | C2     | -        | CHARGE_START R23 SoC 15%
+2026-11-11 23:37:22 | INFO  | FLEET    | R20    | -        | TASK_COMPLETE T-574348 tote TT-78969 delivered to PS3 in 5m15s
+2026-11-11 23:44:35 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-574726 tote TT-79006 from L-05-25-1 to PS3
+2026-11-11 23:45:14 | INFO  | WCS      | R17    | -        | TASK_ASSIGN T-574726 -> R17 (group G3)
+2026-11-11 23:49:09 | INFO  | FLEET    | R17    | -        | TASK_COMPLETE T-574726 tote TT-79006 delivered to PS3 in 5m57s
+2026-11-11 23:54:43 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-575061 tote TT-79034 from L-12-25-5 to PS6
+2026-11-11 23:55:55 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-575061 -> R39 (group G6)
+2026-11-11 23:59:40 | INFO  | FLEET    | R39    | -        | TASK_COMPLETE T-575061 tote TT-79034 delivered to PS6 in 4m26s

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "TEST-01",
+    "label": "Demo: charger failure",
+    "as_of": "2026-11-11 14:21",
+    "engineer_report": "Pick station 3 has been idle for 12 minutes. Operators are waiting for totes.",
+    "expected_cause": "Charger C2 contactor fault (CHG-214 at 14:02) while C4 is in planned maintenance (CHG-250 since 12:30). G3 robots can only charge on C2/C4, so 5 of 7 G3 robots are queued in CHG-EAST at 13-14% battery and R17/R20 are blocked in the east charging corridor behind them. No G3 robot is available, so PS3 gets no totes after 14:09:41.",
+    "expected_evidence": ["CHG-214 on C2 at 14:02:14", "C4 CHG-250 maintenance", "R15, R16, R18, R19, R21 QUEUED_CHARGE in CHG-EAST", "R17, R20 BLOCKED AMR-207 in CHG-CORR-E", "WCS-430 pending tasks for PS3 from 14:11", "PS3 last tote 14:09:41"],
+    "expected_runbook": "RB-01",
+    "expected_similar_ticket": "INC-0142",
+    "traps": ["INC-0137 has the same symptom (PS3 idle) but a scanner cause; there totes were arriving", "WCS-402 reject for PS5 at 14:05 is unrelated"],
+    "best_fix_type": "AI copilot"
+  },
+  {
+    "id": "TEST-02",
+    "label": "Blocked aisle",
+    "as_of": "2026-11-10 09:52",
+    "engineer_report": "Station 1 has slowed right down and I think a robot is stuck in aisle A04.",
+    "expected_cause": "R07 emergency stop for safety field obstruction (AMR-305) in aisle A04 at 09:41; R03 and R05 are blocked behind it (AMR-207).",
+    "expected_evidence": ["R07 FAULT AMR-305 in A04", "R03, R05 BLOCKED AMR-207 in A04", "PS1 picks down"],
+    "expected_runbook": "RB-02",
+    "expected_similar_ticket": "INC-0128",
+    "traps": [],
+    "best_fix_type": "AI copilot"
+  },
+  {
+    "id": "TEST-03",
+    "label": "Message rejects",
+    "as_of": "2026-11-10 16:35",
+    "engineer_report": "Stations 4 and 6 are short of work and the WCS screen is full of red errors.",
+    "expected_cause": "WMS slotting batch SLT-8841 at 16:15 re-coded L-07-* locations before the WCS location master was synchronised, so tasks are rejected with WCS-402.",
+    "expected_evidence": ["SLT-8841 applied at 16:15", "WCS-402 rejects for L-07-* from 16:18"],
+    "expected_runbook": "RB-03",
+    "expected_similar_ticket": "INC-0139",
+    "traps": [],
+    "best_fix_type": "Automated check and alert"
+  },
+  {
+    "id": "TEST-04",
+    "label": "Low battery",
+    "as_of": "2026-11-11 06:45",
+    "engineer_report": "A robot has stopped in transit lane TR-2 and is blocking traffic.",
+    "expected_cause": "R31 stopped at 10% battery (AMR-112). Its charge request at 15% was lost during the fleet manager restart at 05:41-05:43.",
+    "expected_evidence": ["R31 FAULT AMR-112 in TR-2", "Fleet manager restart 05:41", "No R31 charge request logged"],
+    "expected_runbook": "RB-04",
+    "expected_similar_ticket": "INC-0130",
+    "traps": [],
+    "best_fix_type": "Better alerting"
+  },
+  {
+    "id": "TEST-05",
+    "label": "Conveyor jam",
+    "as_of": "2026-11-11 11:35",
+    "engineer_report": "PS5 keeps pausing because it cannot send totes away.",
+    "expected_cause": "Repeated jam at conveyor merge M2 (photo-eye PE-M2-03, CNV-501) filling the PS5 outbound spur. Fourth occurrence; MR-2207 bracket replacement still open.",
+    "expected_evidence": ["CNV-501 at M2 at 11:12, 11:24, 11:31", "CNV-520 PS5 outbound full"],
+    "expected_runbook": "RB-05",
+    "expected_similar_ticket": "INC-0143",
+    "traps": [],
+    "best_fix_type": "Runbook and maintenance fix"
+  }
+]

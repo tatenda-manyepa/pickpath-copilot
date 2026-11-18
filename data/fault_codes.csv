@@ -1,0 +1,31 @@
+code,component,severity,description,typical_cause,runbook
+AMR-101,Robot,INFO,Low battery - charge requested,Battery reached seek-charge threshold (15%),RB-04
+AMR-112,Robot,CRITICAL,Battery critical - robot stopped,Battery at or below 10% before reaching a charger,RB-04
+AMR-120,Robot,WARNING,Battery temperature high,Heavy duty cycle or failing cell,RB-04
+AMR-201,Robot,WARNING,Localisation confidence low,Floor markers dirty or obscured,
+AMR-207,Robot,WARNING,Path blocked for more than 120 s,Another robot or object occupying the planned path,RB-02
+AMR-215,Robot,ERROR,Map mismatch - zone not found,Robot holds an older map version than the fleet manager,
+AMR-305,Robot,CRITICAL,Safety field obstruction - emergency stop,Object or debris inside the lidar safety field,RB-02
+AMR-310,Robot,CRITICAL,Bumper contact,Physical contact with an object or person,RB-02
+AMR-320,Robot,ERROR,Drive motor overcurrent,Debris in wheel or failing drive motor,
+AMR-330,Robot,ERROR,Lift mechanism fault,Tote lift jammed or sensor failure,
+AMR-401,Robot,ERROR,Wi-Fi link lost,Access point failure or coverage gap,
+AMR-410,Robot,ERROR,Fleet manager heartbeat timeout,Fleet manager restart or network loss,
+CHG-201,Charger,ERROR,Charger offline - no communication,Network or controller failure at the charger,RB-01
+CHG-214,Charger,CRITICAL,Output contactor fault - charging halted,Contactor failed to close or welded; charger stops all output,RB-01
+CHG-220,Charger,WARNING,Charger over-temperature,Blocked ventilation or high ambient temperature,RB-01
+CHG-230,Charger,WARNING,Docking alignment failure,Robot did not seat on charging contacts,RB-01
+CHG-250,Charger,INFO,Planned maintenance - out of service,Scheduled maintenance or firmware upgrade,RB-01
+WCS-401,WCS,ERROR,Task rejected - invalid SKU,SKU in WMS task not present in WCS master data,RB-03
+WCS-402,WCS,ERROR,Task rejected - unknown storage location,Location code sent by WMS not yet synchronised to WCS,RB-03
+WCS-410,WCS,ERROR,Message schema validation failed,Malformed or version-mismatched interface message,RB-03
+WCS-420,WCS,ERROR,Duplicate task ID,WMS resent tasks after failover,RB-03
+WCS-430,WCS,WARNING,Task pending - no robot available in group,All robots in the station's group are busy or unavailable,
+ASRS-501,AS/RS,ERROR,Shuttle lift timeout,Lift did not reach target level in time,
+ASRS-510,AS/RS,WARNING,Tote presence sensor mismatch,Dirty or misaligned presence sensor,
+CNV-501,Conveyor,ERROR,Merge photo-eye blocked for more than 30 s,Tote jam at a merge point or misaligned photo-eye,RB-05
+CNV-510,Conveyor,ERROR,Motor drive trip,Overload on a conveyor section,RB-05
+CNV-520,Conveyor,WARNING,Tote overflow on spur,Downstream conveyor full or stopped,RB-05
+PS-601,Pick station,ERROR,Station scanner offline,Scanner cable or USB hub failure,
+PS-610,Pick station,INFO,Operator not logged in,Break or shift change,
+PS-620,Pick station,WARNING,Light curtain interrupt,Light curtain misaligned or obstructed,
