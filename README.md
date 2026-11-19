@@ -1,8 +1,46 @@
-# PickPath Copilot: fictional dataset
+# PickPath Copilot
+
+**An AI incident assistant for automated warehouses.** An engineer describes what they see, and PickPath searches robot telemetry, control-system logs, past tickets and runbooks, then explains the likely cause with the evidence behind it. It is read-only: an engineer approves or rejects every recommendation, and nothing is sent to the equipment.
+
+Built by [Tatenda Manyepa](https://tatenda-manyepa.github.io) as a portfolio project. Case study: [tatenda-manyepa.github.io/pickpath.html](https://tatenda-manyepa.github.io/pickpath.html). Everything in this repository is fictional: no real customer, system or data is used.
+
+## How it works
+
+1. **Gather evidence** (`copilot/evidence.py`). Pulls only records from before the incident was reported, so the copilot cannot read how it was fixed. Each record gets an ID (E1, E2, …).
+2. **Ask the model** (`copilot/ai.py`). Claude on Amazon Bedrock (EU inference profile) must use only that evidence, cite IDs, rule out look-alike tickets and say when the evidence is not enough.
+3. **Check the answer**. Any citation that does not match real evidence is flagged in the app.
+4. **Engineer decides** (`app.py`). Approve or reject; every decision is logged to `logs/decisions.csv`.
+
+## Run it
+
+Needs an AWS IAM user that can only call Bedrock (`bedrock:InvokeModel`, `bedrock:Converse`), with these environment variables set (as GitHub Codespaces secrets here, never in code): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`, `BEDROCK_MODEL_ID`.
+
+```
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Accuracy check across the five planted incidents:
+
+```
+python eval/run_eval.py
+```
+
+## Design choices
+
+| Choice | Why |
+|---|---|
+| Read-only, engineer approves | Physical equipment; AI advises, people act |
+| Evidence filtered to report time | Keeps the demo honest |
+| Every claim cites evidence; citations checked | Makes wrong answers visible |
+| Model-only IAM user, secrets outside code | Least privilege |
+| AI for 2 of 5 incident types | Rules, alerts or maintenance fixes are cheaper for the rest |
+
+## The fictional dataset
 
 Data for an AI incident copilot prototype at **Northgate Fulfilment**, a fictional 24/7 e-commerce distribution centre. Every site, system, robot, code and ticket here is invented.
 
-## The site
+### The site
 
 | Item | Detail |
 |---|---|
@@ -13,7 +51,7 @@ Data for an AI incident copilot prototype at **Northgate Fulfilment**, a fiction
 | Pick stations | PS1-PS6, target 350 picks an hour (300 at night) |
 | Time span | Tue 10 Nov 2026 00:00 to Wed 11 Nov 2026 23:59, local time |
 
-## Files
+### Files
 
 | File | Contents | Size |
 |---|---|---|
@@ -26,7 +64,7 @@ Data for an AI incident copilot prototype at **Northgate Fulfilment**, a fiction
 | `eval/test_incidents.json` | Five planted incidents with the expected answer, for the accuracy check | 5 cases |
 | `scripts/generate_data.py` | Regenerates telemetry, log and station files (deterministic) | |
 
-## The demo incident
+### The demo incident
 
 > "Pick station 3 has been idle for 12 minutes. Operators are waiting for totes." (reported Wed 11 Nov, 14:21)
 
@@ -47,7 +85,7 @@ Data for an AI incident copilot prototype at **Northgate Fulfilment**, a fiction
 
 **Use `as_of` when retrieving evidence.** The files also record what happened after the report (the engineer's fix at 14:34-14:45 and recovery at 14:48). For a fair demo, filter log and telemetry to times at or before the incident's report time so the copilot cannot read the answer.
 
-## Other planted incidents
+### Other planted incidents
 
 | When | Incident | Best fix type |
 |---|---|---|
@@ -58,7 +96,7 @@ Data for an AI incident copilot prototype at **Northgate Fulfilment**, a fiction
 
 These map to the judgement table in the case study. Operator breaks (operator_logged_in = N) appear three times a day per station; they are normal idle time, not incidents.
 
-## Regenerate
+### Regenerate
 
 ```
 python3 scripts/generate_data.py
