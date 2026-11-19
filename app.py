@@ -135,11 +135,20 @@ with st.container(border=True):
     st.caption("Only two of these incidents really need AI. For the others, watch whether the copilot says a "
                "simple rule, an alert or a maintenance fix is the better answer.")
 
+st.markdown("""<style>
+button[kind^="primary"] p{color:#2A1B00;font-weight:600}
+.st-key-tickets button{background:#F4F6FA;color:#0E1A2E;border:1px solid #F4F6FA;font-weight:600}
+.st-key-tickets button p{color:#0E1A2E}
+.st-key-tickets button:hover{background:#FFFFFF;border-color:#FFB547;color:#0E1A2E}
+.st-key-tickets button[kind="primary"]{background:#FFB547;border-color:#FFB547}
+.st-key-tickets button[kind="primary"] p{color:#2A1B00}
+</style>""", unsafe_allow_html=True)
 st.markdown("**Open tickets this shift**")
 active = st.session_state.get("active")
 ordered = sorted(EXAMPLES, key=lambda c: TICKET.get(c["id"], ""), reverse=True)
+tickets = st.container(key="tickets")
 for row in (ordered[:3], ordered[3:]):
-    cols = st.columns(3)
+    cols = tickets.columns(3)
     for col, case in zip(cols, row):
         when = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
         col.button(f"{TICKET[case['id']]} · {example_label(case)} · {when:%a %H:%M}", key=f"ex_{case['id']}",
@@ -150,7 +159,7 @@ with st.form("entry_form", border=False):
     c1, c2 = st.columns([5, 1], vertical_alignment="bottom")
     c1.text_input("Ticket number or incident description", key="entry",
                   placeholder="e.g. INC-0149, or: Robots near pick station 2 keep stopping")
-    c2.form_submit_button("Investigate", use_container_width=True, on_click=submit_input)
+    c2.form_submit_button("Investigate", type="primary", use_container_width=True, on_click=submit_input)
     with st.expander("Report time for a new incident description"):
         d1, d2 = st.columns(2)
         d1.date_input("Reported on", key="own_date", value=date(2026, 11, 11),
