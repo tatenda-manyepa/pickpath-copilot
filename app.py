@@ -20,6 +20,14 @@ ROOT = Path(__file__).resolve().parent
 LOG_FILE = ROOT / "logs" / "decisions.csv"
 EXAMPLES = json.load(open(ROOT / "eval" / "test_incidents.json"))
 DEFAULT = EXAMPLES[0]
+# Labels describe the symptom only, so visitors watch the copilot find the cause
+SYMPTOM = {"TEST-01": "Pick station 3 idle", "TEST-02": "Robot stuck in an aisle",
+           "TEST-03": "Errors on stations 4 and 6", "TEST-04": "Robot stopped in a lane",
+           "TEST-05": "Station 5 can't send totes"}
+
+
+def example_label(case: dict) -> str:
+    return SYMPTOM.get(case["id"], case["label"])
 SAVED_FILE = ROOT / "eval" / "saved_answers.json"
 SAVED = json.load(open(SAVED_FILE)) if SAVED_FILE.exists() else {}
 USAGE_FILE = ROOT / "logs" / "live_runs.csv"
@@ -58,21 +66,25 @@ if "incident" not in st.session_state:
     st.session_state.as_of_date, st.session_state.as_of_time = as_of.date(), as_of.time()
 
 
+def use_example(case: dict, run: bool = False):
+    as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
+    st.session_state.incident = case["engineer_report"]
+    st.session_state.as_of_date, st.session_state.as_of_time = as_of.date(), as_of.time()
+    st.session_state.pop("result", None)
+    st.session_state.auto_run = run
+
+
 def load_example():
-    label = st.session_state.example
-    case = next((c for c in EXAMPLES if f"{c['id']} · {c['label']}" == label), None)
+    case = next((c for c in EXAMPLES if example_label(c) == st.session_state.example), None)
     if case:
-        as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
-        st.session_state.incident = case["engineer_report"]
-        st.session_state.as_of_date, st.session_state.as_of_time = as_of.date(), as_of.time()
-        st.session_state.pop("result", None)
+        use_example(case)
 
 
 # ------------------------------------------------------------------ sidebar
 with st.sidebar:
     st.markdown("### Northgate Fulfilment")
     st.caption("Fictional 24/7 distribution centre · 40 robots · 6 pick stations · 4 chargers")
-    st.selectbox("Load an example incident", [f"{c['id']} · {c['label']}" for c in EXAMPLES],
+    st.selectbox("Load an example incident", [example_label(c) for c in EXAMPLES],
                  key="example", on_change=load_example, index=None, placeholder="Choose an example")
     st.markdown("**Incident reported at**")
     st.date_input("Date", key="as_of_date", min_value=date(2026, 11, 10), max_value=date(2026, 11, 11))
@@ -96,11 +108,22 @@ with st.sidebar:
 st.markdown("## PickPath Copilot")
 st.caption("AI incident investigation for an automated warehouse · every answer cites its evidence · an engineer approves")
 
+st.markdown("**Try an example**: click one to see the copilot investigate it")
+cols = st.columns(len(EXAMPLES))
+for col, case in zip(cols, EXAMPLES):
+    col.button(example_label(case), key=f"ex_{case['id']}", use_container_width=True,
+               type="primary" if case["id"] == "TEST-01" else "secondary",
+               help=f"Engineer reports: \"{case['engineer_report']}\"",
+               on_click=use_example, args=(case, True))
+st.caption("Start with **Pick station 3 idle**. Two of these need AI; for the others the copilot should "
+           "say a rule, an alert or a maintenance fix is the better answer. Or describe your own incident below.")
+
 incident = st.text_area("What are you seeing?", key="incident", height=90,
                         placeholder="Example: Pick station 3 has been idle for 12 minutes. Operators are waiting for totes.")
 as_of = datetime.combine(st.session_state.as_of_date, st.session_state.as_of_time)
 
-if st.button("Investigate", type="primary", disabled=not incident.strip()):
+run_now = st.button("Investigate", disabled=not incident.strip()) or st.session_state.pop("auto_run", False)
+if run_now and incident.strip():
     example = matching_example(incident, as_of)
     live_ok = (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
     if not example and not live_ok:
