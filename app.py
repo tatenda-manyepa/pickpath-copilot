@@ -26,8 +26,20 @@ SYMPTOM = {"TEST-01": "Pick station 3 idle", "TEST-02": "Robot stuck in an aisle
            "TEST-05": "Station 5 can't send totes"}
 
 
+# Open tickets on the shift, numbered after the historical tickets (INC-0125 to INC-0144), in time order
+TICKET = {"TEST-02": "INC-0145", "TEST-03": "INC-0146", "TEST-04": "INC-0147", "TEST-05": "INC-0148",
+          "TEST-01": "INC-0149"}
+
+
 def example_label(case: dict) -> str:
     return SYMPTOM.get(case["id"], case["label"])
+
+
+def find_ticket(text: str):
+    t = text.strip().upper().replace(" ", "")
+    if t.isdigit():
+        t = f"INC-{int(t):04d}"
+    return next((c for c in EXAMPLES if TICKET.get(c["id"]) == t), None)
 SAVED_FILE = ROOT / "eval" / "saved_answers.json"
 SAVED = json.load(open(SAVED_FILE)) if SAVED_FILE.exists() else {}
 USAGE_FILE = ROOT / "logs" / "live_runs.csv"
@@ -63,17 +75,35 @@ st.set_page_config(page_title="PickPath Copilot", page_icon="🛰️", layout="w
 def use_example(case: dict):
     st.session_state.incident = case["engineer_report"]
     st.session_state.as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
+    st.session_state.ticket = TICKET.get(case["id"])
     st.session_state.active = case["id"]
     st.session_state.pop("result", None)
     st.session_state.auto_run = True
 
 
-def use_own_incident():
-    st.session_state.incident = st.session_state.own_text.strip()
+def submit_input():
+    text = st.session_state.entry.strip()
+    st.session_state.notice = None
+    if not text:
+        return
+    case = find_ticket(text)
+    if case:
+        use_example(case)
+        return
+    if not live_allowed():
+        st.session_state.notice = ("New incidents run live on the AI and need an access code (sidebar). "
+                                   "The open tickets above work for everyone.")
+        return
+    st.session_state.incident = text
     st.session_state.as_of = datetime.combine(st.session_state.own_date, st.session_state.own_time)
+    st.session_state.ticket = None
     st.session_state.active = None
     st.session_state.pop("result", None)
     st.session_state.auto_run = True
+
+
+def live_allowed() -> bool:
+    return (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
 
 
 # ------------------------------------------------------------------ sidebar
@@ -89,53 +119,59 @@ with st.sidebar:
     if ACCESS_CODE:
         st.divider()
         with st.expander("Have an access code?"):
-            st.caption("Enter the code from my message to describe your own incident and get a live answer.")
+            st.caption("Enter the code from my message to investigate a new incident description with live AI.")
             st.text_input("Access code", key="code", type="password")
-live_allowed = (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
 
-# ------------------------------------------------------------------ header and instructions
+# ------------------------------------------------------------------ header, instructions, input
 st.markdown("## PickPath Copilot")
 st.caption("AI incident investigation for an automated warehouse · every answer cites its evidence · an engineer approves")
 
 with st.container(border=True):
     st.markdown("**How to try it**")
-    st.markdown("**1.** Click an incident below. Start with **Pick station 3 idle**.  \n"
+    st.markdown("**1.** Pick one of the shift’s open tickets below (start with **INC-0149**), or enter a ticket "
+                "number or incident description, as an on-call engineer would.  \n"
                 "**2.** Read the likely cause, the evidence behind it and what it ruled out.  \n"
-                "**3.** Approve or reject the recommendation, as the on-call engineer would.")
+                "**3.** Approve or reject the recommendation.")
     st.caption("Only two of these incidents really need AI. For the others, watch whether the copilot says a "
                "simple rule, an alert or a maintenance fix is the better answer.")
 
+st.markdown("**Open tickets this shift**")
 active = st.session_state.get("active")
-cols = st.columns(len(EXAMPLES))
-for col, case in zip(cols, EXAMPLES):
-    col.button(example_label(case), key=f"ex_{case['id']}", use_container_width=True,
-               type="primary" if case["id"] == active else "secondary",
-               on_click=use_example, args=(case,))
+ordered = sorted(EXAMPLES, key=lambda c: TICKET.get(c["id"], ""), reverse=True)
+for row in (ordered[:3], ordered[3:]):
+    cols = st.columns(3)
+    for col, case in zip(cols, row):
+        when = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
+        col.button(f"{TICKET[case['id']]} · {example_label(case)} · {when:%a %H:%M}", key=f"ex_{case['id']}",
+                   use_container_width=True, type="primary" if case["id"] == active else "secondary",
+                   on_click=use_example, args=(case,))
 
-if live_allowed and ACCESS_CODE:
-    with st.expander("Or describe your own incident (live AI)", expanded=False):
-        st.text_area("What is the engineer seeing?", key="own_text", height=80,
-                     placeholder="Example: Robots in group G2 keep stopping near pick station 2.")
-        c1, c2 = st.columns(2)
-        c1.date_input("Reported on", key="own_date", value=date(2026, 11, 11),
+with st.form("entry_form", border=False):
+    c1, c2 = st.columns([5, 1], vertical_alignment="bottom")
+    c1.text_input("Ticket number or incident description", key="entry",
+                  placeholder="e.g. INC-0149, or: Robots near pick station 2 keep stopping")
+    c2.form_submit_button("Investigate", use_container_width=True, on_click=submit_input)
+    with st.expander("Report time for a new incident description"):
+        d1, d2 = st.columns(2)
+        d1.date_input("Reported on", key="own_date", value=date(2026, 11, 11),
                       min_value=date(2026, 11, 10), max_value=date(2026, 11, 11))
-        c2.time_input("At", key="own_time", value=dtime(14, 21), step=60)
-        st.button("Investigate my incident", on_click=use_own_incident,
-                  disabled=not st.session_state.get("own_text", "").strip())
+        d2.time_input("At", key="own_time", value=dtime(14, 21), step=60)
+if st.session_state.get("notice"):
+    st.info(st.session_state.notice)
 
 incident = st.session_state.get("incident")
 as_of = st.session_state.get("as_of")
 if not incident:
-    st.info("Click an incident above to start.")
     st.stop()
 
 with st.container(border=True):
-    st.caption(f"Engineer reports · {as_of:%a %d %b %Y, %H:%M}")
+    tk = st.session_state.get("ticket")
+    st.caption((f"{tk} · " if tk else "New incident · ") + f"Engineer reports · {as_of:%a %d %b %Y, %H:%M}")
     st.markdown(f"**“{incident}”**")
 
 if st.session_state.pop("auto_run", False):
     example = matching_example(incident, as_of)
-    if not example and not live_allowed:
+    if not example and not live_allowed():
         st.info("Live investigations need an access code.")
         st.stop()
     if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
