@@ -60,78 +60,86 @@ def record_live_run() -> None:
 st.set_page_config(page_title="PickPath Copilot", page_icon="🛰️", layout="wide")
 
 # ------------------------------------------------------------------ state
-if "incident" not in st.session_state:
-    st.session_state.incident = DEFAULT["engineer_report"]
-    as_of = datetime.strptime(DEFAULT["as_of"], "%Y-%m-%d %H:%M")
-    st.session_state.as_of_date, st.session_state.as_of_time = as_of.date(), as_of.time()
-
-
-def use_example(case: dict, run: bool = False):
-    as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
+def use_example(case: dict):
     st.session_state.incident = case["engineer_report"]
-    st.session_state.as_of_date, st.session_state.as_of_time = as_of.date(), as_of.time()
+    st.session_state.as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
+    st.session_state.active = case["id"]
     st.session_state.pop("result", None)
-    st.session_state.auto_run = run
+    st.session_state.auto_run = True
 
 
-def load_example():
-    case = next((c for c in EXAMPLES if example_label(c) == st.session_state.example), None)
-    if case:
-        use_example(case)
+def use_own_incident():
+    st.session_state.incident = st.session_state.own_text.strip()
+    st.session_state.as_of = datetime.combine(st.session_state.own_date, st.session_state.own_time)
+    st.session_state.active = None
+    st.session_state.pop("result", None)
+    st.session_state.auto_run = True
 
 
 # ------------------------------------------------------------------ sidebar
 with st.sidebar:
     st.markdown("### Northgate Fulfilment")
-    st.caption("Fictional 24/7 distribution centre · 40 robots · 6 pick stations · 4 chargers")
-    st.selectbox("Load an example incident", [example_label(c) for c in EXAMPLES],
-                 key="example", on_change=load_example, index=None, placeholder="Choose an example")
-    st.markdown("**Incident reported at**")
-    st.date_input("Date", key="as_of_date", min_value=date(2026, 11, 10), max_value=date(2026, 11, 11))
-    st.time_input("Time", key="as_of_time", step=60)
-    st.caption("The copilot only reads records from before this time, so it cannot see how the incident was fixed.")
-    st.divider()
-    st.markdown("**Live AI investigation**")
-    if ACCESS_CODE:
-        st.caption("The example incidents show Claude’s saved answers. To run your own incident live, "
-                   "enter the access code from my CV or message.")
-        st.text_input("Access code", key="code", type="password")
-    else:
-        st.caption("Live mode: every investigation calls Claude on Amazon Bedrock.")
-    st.divider()
+    st.caption("A fictional 24/7 distribution centre with 40 robots, 6 pick stations and 4 chargers. "
+               "All data is invented.")
     st.markdown(":orange[**Read-only by design**]")
-    st.caption("PickPath can read telemetry, logs, tickets and runbooks. It cannot send any command to robots, "
+    st.caption("PickPath reads telemetry, logs, past tickets and runbooks. It cannot send any command to robots, "
                "chargers, conveyors or control systems. An engineer decides and acts.")
+    st.caption("It only reads records from before an incident was reported, so it cannot see how it was fixed.")
     st.caption("Model: Claude on Amazon Bedrock (EU inference profile)")
+    if ACCESS_CODE:
+        st.divider()
+        with st.expander("Have an access code?"):
+            st.caption("Enter the code from my message to describe your own incident and get a live answer.")
+            st.text_input("Access code", key="code", type="password")
+live_allowed = (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
 
-# ------------------------------------------------------------------ header and input
+# ------------------------------------------------------------------ header and instructions
 st.markdown("## PickPath Copilot")
 st.caption("AI incident investigation for an automated warehouse · every answer cites its evidence · an engineer approves")
 
-st.markdown("**Try an example**: click one to see the copilot investigate it")
+with st.container(border=True):
+    st.markdown("**How to try it**")
+    st.markdown("**1.** Click an incident below. Start with **Pick station 3 idle**.  \n"
+                "**2.** Read the likely cause, the evidence behind it and what it ruled out.  \n"
+                "**3.** Approve or reject the recommendation, as the on-call engineer would.")
+    st.caption("Only two of these incidents really need AI. For the others, watch whether the copilot says a "
+               "simple rule, an alert or a maintenance fix is the better answer.")
+
+active = st.session_state.get("active")
 cols = st.columns(len(EXAMPLES))
 for col, case in zip(cols, EXAMPLES):
     col.button(example_label(case), key=f"ex_{case['id']}", use_container_width=True,
-               type="primary" if case["id"] == "TEST-01" else "secondary",
-               help=f"Engineer reports: \"{case['engineer_report']}\"",
-               on_click=use_example, args=(case, True))
-st.caption("Start with **Pick station 3 idle**. Two of these need AI; for the others the copilot should "
-           "say a rule, an alert or a maintenance fix is the better answer. Or describe your own incident below.")
+               type="primary" if case["id"] == active else "secondary",
+               on_click=use_example, args=(case,))
 
-incident = st.text_area("What are you seeing?", key="incident", height=90,
-                        placeholder="Example: Pick station 3 has been idle for 12 minutes. Operators are waiting for totes.")
-as_of = datetime.combine(st.session_state.as_of_date, st.session_state.as_of_time)
+if live_allowed and ACCESS_CODE:
+    with st.expander("Or describe your own incident (live AI)", expanded=False):
+        st.text_area("What is the engineer seeing?", key="own_text", height=80,
+                     placeholder="Example: Robots in group G2 keep stopping near pick station 2.")
+        c1, c2 = st.columns(2)
+        c1.date_input("Reported on", key="own_date", value=date(2026, 11, 11),
+                      min_value=date(2026, 11, 10), max_value=date(2026, 11, 11))
+        c2.time_input("At", key="own_time", value=dtime(14, 21), step=60)
+        st.button("Investigate my incident", on_click=use_own_incident,
+                  disabled=not st.session_state.get("own_text", "").strip())
 
-run_now = st.button("Investigate", disabled=not incident.strip()) or st.session_state.pop("auto_run", False)
-if run_now and incident.strip():
+incident = st.session_state.get("incident")
+as_of = st.session_state.get("as_of")
+if not incident:
+    st.info("Click an incident above to start.")
+    st.stop()
+
+with st.container(border=True):
+    st.caption(f"Engineer reports · {as_of:%a %d %b %Y, %H:%M}")
+    st.markdown(f"**“{incident}”**")
+
+if st.session_state.pop("auto_run", False):
     example = matching_example(incident, as_of)
-    live_ok = (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
-    if not example and not live_ok:
-        st.info("This incident is not one of the examples, so it needs a live AI call. Enter the access code in "
-                "the sidebar, or choose an example incident to see Claude’s saved answer.")
+    if not example and not live_allowed:
+        st.info("Live investigations need an access code.")
         st.stop()
     if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
-        st.warning("Today’s live investigations are used up. Please try an example incident, or come back tomorrow.")
+        st.warning("Today’s live investigations are used up. Please try one of the example incidents.")
         st.stop()
     with st.status("Investigating…", expanded=True) as status:
         st.write(f"Gathering evidence recorded up to {as_of:%H:%M on %a %d %b}…")
@@ -176,7 +184,7 @@ if result:
             if answer.get("status") == "insufficient_evidence":
                 st.markdown(":orange[**Not enough evidence for a recommendation**]")
             else:
-                st.markdown(":orange[**Likely cause**]")
+                st.markdown(":orange[**Step 2 · Likely cause**]")
             st.markdown(f"#### {answer.get('likely_cause', '')}")
             st.write(answer.get("reasoning", ""))
             conf = answer.get("confidence", "").lower()
@@ -223,7 +231,7 @@ if result:
             st.write(answer["prevention"])
 
         st.divider()
-        st.markdown("#### Engineer decision")
+        st.markdown("#### Step 3: your decision")
         st.caption("Nothing happens on site until an engineer acts. Your decision is logged for review.")
         note = st.text_input("Note (optional)", key="decision_note")
         a, r = st.columns(2)
