@@ -20,7 +20,9 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Accuracy check across the five planted incidents:
+**Public demo mode.** If `DEMO_ACCESS_CODE` is set, the five example incidents replay Claude's saved answers (from `eval/saved_answers.json`, written by the accuracy check), and live investigations need the access code and are capped at `DEMO_DAILY_LIMIT` per day (default 25). This keeps a public link free to run and safe from abuse.
+
+Accuracy check across the five planted incidents (also saves the answers used by the demo):
 
 ```
 python eval/run_eval.py

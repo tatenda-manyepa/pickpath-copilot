@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import time
 from datetime import date, datetime, time as dtime
 from pathlib import Path
@@ -19,6 +20,34 @@ ROOT = Path(__file__).resolve().parent
 LOG_FILE = ROOT / "logs" / "decisions.csv"
 EXAMPLES = json.load(open(ROOT / "eval" / "test_incidents.json"))
 DEFAULT = EXAMPLES[0]
+SAVED_FILE = ROOT / "eval" / "saved_answers.json"
+SAVED = json.load(open(SAVED_FILE)) if SAVED_FILE.exists() else {}
+USAGE_FILE = ROOT / "logs" / "live_runs.csv"
+# Public demo settings: live AI calls need this code and are capped per day.
+# Leave DEMO_ACCESS_CODE unset (e.g. in Codespaces) to allow live runs without a code.
+ACCESS_CODE = os.environ.get("DEMO_ACCESS_CODE", "")
+DAILY_LIMIT = int(os.environ.get("DEMO_DAILY_LIMIT", "25"))
+
+
+def matching_example(text: str, when: datetime):
+    for case in EXAMPLES:
+        if (case["engineer_report"].strip() == text.strip()
+                and datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M") == when and case["id"] in SAVED):
+            return case
+    return None
+
+
+def live_runs_today() -> int:
+    if not USAGE_FILE.exists():
+        return 0
+    today = date.today().isoformat()
+    return sum(1 for line in open(USAGE_FILE) if line.startswith(today))
+
+
+def record_live_run() -> None:
+    USAGE_FILE.parent.mkdir(exist_ok=True)
+    with open(USAGE_FILE, "a") as f:
+        f.write(f"{datetime.now().isoformat()}\n")
 
 st.set_page_config(page_title="PickPath Copilot", page_icon="🛰️", layout="wide")
 
@@ -50,6 +79,14 @@ with st.sidebar:
     st.time_input("Time", key="as_of_time", step=60)
     st.caption("The copilot only reads records from before this time, so it cannot see how the incident was fixed.")
     st.divider()
+    st.markdown("**Live AI investigation**")
+    if ACCESS_CODE:
+        st.caption("The example incidents show Claude’s saved answers. To run your own incident live, "
+                   "enter the access code from my CV or message.")
+        st.text_input("Access code", key="code", type="password")
+    else:
+        st.caption("Live mode: every investigation calls Claude on Amazon Bedrock.")
+    st.divider()
     st.markdown(":orange[**Read-only by design**]")
     st.caption("PickPath can read telemetry, logs, tickets and runbooks. It cannot send any command to robots, "
                "chargers, conveyors or control systems. An engineer decides and acts.")
@@ -64,6 +101,15 @@ incident = st.text_area("What are you seeing?", key="incident", height=90,
 as_of = datetime.combine(st.session_state.as_of_date, st.session_state.as_of_time)
 
 if st.button("Investigate", type="primary", disabled=not incident.strip()):
+    example = matching_example(incident, as_of)
+    live_ok = (not ACCESS_CODE) or st.session_state.get("code", "") == ACCESS_CODE
+    if not example and not live_ok:
+        st.info("This incident is not one of the examples, so it needs a live AI call. Enter the access code in "
+                "the sidebar, or choose an example incident to see Claude’s saved answer.")
+        st.stop()
+    if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
+        st.warning("Today’s live investigations are used up. Please try an example incident, or come back tomorrow.")
+        st.stop()
     with st.status("Investigating…", expanded=True) as status:
         st.write(f"Gathering evidence recorded up to {as_of:%H:%M on %a %d %b}…")
         pack = gather(incident, as_of)
@@ -71,15 +117,25 @@ if st.button("Investigate", type="primary", disabled=not incident.strip()):
         for e in pack.items:
             counts[e.source] = counts.get(e.source, 0) + 1
         st.write("Found " + ", ".join(f"{n} {s}" for s, n in counts.items()) + ".")
-        st.write("Asking Claude on Amazon Bedrock to explain the likely cause…")
-        started = time.time()
-        try:
-            answer, usage = investigate(pack)
-        except Exception as exc:  # show a clear message instead of a stack trace
-            status.update(label="The AI could not be reached", state="error")
-            st.error(f"{type(exc).__name__}: {exc}")
-            st.stop()
-        usage["seconds"] = round(time.time() - started, 1)
+        if example:
+            saved = SAVED[example["id"]]
+            st.write(f"Loading Claude’s saved answer for this example (recorded {saved['recorded']})…")
+            answer, usage = saved["answer"], dict(saved.get("usage") or {})
+            usage["seconds"] = round((usage.get("latency_ms") or 15000) / 1000, 1)
+            usage["source"] = f"Saved answer from Claude on Amazon Bedrock, recorded {saved['recorded']}"
+        else:
+            st.write("Asking Claude on Amazon Bedrock to explain the likely cause…")
+            started = time.time()
+            try:
+                answer, usage = investigate(pack)
+            except Exception as exc:  # show a clear message instead of a stack trace
+                status.update(label="The AI could not be reached", state="error")
+                st.error(f"{type(exc).__name__}: {exc}")
+                st.stop()
+            if ACCESS_CODE:
+                record_live_run()
+            usage["seconds"] = round(time.time() - started, 1)
+            usage["source"] = "Live answer from Claude on Amazon Bedrock"
         st.session_state.result = {"pack": pack, "answer": answer, "usage": usage, "logged": None}
         status.update(label="Investigation complete", state="complete", expanded=False)
 
@@ -89,6 +145,7 @@ if result:
     pack, answer, usage = result["pack"], result["answer"], result["usage"]
     evidence = {e.id: e for e in pack.items}
     bad_ids = check_citations(answer, pack)
+    st.caption(usage.get("source", ""))
 
     left, right = st.columns([3, 2], gap="large")
     with left:
@@ -97,14 +154,14 @@ if result:
                 st.markdown(":orange[**Not enough evidence for a recommendation**]")
             else:
                 st.markdown(":orange[**Likely cause**]")
-            st.markdown(f"### {answer.get('likely_cause', '')}")
+            st.markdown(f"#### {answer.get('likely_cause', '')}")
             st.write(answer.get("reasoning", ""))
             conf = answer.get("confidence", "").lower()
             colour = {"high": "green", "medium": "orange", "low": "red"}.get(conf, "gray")
             st.markdown(f"Confidence: :{colour}[**{conf or 'unknown'}**]")
         if bad_ids:
-            st.error("The answer cited evidence that does not exist: " + ", ".join(bad_ids)
-                     + ". Treat this answer with caution.")
+            st.warning("Check before trusting: the answer mentions " + ", ".join(bad_ids)
+                       + ", which is not in the evidence it was given. Treat that part with caution.")
 
         st.markdown("#### Evidence behind this")
         for item in answer.get("evidence", []):

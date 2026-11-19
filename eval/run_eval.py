@@ -1,7 +1,7 @@
 """Accuracy check: runs every planted test incident through PickPath and scores the answers.
 
 Run from the project folder:  python eval/run_eval.py
-Writes the results to eval/results.md.
+Writes the results to eval/results.md and the answers to eval/saved_answers.json (used by the public demo).
 """
 from __future__ import annotations
 
@@ -38,13 +38,14 @@ def score(case: dict, answer: dict) -> tuple[bool, bool, bool]:
 
 def main() -> None:
     cases = json.load(open(ROOT / "eval" / "test_incidents.json"))
-    rows, correct = [], 0
+    rows, correct, saved = [], 0, {}
     for case in cases:
         pack = gather(case["engineer_report"], datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M"))
         answer, usage = investigate(pack)
         cause_ok, ticket_ok, runbook_ok = score(case, answer)
         bad = check_citations(answer, pack)
         correct += cause_ok
+        saved[case["id"]] = {"recorded": f"{datetime.now():%d %b %Y}", "answer": answer, "usage": usage}
         rows.append(f"| {case['id']} | {case['label']} | {'✅' if cause_ok else '❌'} | {'✅' if ticket_ok else '❌'} "
                     f"| {'✅' if runbook_ok else '❌'} | {'none' if not bad else ', '.join(bad)} "
                     f"| {answer.get('confidence', '')} | {answer.get('likely_cause', '')} |")
@@ -54,6 +55,8 @@ def main() -> None:
               "| Test | Incident | Cause | Similar ticket | Runbook | Invalid citations | Confidence | Likely cause |",
               "|---|---|---|---|---|---|---|---|", *rows]
     (ROOT / "eval" / "results.md").write_text("\n".join(report) + "\n")
+    # Saved answers power the public demo's example incidents (no live AI call needed)
+    (ROOT / "eval" / "saved_answers.json").write_text(json.dumps(saved, indent=2))
     print(f"\nCorrect root cause: {correct} of {len(cases)}. Saved eval/results.md")
 
 

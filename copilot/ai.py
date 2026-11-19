@@ -54,10 +54,13 @@ def _parse(text: str) -> dict:
 
 
 def check_citations(answer: dict, pack: EvidencePack) -> list[str]:
-    """Return any evidence IDs the model cited that do not exist."""
-    known = {e.id for e in pack.items}
-    cited = set(re.findall(r"\bE\d+\b", json.dumps(answer)))
-    return sorted(cited - known, key=lambda x: int(x[1:]))
+    """Return evidence IDs and ticket numbers the model mentioned that are not in the evidence."""
+    text = json.dumps(answer)
+    known_ids = {e.id for e in pack.items}
+    bad_ids = sorted(set(re.findall(r"\bE\d+\b", text)) - known_ids, key=lambda x: int(x[1:]))
+    known_tickets = set(re.findall(r"INC-\d{4}", " ".join(e.summary for e in pack.items)))
+    bad_tickets = sorted(set(re.findall(r"INC-\d{4}", text)) - known_tickets)
+    return bad_ids + bad_tickets
 
 
 def investigate(pack: EvidencePack, client=None) -> tuple[dict, dict]:
