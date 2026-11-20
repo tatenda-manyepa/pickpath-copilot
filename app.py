@@ -5,6 +5,7 @@ Run with:  streamlit run app.py
 from __future__ import annotations
 
 import csv
+import html
 import json
 import os
 import time
@@ -62,6 +63,29 @@ def live_runs_today() -> int:
         return 0
     today = date.today().isoformat()
     return sum(1 for line in open(USAGE_FILE) if line.startswith(today))
+
+
+CONSOLE_CSS = """<style>
+.pp-console{background:#0D1626;border:1px solid #31446A;border-radius:12px;margin:6px 0 14px;overflow:hidden;
+ font:400 14px/1.7 "JetBrains Mono",ui-monospace,Consolas,monospace;box-shadow:0 18px 40px #0006}
+.pp-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid #23334F;color:#7787A3;font-size:12px}
+.pp-bar i{width:9px;height:9px;border-radius:50%;background:#31446A;display:inline-block}.pp-bar i:first-child{background:#FF7A6B}
+.pp-bar span{margin-left:auto}.pp-body{padding:10px 14px;min-height:60px}.pp-body p{margin:0;white-space:pre-wrap;color:#E9EEF6}
+.pp-cmd{color:#FFB547!important}.pp-dim{color:#7787A3!important}.pp-ok{color:#4FD1A5!important}.pp-warn{color:#FFB547!important}
+.pp-err{color:#FF7A6B!important}.pp-caret::after{content:"▍";color:#FFB547;animation:ppblink 1s steps(1) infinite}
+@keyframes ppblink{50%{opacity:0}}
+</style>"""
+
+
+def render_console(lines, typing: bool = False) -> str:
+    rows = []
+    for i, (kind, text) in enumerate(lines):
+        cls = f"pp-{kind}" if kind else ""
+        if typing and i == len(lines) - 1:
+            cls += " pp-caret"
+        rows.append(f'<p class="{cls}">{html.escape(text)}</p>')
+    return (CONSOLE_CSS + '<div class="pp-console"><div class="pp-bar"><i></i><i></i><i></i><span>pickpath-copilot</span></div>'
+            f'<div class="pp-body">{"".join(rows)}</div></div>')
 
 
 def record_live_run() -> None:
@@ -186,34 +210,59 @@ if st.session_state.pop("auto_run", False):
     if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
         st.warning("Today’s live investigations are used up. Please try one of the example incidents.")
         st.stop()
-    with st.status("Investigating…", expanded=True) as status:
-        st.write(f"Gathering evidence recorded up to {as_of:%H:%M on %a %d %b}…")
-        pack = gather(incident, as_of)
-        counts = {}
-        for e in pack.items:
-            counts[e.source] = counts.get(e.source, 0) + 1
-        st.write("Found " + ", ".join(f"{n} {s}" for s, n in counts.items()) + ".")
-        if example:
-            saved = SAVED[example["id"]]
-            st.write(f"Loading Claude’s saved answer for this example (recorded {saved['recorded']})…")
-            answer, usage = saved["answer"], dict(saved.get("usage") or {})
-            usage["seconds"] = round((usage.get("latency_ms") or 15000) / 1000, 1)
-            usage["source"] = f"Saved answer from Claude on Amazon Bedrock, recorded {saved['recorded']}"
-        else:
-            st.write("Asking Claude on Amazon Bedrock to explain the likely cause…")
-            started = time.time()
-            try:
-                answer, usage = investigate(pack)
-            except Exception as exc:  # show a clear message instead of a stack trace
-                status.update(label="The AI could not be reached", state="error")
-                st.error(f"{type(exc).__name__}: {exc}")
-                st.stop()
-            if ACCESS_CODE:
-                record_live_run()
-            usage["seconds"] = round(time.time() - started, 1)
-            usage["source"] = "Live answer from Claude on Amazon Bedrock"
-        st.session_state.result = {"pack": pack, "answer": answer, "usage": usage, "logged": None}
-        status.update(label="Investigation complete", state="complete", expanded=False)
+    console = st.empty()
+    shown: list[tuple[str, str]] = []
+
+    def type_line(kind: str, text: str, speed: int = 3):
+        """Type one console line character by character, keeping earlier lines."""
+        for i in range(0, len(text) + 1, speed):
+            console.markdown(render_console(shown + [(kind, text[:i])], typing=True), unsafe_allow_html=True)
+            time.sleep(0.012)
+        shown.append((kind, text))
+        console.markdown(render_console(shown, typing=True), unsafe_allow_html=True)
+        time.sleep(0.15)
+
+    short = incident if len(incident) <= 48 else incident[:47] + "…"
+    type_line("cmd", f'$ incident "{short}"')
+    type_line("dim", f"› gathering evidence recorded up to {as_of:%H:%M}…")
+    pack = gather(incident, as_of)
+    counts = {}
+    for e in pack.items:
+        counts[e.source] = counts.get(e.source, 0) + 1
+    names = {"telemetry": ("robot reading", "robot readings"), "log": ("log event", "log events"),
+             "stations": ("station report", "station reports"), "fault codes": ("fault code list", "fault code lists"),
+             "ticket": ("past ticket", "past tickets"), "runbook": ("runbook", "runbooks")}
+    type_line("", "› found " + ", ".join(f"{n} {names.get(s, (s, s))[n != 1]}" for s, n in counts.items()))
+    if example:
+        saved = SAVED[example["id"]]
+        type_line("dim", "› loading Claude’s saved answer for this ticket…")
+        answer, usage = saved["answer"], dict(saved.get("usage") or {})
+        usage["seconds"] = round((usage.get("latency_ms") or 15000) / 1000, 1)
+        usage["source"] = f"Saved answer from Claude on Amazon Bedrock, recorded {saved['recorded']}"
+    else:
+        type_line("dim", "› asking Claude on Amazon Bedrock…")
+        started = time.time()
+        try:
+            answer, usage = investigate(pack)
+        except Exception as exc:  # show a clear message instead of a stack trace
+            type_line("err", "✗ the AI could not be reached")
+            st.error(f"{type(exc).__name__}: {exc}")
+            st.stop()
+        if ACCESS_CODE:
+            record_live_run()
+        usage["seconds"] = round(time.time() - started, 1)
+        usage["source"] = "Live answer from Claude on Amazon Bedrock"
+    for item in (answer.get("evidence") or [])[:3]:
+        type_line("", f"› {item.get('id', '')} {item.get('why', '')}")
+    cause = answer.get("likely_cause", "")
+    if answer.get("status") == "insufficient_evidence":
+        type_line("warn", "! not enough evidence for a recommendation")
+    else:
+        type_line("ok", "✓ likely cause: " + (cause if len(cause) <= 90 else cause[:89] + "…"))
+    type_line("warn", "⏸ awaiting engineer approval")
+    console.markdown(render_console(shown), unsafe_allow_html=True)
+    st.session_state.result = {"pack": pack, "answer": answer, "usage": usage, "logged": None, "console": shown}
+    st.rerun()
 
 # ------------------------------------------------------------------ results
 result = st.session_state.get("result")
@@ -221,6 +270,8 @@ if result:
     pack, answer, usage = result["pack"], result["answer"], result["usage"]
     evidence = {e.id: e for e in pack.items}
     bad_ids = check_citations(answer, pack)
+    if result.get("console"):
+        st.markdown(render_console(result["console"]), unsafe_allow_html=True)
     st.caption(usage.get("source", ""))
 
     left, right = st.columns([3, 2], gap="large")
