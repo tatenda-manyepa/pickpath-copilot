@@ -34,6 +34,8 @@ TICKET = {"TEST-02": "INC-0145", "TEST-03": "INC-0146", "TEST-04": "INC-0147", "
 CONTACT = "mailto:t.manyepa@outlook.com?subject=PickPath%20Copilot%20access%20code"
 ASK_FOR_CODE = ("The open tickets replay real answers the AI gave earlier. To run the AI live on your own "
                 f"incident description, [email me for an access code]({CONTACT}).")
+POINT_TO_SIDEBAR = ("New incident descriptions run the AI live. See “Want to try your own incident?” in the sidebar, "
+                    "or pick one of the open tickets.")
 
 
 def example_label(case: dict) -> str:
@@ -120,7 +122,7 @@ def submit_input():
         use_example(case)
         return
     if not live_allowed():
-        st.session_state.notice = ASK_FOR_CODE + " If you already have one, enter it in the sidebar."
+        st.session_state.notice = POINT_TO_SIDEBAR
         return
     st.session_state.incident = text
     st.session_state.as_of = datetime.combine(st.session_state.own_date, st.session_state.own_time)
@@ -162,8 +164,7 @@ with st.container(border=True):
                 "**3.** Approve or reject the recommendation.")
     st.caption("Not every incident needs AI, and two are new problems with no history. Watch whether the copilot "
                "recommends a simple rule, an alert or a maintenance fix instead, and whether it admits when it "
-               "doesn't know.  \nThe open tickets replay saved answers. Live AI on your own description needs an "
-               f"access code: [just ask]({CONTACT}).")
+               "doesn't know.")
 
 st.markdown("""<style>
 button[kind^="primary"] p{color:#2A1B00;font-weight:600}
@@ -213,7 +214,7 @@ with st.container(border=True):
 if st.session_state.pop("auto_run", False):
     example = matching_example(incident, as_of)
     if not example and not live_allowed():
-        st.info(ASK_FOR_CODE)
+        st.info(POINT_TO_SIDEBAR)
         st.stop()
     if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
         st.warning("Today’s live investigations are used up. Please try one of the example incidents.")
