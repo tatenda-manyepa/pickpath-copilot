@@ -1,66 +1,67 @@
 {
   "TEST-01": {
-    "recorded": "19 Nov 2026",
+    "recorded": "20 Nov 2026",
     "answer": {
       "status": "recommendation",
-      "likely_cause": "Both east-side chargers (C2 and C4) are simultaneously unavailable \u2014 C4 on planned maintenance since 12:30 and C2 with a contactor fault since 14:02 \u2014 leaving all G3 robots unable to charge, starving PS3 of totes.",
+      "likely_cause": "Both east-side chargers (C2 faulted, C4 on planned maintenance) are unavailable, leaving all 7 G3 robots unable to charge; 5 are queued at CHG-EAST and 2 are blocked in the corridor behind them, starving PS3 of totes.",
       "confidence": "high",
-      "reasoning": "All seven G3 robots hit low battery (~14%) and requested charge from 14:00 onwards (E10, E11, E13, E16, E19). On arrival at CHG-EAST they found both C2 (CHG-214 contactor fault, E12) and C4 (planned maintenance, E9) unavailable (E14, E15, E17, E20, E21). Five robots queued in QUEUED_CHARGE; the queue then blocked the corridor, causing R17 and R20 to raise AMR-207 path-blocked faults (E3, E6, E23, E24). With no G3 robot available, WCS began logging WCS-430 task-pending warnings for PS3 from 14:11 (E22), matching the 12-minute idle window.",
+      "reasoning": "C4 went offline for firmware maintenance at 12:30 (E9). C2 raised a CHG-214 contactor fault at 14:02 (E12). G3 robots have affinity only to C2 and C4 (E14, E31), so when both failed they queued rather than failing over. Five robots (R15, R16, R18, R19, R21) are stuck in QUEUED_CHARGE with ~14% battery (E1, E2, E4, E5, E7), and R17/R20 are BLOCKED in CHG-CORR-E behind the queue (E3, E6), matching the WCS-430 'no available robot in G3' alerts that began at 14:11 (E22).",
       "evidence": [
         {
           "id": "E9",
-          "why": "C4 taken out of service for firmware upgrade at 12:30, not back until 17:30 \u2014 one of the two east chargers already gone before the incident"
+          "why": "C4 taken out of service at 12:30 for firmware upgrade until 17:30 \u2014 one of the two east chargers already gone before the incident"
         },
         {
           "id": "E12",
-          "why": "C2 raised CHG-214 output contactor fault at 14:02, removing the only remaining east charger"
+          "why": "C2 raised CHG-214 contactor fault at 14:02, removing the last available east charger"
         },
         {
           "id": "E14",
-          "why": "R15 arrived CHG-EAST at 14:03 and logged both C2 FAULT and C4 MAINTENANCE as unavailable \u2014 confirms no east charger was accessible"
+          "why": "Fleet log confirms R15 arrived CHG-EAST and found both C2 FAULT and C4 MAINTENANCE \u2014 no charger available"
         },
         {
           "id": "E1",
-          "why": "R15, R16, R18, R19, R21 all in QUEUED_CHARGE at CHG-EAST with ~14% battery \u2014 entire G3 fleet stuck waiting"
+          "why": "R15 has been QUEUED_CHARGE since 14:03 at 13.7% \u2014 below the 15% charge threshold, unable to work"
         },
         {
           "id": "E3",
-          "why": "R17 BLOCKED in CHG-CORR-E with AMR-207 \u2014 queue has spilled into the corridor"
+          "why": "R17 BLOCKED in CHG-CORR-E with AMR-207 since 14:10 \u2014 corridor gridlocked behind queued robots"
         },
         {
           "id": "E6",
-          "why": "R20 also BLOCKED in CHG-CORR-E with AMR-207 behind R17 \u2014 corridor fully jammed"
+          "why": "R20 also BLOCKED in CHG-CORR-E with AMR-207 since 14:11 \u2014 second robot trapped behind R17"
         },
         {
           "id": "E22",
-          "why": "WCS-430 repeated 5 times for PS3 from 14:11; 12 tasks pending with no available G3 robot \u2014 direct cause of station idle"
+          "why": "WCS-430 repeated 5 times 14:11\u201314:19: no available robot in G3, 12 tasks pending for PS3 \u2014 confirms station starvation"
         },
         {
           "id": "E25",
-          "why": "PS3 throughput dropped from 352 picks/h at 13:15 to 216 picks/h at 14:00 with 5 min idle already \u2014 degradation tracks the charger loss timeline"
+          "why": "PS3 tote throughput declining from 14:00 onward, 5 min idle already by 14:00 interval \u2014 timeline matches charger failures"
         }
       ],
       "ruled_out": [
         {
-          "what": "INC-0137 / PS3 scanner offline",
-          "why": "E25 shows totes were still arriving at PS3 until 14:09 and the operator is logged in; no PS-601 fault present. Robots are absent, not present with zero picks.",
+          "what": "INC-0137 / PS3 scanner offline (PS-601)",
+          "why": "Robots are not arriving at PS3 at all (E22 shows no robot available in G3); in INC-0137 robots were present but the scanner was offline. No PS-601 fault in evidence.",
           "ids": [
-            "E25",
+            "E22",
             "E29"
           ]
         },
         {
-          "what": "INC-0130 / aisle debris blocking a robot (AMR-305)",
-          "why": "R17 and R20 show AMR-207 path-blocked, not AMR-305 safety-stop. The blockage is caused by queued robots in the charging corridor, not debris in a pick aisle.",
+          "what": "Aisle blockage as root cause (INC-0130 pattern, AMR-207 primary)",
+          "why": "AMR-207 on R17/R20 is a secondary effect \u2014 they are blocked in the charging corridor by the queue of QUEUED_CHARGE robots, not by a debris or e-stop fault in a pick aisle. No AMR-305/310 fault present.",
           "ids": [
             "E3",
             "E6",
-            "E30"
+            "E23",
+            "E24"
           ]
         },
         {
           "what": "WCS-402 task rejects causing PS3 starvation",
-          "why": "E18 shows a single WCS-402 reject at PS5, not PS3, and the reject rate is not elevated for PS3. The PS3 WCS-430 warnings are a consequence of no available robots, not bad task data.",
+          "why": "E18 shows a single WCS-402 reject at 14:05 for PS5, not PS3, and it is isolated. The PS3 starvation is explained entirely by no available G3 robots (E22); WCS-402 is unrelated noise.",
           "ids": [
             "E18",
             "E22"
@@ -69,119 +70,121 @@
       ],
       "similar_incident": {
         "ticket": "INC-0142",
-        "why": "Identical pattern: C4 out of service + C2 CHG-214 fault \u2192 all G3 robots queued at CHG-EAST \u2192 corridor blocked by AMR-207 \u2192 PS3 starved. Same fault codes, same group, same chargers."
+        "why": "Identical pattern: C4 out of service + C2 CHG-214 fault \u2192 all G3 robots queued in CHG-EAST \u2192 PS3 starved. Same fault codes (CHG-214, AMR-207, WCS-430). Fix was to reroute G3 affinity to C1/C3 and power-cycle C2."
       },
       "runbook": {
         "id": "RB-01",
-        "next_step": "In the fleet manager, change G3 charger affinity from C2/C4 to C1/C3 (west) immediately so queued robots can charge; prioritise R15, R18, R19 (lowest battery ~13.7\u201314.0%). Then power-cycle C2 at its isolator to attempt contactor fault clearance."
+        "next_step": "In the fleet manager, change G3 charger affinity from C2/C4 to C1/C3 (west) so queued robots can charge immediately \u2014 prioritise R15, R18, R19 at ~13\u201314% battery. Then power-cycle C2 at its isolator to attempt CHG-214 clearance."
       },
       "check_next": [
-        "Confirm in fleet manager that R17 and R20 (BLOCKED in CHG-CORR-E) resume movement once upstream robots clear after affinity change \u2014 if not, check for a secondary physical obstruction in the corridor.",
-        "After power-cycling C2, verify CHG-214 fault clears and C2 shows AVAILABLE; if the fault returns within an hour, isolate C2 and raise a maintenance request for contactor replacement (as per RB-01 step 4).",
-        "Check whether the fleet manager has an alert for 'both chargers on one side unavailable simultaneously' \u2014 INC-0142 and this incident show this combination is a recurring blind spot."
+        "Confirm C2 charger status after power-cycle \u2014 if CHG-214 returns within an hour, isolate C2 and raise a maintenance request for contactor replacement (as per RB-01 step 4).",
+        "Verify R17 and R20 in CHG-CORR-E clear automatically once the queued robots ahead of them begin moving to west chargers.",
+        "Once G3 robots start charging on C1/C3, confirm WCS-430 alerts stop and PS3 tote arrivals resume before restoring normal affinity."
       ],
-      "prevention": "Configure a fleet-manager alert that fires whenever a planned charger maintenance window overlaps with a fault on the paired charger (same side), so operators can pre-emptively shift group affinity before robots hit low battery; a simple rule on charger-state change would cover both incidents."
+      "prevention": "Schedule C2 and C4 maintenance on separate days so both east chargers are never simultaneously unavailable; a simple fleet-manager alert when both chargers on one side are FAULT/MAINTENANCE simultaneously would catch this before robots deplete."
     },
     "usage": {
       "input_tokens": 3952,
-      "output_tokens": 1419,
-      "latency_ms": 17384
+      "output_tokens": 1423,
+      "latency_ms": 16421
     }
   },
   "TEST-02": {
-    "recorded": "19 Nov 2026",
+    "recorded": "20 Nov 2026",
     "answer": {
       "status": "recommendation",
-      "likely_cause": "R07 triggered an emergency stop in aisle A04 due to a safety field obstruction (debris or fallen tote), blocking R03 and R05 behind it and slowing PS1 tote delivery.",
+      "likely_cause": "R07 triggered an emergency stop in aisle A04 due to a safety field obstruction (AMR-305), blocking R03 and R05 behind it and slowing PS1 tote delivery.",
       "confidence": "high",
-      "reasoning": "R07 entered FAULT with AMR-305 (safety field obstruction) at 09:41 in A04 (E7, E9). R03 then blocked behind R07 at 09:43 (E3, E10), and R05 blocked behind R03 at 09:46 (E5, E11). All three robots serve PS1 (group G1), reducing tote supply and explaining the PS1 slowdown (E12). The cascade pattern exactly matches RB-02.",
+      "reasoning": "R07 entered FAULT with AMR-305 at 09:41 in zone A04 (E7, E9), indicating its lidar detected an obstruction and triggered an e-stop. R03 then became BLOCKED at 09:43 with AMR-207 citing R07 as the obstacle (E10), and R05 followed at 09:46 citing R03 (E11). Three G1 robots serving PS1 are now stuck in A04, reducing tote flow to PS1 (E12). PS1 throughput has been gradually declining but the last tote was still delivered at 09:44 (E12); the station will idle soon if the blockage is not cleared.",
       "evidence": [
         {
           "id": "E7",
-          "why": "R07 in FAULT state, zone A04, fault AMR-305 since 09:41 \u2014 the root blocker"
+          "why": "R07 in FAULT state, zone A04, fault AMR-305 since 09:41 \u2014 the first robot in the chain"
         },
         {
           "id": "E9",
-          "why": "Log confirms R07 AMR-305 safety field obstruction emergency stop at 09:41:07 in A04"
+          "why": "Fleet log confirms R07 AMR-305 safety field obstruction emergency stop at 09:41:07 in aisle A04"
         },
         {
           "id": "E3",
-          "why": "R03 BLOCKED in A04 with AMR-207 since 09:43 \u2014 queued behind R07"
-        },
-        {
-          "id": "E10",
-          "why": "Log confirms R03 path blocked by R07 at 09:43:22"
+          "why": "R03 BLOCKED in A04 since 09:43, AMR-207, battery 22.8% \u2014 queued behind R07, low battery adds urgency"
         },
         {
           "id": "E5",
-          "why": "R05 BLOCKED in A04 with AMR-207 since 09:46 \u2014 queued behind R03"
+          "why": "R05 BLOCKED in A04 since 09:46, AMR-207 \u2014 queued behind R03"
+        },
+        {
+          "id": "E10",
+          "why": "Log confirms R03 path blocked by R07 at 09:43"
         },
         {
           "id": "E11",
-          "why": "Log confirms R05 path blocked by R03 at 09:46:51"
+          "why": "Log confirms R05 path blocked by R03 at 09:46"
         },
         {
           "id": "E12",
-          "why": "PS1 throughput declining and tote intervals widening, consistent with 3 of its robots stuck since 09:41"
+          "why": "PS1 throughput declining (352\u2192340 picks/h) and last tote at 09:44 \u2014 station will idle without intervention"
         },
         {
           "id": "E14",
-          "why": "AMR-305 = safety field obstruction CRITICAL; AMR-207 = path blocked WARNING \u2014 confirms severity hierarchy"
+          "why": "AMR-305 = safety field obstruction CRITICAL; AMR-207 = path blocked WARNING \u2014 confirms chain pattern"
         }
       ],
       "ruled_out": [
         {
-          "what": "INC-0142 charger starvation pattern",
-          "why": "No CHG fault codes present and no robots in QUEUED_CHARGE; R03 battery is low (22.8%) but that is a consequence of being stuck, not a charger failure (E3, E8)",
+          "what": "Charger failure starving PS1 of robots (similar to INC-0142)",
+          "why": "No CHG fault codes present; R03 battery is low (22.8%) but R05 is at 84.6% and R07 at 60.6%. The blockage in A04 explains the slowdown without any charger issue (E8 shows 33 other robots normal).",
           "ids": [
             "E3",
+            "E5",
+            "E7",
             "E8"
           ]
         },
         {
-          "what": "INC-0125 conveyor jam at PS1",
-          "why": "No CNV fault codes raised and PS1 station data shows totes still arriving (last tote 09:44:51), so the conveyor is not the bottleneck (E12)",
+          "what": "Conveyor jam at PS1 outbound (similar to INC-0125)",
+          "why": "No CNV fault codes reported; PS1 station data shows totes were still arriving at 09:44 and the operator is logged in. The slowdown is robot-supply-side, not conveyor-side.",
           "ids": [
             "E12"
           ]
         },
         {
-          "what": "Independent robot faults on R03/R05 (not a cascade)",
-          "why": "Logs explicitly name R07 as the obstacle for R03 and R03 as the obstacle for R05, confirming a single-root cascade not three separate faults (E10, E11)",
+          "what": "PS1 operator or scanner issue",
+          "why": "Operator is logged in and picks/h have been consistent across all 15-min intervals; other stations are at similar rates (E13), ruling out a station-local fault.",
           "ids": [
-            "E10",
-            "E11"
+            "E12",
+            "E13"
           ]
         }
       ],
       "similar_incident": {
         "ticket": "INC-0128",
-        "why": "Identical pattern: AMR-305 on lead robot in an aisle, two AMR-207 robots queued behind it. INC-0128 root cause was shrink-wrap debris on the floor \u2014 check for the same in A04."
+        "why": "Identical pattern: AMR-305 e-stop on one robot in an aisle, two AMR-207 blocked robots queued behind it. INC-0128 root cause was debris (shrink-wrap) in the lidar field \u2014 the same cause should be checked here first."
       },
       "runbook": {
         "id": "RB-02",
-        "next_step": "Put aisle A04 into maintenance mode in the fleet manager to stop new robots routing in, then go to R07 with hi-vis and lock-out tag to inspect for debris, a fallen tote or any obstruction in its safety field."
+        "next_step": "Put aisle A04 into maintenance mode in the fleet manager immediately, then walk to R07 (the FAULT robot) wearing hi-vis and aisle lock-out tag to look for debris, a fallen tote or any obstruction in its safety field."
       },
       "check_next": [
-        "Visually inspect the floor around R07 in A04 for debris (shrink-wrap, strapping, labels) or a fallen tote before clearing the e-stop.",
-        "After clearing the obstruction and resetting R07's e-stop, confirm R03 and R05 resume automatically and A04 is released from maintenance mode.",
-        "Monitor R07 for 24 hours \u2014 if it faults again in A04, take it out of service for sensor/lidar inspection per RB-02 step 6."
+        "Inspect the floor around R07 in A04 for debris (shrink-wrap, strapping, labels) or a fallen tote that triggered the safety field.",
+        "After clearing the obstruction and resetting R07's e-stop, confirm R03 battery (22.8%) \u2014 it may need to route to a charger before resuming delivery rather than continuing its task.",
+        "If R07 faults again in A04 within 24 hours, take it out of service per RB-02 step 6 and raise a maintenance inspection."
       ],
-      "prevention": "Add an alert that pages the on-floor team within 2 minutes of any AMR-305 in a transit aisle, and schedule a daily aisle debris sweep for high-traffic aisles like A04 to prevent recurrence."
+      "prevention": "Add a scheduled aisle debris sweep at shift start and after peak replenishment periods; a simple alert triggering when any AMR-305 persists for more than 5 minutes in the same zone would flag this before a queue forms."
     },
     "usage": {
       "input_tokens": 3122,
-      "output_tokens": 1160,
-      "latency_ms": 12715
+      "output_tokens": 1266,
+      "latency_ms": 15186
     }
   },
   "TEST-03": {
-    "recorded": "19 Nov 2026",
+    "recorded": "20 Nov 2026",
     "answer": {
       "status": "recommendation",
-      "likely_cause": "WMS slotting batch SLT-8841 re-coded 212 locations in the L-07 range at 16:15 before the WCS location master was synchronised, causing WCS to reject all tasks referencing those locations.",
+      "likely_cause": "WMS slotting batch SLT-8841 re-coded 212 locations in the L-07 range at 16:15 before the WCS location master was synchronised, causing WCS to reject all tasks referencing those locations and starving PS4 and PS6 of work.",
       "confidence": "high",
-      "reasoning": "Slotting batch SLT-8841 applied at 16:15 (E16) immediately preceded a burst of WCS-402 'unknown storage location' errors for L-07 locations starting at 16:18 for PS6 (E17) and 16:20 for PS4 (E18). Station throughput at both PS4 and PS6 dropped sharply in the 16:15 interval with 5 minutes of idle time each (E19, E20), while all other stations remained normal (E21). This is the same WMS-ahead-of-WCS-sync pattern seen in INC-0131 and INC-0139.",
+      "reasoning": "Slotting batch SLT-8841 applied at 16:15 (E16) immediately preceded the first WCS-402 rejects at 16:18 (E17, E18), all targeting L-07 locations. Station throughput at PS4 and PS6 dropped sharply in the 16:15 interval (E19, E20) while all other stations remained normal (E21), confirming the problem is task-supply not robot capacity. This is the same WMS-ahead-of-WCS-sync failure seen in INC-0131 and INC-0139.",
       "evidence": [
         {
           "id": "E16",
@@ -189,37 +192,37 @@
         },
         {
           "id": "E17",
-          "why": "12 WCS-402 rejects for PS6 from 16:18, all referencing L-07 locations unknown to WCS"
+          "why": "12 WCS-402 rejects for PS6 from 16:18, all citing unknown L-07 locations"
         },
         {
           "id": "E18",
-          "why": "12 WCS-402 rejects for PS4 from 16:20, same pattern, same location range"
+          "why": "12 WCS-402 rejects for PS4 from 16:20, same pattern"
         },
         {
           "id": "E19",
-          "why": "PS4 throughput fell from 344 to 196 picks/h at 16:15 with 5 min idle \u2014 matches reject onset"
+          "why": "PS4 throughput halved in the 16:15 interval (344\u2192196 picks/h, 5 min idle), matching reject onset"
         },
         {
           "id": "E20",
-          "why": "PS6 throughput fell from 336 to 188 picks/h at 16:15 with 5 min idle \u2014 matches reject onset"
+          "why": "PS6 throughput halved in the 16:15 interval (336\u2192188 picks/h, 5 min idle), matching reject onset"
         },
         {
           "id": "E21",
-          "why": "All other stations normal at 16:15, ruling out a fleet-wide or site-wide issue"
+          "why": "All other stations normal at 16:15, ruling out a fleet-wide or systemic issue"
         },
         {
           "id": "E22",
-          "why": "WCS-402 defined as 'Task rejected \u2013 unknown storage location', confirming the error type"
+          "why": "Confirms WCS-402 = task rejected due to unknown storage location"
         },
         {
-          "id": "E13",
-          "why": "28 other robots reporting normal states \u2014 robot fleet is not the cause"
+          "id": "E26",
+          "why": "RB-03 step 2 directly covers WCS-402 after a slotting update: trigger WCS location master resync then ask WMS to resend rejected tasks"
         }
       ],
       "ruled_out": [
         {
-          "what": "INC-0144 look-alike: poor wave composition causing low picks/h at PS6",
-          "why": "INC-0144 had no fault codes and only PS6 was affected. Here WCS-402 errors are present for both PS4 and PS6, and the drop is simultaneous with the slotting update (E16, E17, E18, E19, E20).",
+          "what": "INC-0144 look-alike: low picks/h caused by wave composition (bulky orders)",
+          "why": "INC-0144 had no fault codes and affected only PS6. Here WCS-402 errors are present for both PS4 and PS6, and the drop is tied to the slotting event, not order mix (E17, E18, E21).",
           "ids": [
             "E17",
             "E18",
@@ -227,84 +230,85 @@
           ]
         },
         {
-          "what": "Robot battery shortage starving stations of totes",
-          "why": "Several G4/G6 robots are low (E1, E3\u2013E6), but 28 other robots are normal (E13), throughput was healthy until 16:15, and the WCS-402 rejects provide a direct task-rejection explanation. Low battery is a background condition, not the cause of the work stoppage.",
+          "what": "Robot battery / capacity shortage causing work starvation",
+          "why": "R35 and R36 raised low-battery charge requests (E14, E15) but this is normal fleet behaviour and predates the throughput drop. All other stations served by different groups are unaffected (E21), and 28 other robots are working normally (E13).",
           "ids": [
+            "E14",
+            "E15",
             "E13",
-            "E19",
-            "E20"
+            "E21"
           ]
         },
         {
-          "what": "Fleet manager or WCS system fault unrelated to slotting",
-          "why": "Rejects are exclusively for L-07 locations (E17, E18), which maps exactly to the locations re-coded by SLT-8841 (E16). A system-wide fault would produce varied error codes and affect other stations.",
+          "what": "Other WCS reject codes (WCS-401 invalid SKU, WCS-410 schema, WCS-420 duplicate)",
+          "why": "All logged errors are exclusively WCS-402 (E17, E18, E22), and the timing matches a slotting update, not a system upgrade or failover.",
           "ids": [
-            "E16",
             "E17",
-            "E18"
+            "E18",
+            "E22"
           ]
         }
       ],
       "similar_incident": {
         "ticket": "INC-0131",
-        "why": "Identical root cause: WMS slotting update re-coded L-07 locations before WCS location master synced, producing WCS-402 rejects and starving PS4 and PS6. INC-0139 is also a match. Both were resolved with RB-03."
+        "why": "Identical root cause: WMS slotting update re-coded L-07 locations before WCS master data sync, producing a burst of WCS-402 rejects that starved PS4 and PS6. Fixed by WCS location master resync and WMS task resend (RB-03)."
       },
       "runbook": {
         "id": "RB-03",
-        "next_step": "In the WCS interface monitor, confirm all rejects are WCS-402 for L-07 locations, then trigger the WCS location master resync and ask WMS support to resend the rejected tasks (T-513014, T-513005 and all others in the queue)."
+        "next_step": "In the WCS interface monitor, filter rejects for the last 30 minutes, confirm all are WCS-402 for L-07 locations, then trigger the WCS location master resync and ask WMS support to resend the rejected tasks (T-513014, T-513005 and all others in the queue)."
       },
       "check_next": [
-        "Confirm in the WCS reject queue that all outstanding rejects are WCS-402 and reference L-07 locations only \u2014 any other code or range needs separate investigation.",
-        "After triggering the WCS location master resync, verify the reject rate drops to zero before asking WMS to resend tasks.",
-        "Check whether R36 (battery 15.1%, E8, E15) has successfully queued for charging; if charger C1 is occupied by R35 (E7), confirm C3 is available so G6 is not further degraded."
+        "Confirm all WCS-402 rejects reference L-07 locations (matching SLT-8841 range) and that no other location ranges are affected.",
+        "After triggering WCS location master resync, verify the WCS-402 reject rate drops to zero before asking WMS to resend tasks.",
+        "Check whether the WCS location master resync completed successfully and PS4/PS6 throughput recovers toward pre-incident levels (~340 picks/h)."
       ],
-      "prevention": "Implement an automated pre-check that blocks WCS task release for any location codes not yet present in the WCS master, and add an alert that fires when the WCS-402 rate exceeds a threshold \u2014 RB-03 and INC-0131/0139 both recommend this and it would have prevented this incident entirely."
+      "prevention": "Implement an automated pre-check that blocks WMS task release for any location codes not yet present in the WCS master, and add an alert that fires when the WCS-402 rate exceeds a threshold within 5 minutes of a slotting batch apply \u2014 a simple rule-based alert would cover this recurring failure mode (recommended in INC-0131, INC-0139, and RB-03)."
     },
     "usage": {
       "input_tokens": 2822,
-      "output_tokens": 1342,
-      "latency_ms": 14113
+      "output_tokens": 1347,
+      "latency_ms": 14739
     }
   },
   "TEST-04": {
-    "recorded": "19 Nov 2026",
+    "recorded": "20 Nov 2026",
     "answer": {
       "status": "recommendation",
       "likely_cause": "R31 ran its battery down to critical (10%) because its charge request was lost during the scheduled fleet manager restart at 05:41, mirroring INC-0130.",
       "confidence": "high",
-      "reasoning": "R31 hit fault AMR-112 (battery critical stop) at 06:39 in TR-2 with exactly 10% battery (E1, E6, E14). A scheduled fleet manager restart occurred at 05:41 (E3), causing a 40-robot heartbeat timeout until 05:43 (E4, E5). INC-0130 established that charge requests sent during a fleet manager restart are silently dropped, leaving the robot to drain to critical \u2014 the same mechanism fits here. All 39 other robots are normal (E2), ruling out a fleet-wide or network issue.",
+      "reasoning": "R31 hit fault AMR-112 (battery critical stop) at 06:39 with exactly 10% battery (E1, E6, E14). A scheduled fleet manager restart occurred at 05:41 with a 90-second heartbeat timeout affecting all 40 robots including R31 (E3, E4, E5). Per INC-0130, the same fault pattern (AMR-112, ~10% battery, fleet manager restart) was caused by a charge request sent during the restart window being silently dropped, leaving the robot to run down without ever reaching a charger. No other robots are faulted (E2), ruling out a systemic issue.",
       "evidence": [
         {
           "id": "E1",
-          "why": "R31 in FAULT state, zone TR-2, battery 10%, fault AMR-112 \u2014 confirms the blocking robot and its condition"
+          "why": "R31 in FAULT state, zone TR-2, battery 10%, fault code AMR-112 since 06:39"
         },
         {
           "id": "E6",
-          "why": "Log confirms AMR-112 battery critical stop at 06:39:09, consistent with a missed charge request hours earlier"
+          "why": "Fleet log confirms AMR-112 battery critical stop for R31 at 06:39:09"
         },
         {
           "id": "E14",
-          "why": "AMR-112 defined as 'Battery critical - robot stopped' \u2014 confirms this is a battery exhaustion fault, not a safety or navigation fault"
+          "why": "AMR-112 = Battery critical - robot stopped; confirms this is a battery exhaustion stop, not a safety or comms fault"
         },
         {
           "id": "E3",
-          "why": "Scheduled fleet manager restart at 05:41 \u2014 the window in which a charge request from R31 would have been lost"
+          "why": "Scheduled fleet manager restart at 05:41 created a window where charge requests could be lost"
         },
         {
           "id": "E4",
-          "why": "All 40 robots lost heartbeat during the restart, confirming fleet manager was unavailable to queue requests"
+          "why": "All 40 robots lost heartbeat for ~90 s during restart; any charge request queued in this window would not have been processed"
         },
         {
           "id": "E5",
-          "why": "Fleet manager came back at 05:43 but missed charge requests are not automatically re-queued (per INC-0130 pattern)"
+          "why": "Fleet manager came back online at 05:43:51; requests sent during the gap were not replayed"
         },
         {
           "id": "E7",
-          "why": "R31 already placed in manual mode at 06:41 by eng_early \u2014 robot is ready to be pushed to a charger"
+          "why": "R31 already placed in manual mode by eng_early at 06:41 \u2014 robot is safe to tow"
         },
         {
           "id": "E15",
-          "why": "INC-0130: identical fault (AMR-112, ~9% battery, transit lane block) caused by lost charge request during fleet manager restart; fix was manual push to charger via RB-04"
+          "why": "INC-0130 is an exact match: AMR-112, ~10% battery, charge request lost during fleet manager restart; resolved in 30 min via RB-04"
         }
       ],
       "ruled_out": [
@@ -318,135 +322,304 @@
         },
         {
           "what": "INC-0132 / Wi-Fi access point failure (AMR-401/AMR-410)",
-          "why": "Only R31 is affected; all 39 other robots are working normally, ruling out a network/AP outage (E2)",
+          "why": "Only R31 is faulted; 39 other robots are working normally, ruling out a network zone outage (E2). R31's fault is AMR-112, not AMR-410",
           "ids": [
-            "E2"
+            "E2",
+            "E1"
           ]
         },
         {
-          "what": "Battery hardware degradation causing abnormally fast drain",
-          "why": "The fleet manager restart at 05:41 provides a clear mechanism for a lost charge request; a hardware fault is possible but not needed to explain the evidence \u2014 check battery health report if robot drains again (E18 step 5)",
+          "what": "Battery hardware degradation (fast drain unrelated to missed charge)",
+          "why": "Only one robot is affected and the fleet manager restart provides a clear mechanism for a missed charge request; battery health report can be checked later per RB-04 step 5 (E18)",
           "ids": [
-            "E3",
-            "E4",
             "E18"
           ]
         }
       ],
       "similar_incident": {
         "ticket": "INC-0130",
-        "why": "Same fault code (AMR-112), same ~10% battery level in a transit lane, same root cause (charge request lost during fleet manager restart); fix and runbook are identical"
+        "why": "Identical fault code (AMR-112), near-identical battery level (~9-10%), and a fleet manager restart immediately before the robot should have requested charging \u2014 same root cause, same fix path"
       },
       "runbook": {
         "id": "RB-04",
-        "next_step": "R31 is already in manual mode (E7) \u2014 use the tow handle to push it to the nearest free charger now, then verify a charge request (AMR-101) is queued once it docks."
+        "next_step": "Confirm R31 is already in manual mode (E7 shows it is), then tow it to the nearest free charger using the tow handle; verify the charge request is queued once docked."
       },
       "check_next": [
-        "Confirm no AMR-101 charge request was logged for R31 between 05:41 and 06:39 \u2014 absence confirms the lost-request theory.",
-        "Check whether any other robots in G5 or the wider fleet are below 15% and not currently charging \u2014 they may have lost charge requests in the same restart window.",
-        "After R31 is charging, pull its battery health report to rule out abnormal drain rate (RB-04 step 5)."
+        "Check fleet logs between 05:41 and 05:44 for an AMR-101 charge request from R31 \u2014 absence confirms the request was dropped during the restart window.",
+        "Once R31 is on charge, pull its battery health report to confirm drain rate was normal and no hardware fault contributed.",
+        "Review whether the FM-3.8.2 patch replay mechanism re-queues pending charge requests after restart; if not, raise a software change request."
       ],
-      "prevention": "Configure a fleet-level alert to fire whenever any robot drops below 12% without an active charge request queued; additionally, add a post-restart reconciliation step to FM patch procedure that re-queues any missed charge requests \u2014 a simple threshold alert would have caught this before R31 reached critical."
+      "prevention": "Configure a fleet-manager post-restart reconciliation check that re-evaluates battery levels for all robots and re-queues any missing charge requests; a simple alert firing when any robot is below 12% and not en-route to or on a charger would also catch this before it becomes a critical stop."
     },
     "usage": {
       "input_tokens": 3050,
-      "output_tokens": 1174,
-      "latency_ms": 13804
+      "output_tokens": 1164,
+      "latency_ms": 14066
     }
   },
   "TEST-05": {
-    "recorded": "19 Nov 2026",
+    "recorded": "20 Nov 2026",
     "answer": {
       "status": "recommendation",
       "likely_cause": "Recurring tote jam at merge M2 caused by misaligned or loose photo-eye PE-M2-03 bracket blocking the outbound conveyor from PS5.",
       "confidence": "high",
-      "reasoning": "PE-M2-03 has blocked three times in under 90 minutes (E9, E12, E15), each time causing the PS5 outbound spur to fill and the station to pause (E10, E13, E16). The same fault pattern \u2014 CNV-501 followed by CNV-520 \u2014 has occurred in three prior incidents (INC-0125, INC-0134, INC-0143), all traced to the same loose PE-M2-03 bracket. Operator resets at M2 (E11, E14) give only temporary relief, confirming the bracket is not fixed and maintenance request MR-2207 remains open.",
+      "reasoning": "PE-M2-03 has blocked three times in under 90 minutes (E9, E12, E15), each time causing the PS5 outbound spur to fill and pause the station (E10, E13, E16). The same fault pattern (CNV-501 then CNV-520) has occurred in three prior incidents (INC-0125, INC-0134, INC-0143), all traced to the same loose bracket on PE-M2-03. Operator resets at M2 (E11, E14) gave only temporary relief, confirming the bracket has not been permanently fixed and MR-2207 remains open.",
       "evidence": [
         {
           "id": "E9",
-          "why": "First PE-M2-03 block at 11:12, starting the jam chain"
+          "why": "First PE-M2-03 block at 11:12, triggering the jam chain"
         },
         {
           "id": "E10",
-          "why": "PS5 outbound spur full 60 s after M2 blocked \u2014 direct downstream effect"
+          "why": "PS5 outbound spur full 60 s later, station paused"
         },
         {
           "id": "E12",
-          "why": "Second PE-M2-03 block at 11:24, showing the jam recurred after operator reset"
+          "why": "PE-M2-03 blocks again at 11:24 after operator reset \u2014 jam recurred"
         },
         {
           "id": "E15",
-          "why": "Third PE-M2-03 block at 11:31, confirming the bracket fix has not held"
+          "why": "Third block at 11:31, confirming persistent fault at M2"
+        },
+        {
+          "id": "E16",
+          "why": "PS5 paused again at 11:32, directly linked to E15"
         },
         {
           "id": "E17",
-          "why": "PS5 station data shows idle time and zero throughput aligned with each M2 jam"
-        },
-        {
-          "id": "E20",
-          "why": "INC-0125: identical fault codes, root cause was loose PE-M2-03 bracket at M2"
+          "why": "PS5 throughput collapsed from 368 picks/h to 0 then 140 picks/h with repeated 'outbound spur full' notes"
         },
         {
           "id": "E21",
-          "why": "INC-0143: third recurrence, MR-2207 escalated but still open"
+          "why": "INC-0143 (Oct 2026) confirmed MR-2207 still open \u2014 bracket replacement never completed"
         },
         {
           "id": "E23",
-          "why": "RB-05 step 3 explicitly calls out PE-M2-03 alignment and loose bracket; step 5 flags M2 as known repeat offender"
+          "why": "RB-05 step 3 explicitly calls out PE-M2-03 bracket as known repeat offender at Merge M2"
         }
       ],
       "ruled_out": [
         {
-          "what": "Robot group G5 capacity issue causing tote backup",
-          "why": "R29\u2013R32 and R34 are active and moving (E2\u2013E5, E7); only R28 is at-station and R33 is idle/low battery, which is normal. Other stations served by different groups are running fine (E18).",
+          "what": "Robot group G5 shortage causing tote starvation",
+          "why": "Symptom is totes cannot leave PS5, not totes failing to arrive. R28\u2013R34 show normal states (E1\u2013E7) and 33 other robots are healthy (E8).",
           "ids": [
+            "E1",
             "E2",
             "E3",
-            "E4",
-            "E5",
-            "E7",
-            "E18"
+            "E8"
           ]
         },
         {
-          "what": "PS5-specific conveyor fault (CNV-520 as root cause)",
-          "why": "CNV-520 fires consistently ~60 s after CNV-501 (E9\u2192E10, E12\u2192E13, E15\u2192E16); the spur fills because M2 is blocked upstream, not because of a fault on the spur itself.",
+          "what": "PS6 outage causing network-wide conveyor backup",
+          "why": "PS6 shows 0 picks/h (E18) but all other stations are running normally and the fault codes are isolated to M2/PS5 spur, not a shared trunk.",
           "ids": [
-            "E9",
-            "E10",
-            "E12",
-            "E13",
-            "E15",
-            "E16"
+            "E18",
+            "E9"
           ]
         },
         {
-          "what": "Operator absence causing the pauses",
-          "why": "The 11:00 interval shows no operator logged in (E17), but the jam started at 11:12 and the pattern repeats at 11:24 and 11:31 when an operator was present; absence is a symptom of the pause, not the cause.",
+          "what": "One-off tote jam unrelated to bracket (as in a first-time incident)",
+          "why": "Three prior tickets (INC-0125, INC-0134, INC-0143) with identical fault codes all traced to the same loose PE-M2-03 bracket; MR-2207 is still open, so the root hardware defect was never resolved.",
           "ids": [
-            "E17"
+            "E20",
+            "E21",
+            "E22"
           ]
         }
       ],
       "similar_incident": {
         "ticket": "INC-0143",
-        "why": "Identical fault codes CNV-501 + CNV-520, same merge M2, same PE-M2-03 bracket root cause, and MR-2207 was already open \u2014 this is a direct continuation of that recurring fault."
+        "why": "Identical fault codes CNV-501 + CNV-520, same merge M2 / PE-M2-03 bracket root cause, and MR-2207 explicitly noted as still open \u2014 making this a direct continuation of that recurring fault."
       },
       "runbook": {
         "id": "RB-05",
-        "next_step": "Go to merge M2, stop and lock out the conveyor section at its local panel, then clear any jammed totes and inspect PE-M2-03 bracket alignment."
+        "next_step": "Stop and lock out the M2 conveyor section at its local panel, then clear any jammed totes and inspect PE-M2-03 bracket alignment before restarting."
       },
       "check_next": [
-        "Confirm PE-M2-03 bracket is loose or misaligned after clearing the jam \u2014 this distinguishes a one-off jam from the known bracket fault.",
-        "Check the status of MR-2207: if still open, escalate immediately for bracket replacement rather than another re-aim.",
-        "After restarting the conveyor, watch three totes pass PE-M2-03 without triggering CNV-501 before releasing PS5 from pause."
+        "Walk merge M2 and confirm totes are jammed at PE-M2-03; check whether the bracket is visibly loose or beam is angled down onto the belt.",
+        "After clearing, watch three totes pass PE-M2-03 cleanly before releasing the PS5 station pause.",
+        "Check MR-2207 status \u2014 if still open, escalate immediately for same-day bracket replacement; this is the fourth jam in under 90 days."
       ],
-      "prevention": "MR-2207 bracket replacement must be completed \u2014 a simple recurring-fault alert (CNV-501 firing >2 times in 90 days on the same photo-eye) would auto-escalate the maintenance request before the next incident."
+      "prevention": "MR-2207 bracket replacement must be completed urgently; a simple alert rule triggering a P1 maintenance ticket if CNV-501 fires more than once in any 90-day window on the same photo-eye would have caught this earlier."
     },
     "usage": {
       "input_tokens": 2195,
-      "output_tokens": 1180,
-      "latency_ms": 11706
+      "output_tokens": 1141,
+      "latency_ms": 11766
+    }
+  },
+  "TEST-06": {
+    "recorded": "20 Nov 2026",
+    "answer": {
+      "status": "recommendation",
+      "likely_cause": "WCS task allocator (release 5.8.2, reloaded at 19:30) is repeatedly assigning tasks to already-busy G6 robots, causing 90-second re-queue delays that starve PS6 of totes.",
+      "confidence": "medium",
+      "reasoning": "From 20:08 onward, four different G6 robots (R36, R38, R35, R40) each rejected a WCS task because they were still executing a prior one, triggering a 90-second re-queue each time (E11\u2013E15). This pattern started ~38 minutes before the incident report and aligns exactly with the WCS config reload at 19:30 (E10). PS6 throughput fell steadily from 356 picks/h at 19:45 to 196 picks/h at 20:30 (E17), and average task wait time hit 3m40s vs a normal <30s (E16). No charger fault or robot hardware fault is evident for G6.",
+      "evidence": [
+        {
+          "id": "E10",
+          "why": "WCS task allocator reloaded with release 5.8.2 at 19:30, just before degradation began \u2014 likely introduced a scheduling defect"
+        },
+        {
+          "id": "E11",
+          "why": "R36 rejected a task at 20:08 because it was still executing a prior task; 90-second re-queue penalty applied"
+        },
+        {
+          "id": "E12",
+          "why": "R38 rejected a task at 20:17 for the same reason \u2014 pattern repeating across multiple robots"
+        },
+        {
+          "id": "E13",
+          "why": "R35 rejected a task at 20:26 \u2014 now three of six G6 robots affected"
+        },
+        {
+          "id": "E14",
+          "why": "R36 rejected again at 20:33 \u2014 recurring, not a one-off"
+        },
+        {
+          "id": "E15",
+          "why": "R40 rejected a task at 20:44 \u2014 four distinct G6 robots hit, confirming systemic allocator issue"
+        },
+        {
+          "id": "E16",
+          "why": "PS6 average task wait 3m40s over last 30 min vs normal <30s \u2014 confirms robots not being assigned promptly"
+        },
+        {
+          "id": "E17",
+          "why": "PS6 throughput declining steadily since 20:00, idle time growing \u2014 consistent with intermittent robot availability caused by re-queue delays"
+        }
+      ],
+      "ruled_out": [
+        {
+          "what": "Charger unavailability starving G6 robots (similar to INC-0142)",
+          "why": "C4 was in planned maintenance (E9) but was back in service by 17:30. No G6 robot is in QUEUED_CHARGE; all six G6 robots show active working states with batteries well above the 15% charge-seek threshold (E2\u2013E7). R37 at 20.9% is the lowest but still DELIVERING, not queuing.",
+          "ids": [
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7",
+            "E9"
+          ]
+        },
+        {
+          "what": "INC-0144 wave composition issue",
+          "why": "In INC-0144 robots were working normally and throughput was low due to bulky orders. Here robots are actively rejecting tasks due to an allocator conflict \u2014 a different mechanism \u2014 and all other stations are performing normally (E18), ruling out a wave-wide composition problem.",
+          "ids": [
+            "E17",
+            "E18"
+          ]
+        },
+        {
+          "what": "Conveyor jam at PS6 (similar to INC-0125)",
+          "why": "INC-0125 involved fault codes CNV-501/CNV-520 and a full outbound lane. No conveyor fault codes are present here, and the symptom is totes arriving in bursts with gaps, not a blocked outbound lane.",
+          "ids": [
+            "E8"
+          ]
+        }
+      ],
+      "similar_incident": {
+        "ticket": "",
+        "why": "No prior ticket matches a WCS allocator regression causing task-rejection loops. INC-0142 is superficially similar (station starved) but root cause was a charger fault, not a scheduler defect."
+      },
+      "runbook": {
+        "id": "",
+        "next_step": "Contact the WCS/controls team immediately: ask them to review the task allocator logic in release 5.8.2 for a bug that assigns a new task to a robot before its current task completes, and consider rolling back to the previous release or reloading the prior config while the fix is investigated."
+      },
+      "check_next": [
+        "Confirm the task-rejection warnings (E11\u2013E15) started after 19:30 and were absent before the config reload \u2014 check WCS logs from 18:30\u201319:30 for any prior rejections on G6 robots.",
+        "Check whether other station groups (G1\u2013G5) have similar task-rejection warnings since 19:30 \u2014 if yes, the allocator bug is site-wide; if no, it may be G6-specific config.",
+        "Ask the WCS team for the diff between release 5.8.2 and the previous version, specifically in the task-assignment readiness check logic."
+      ],
+      "prevention": "Add a real-time alert that fires when any robot group generates more than 2 task-rejection 'still executing' warnings within 10 minutes, and enforce a staging/canary rollout policy for WCS allocator releases during live operations."
+    },
+    "usage": {
+      "input_tokens": 3020,
+      "output_tokens": 1347,
+      "latency_ms": 17059
+    }
+  },
+  "TEST-07": {
+    "recorded": "20 Nov 2026",
+    "answer": {
+      "status": "insufficient_evidence",
+      "likely_cause": "A software or data mismatch is serving incorrect product images to the PS2 display \u2014 possibly a stale cache, a failed content sync, or a WCS/UI configuration error on the PS2 terminal.",
+      "confidence": "low",
+      "reasoning": "The symptom is wrong product images on the PS2 screen, which points to a display/data layer problem rather than a hardware or robot issue. PS2 throughput and robot delivery are normal (E15, E3, E4, E6), so the physical pick flow is unaffected. No fault codes, UI errors, or content-sync logs are present in the evidence to confirm a specific cause.",
+      "evidence": [
+        {
+          "id": "E15",
+          "why": "PS2 throughput is normal (26\u201331 totes per 15 min, zero idle time) \u2014 robots and totes are arriving correctly, so the issue is isolated to the display layer"
+        },
+        {
+          "id": "E3",
+          "why": "R10 is actively delivering to PS2-IN, confirming tote supply is working"
+        },
+        {
+          "id": "E4",
+          "why": "R11 also delivering to PS2-IN, further confirming normal robot operations at PS2"
+        },
+        {
+          "id": "E6",
+          "why": "R13 is AT_STATION at PS2, consistent with normal station activity"
+        },
+        {
+          "id": "E8",
+          "why": "33 other robots reporting normal states \u2014 no fleet-wide issue that could explain a display fault"
+        },
+        {
+          "id": "E16",
+          "why": "Other stations running at comparable pick rates \u2014 problem is specific to PS2, not a site-wide WCS outage"
+        }
+      ],
+      "ruled_out": [
+        {
+          "what": "Robot/tote starvation at PS2 (similar to INC-0137 scanner offline)",
+          "why": "PS2 picks/h and tote counts are healthy with zero idle time (E15); operators are picking, just double-checking images",
+          "ids": [
+            "E15"
+          ]
+        },
+        {
+          "what": "Charger C4 maintenance causing fleet disruption at PS2",
+          "why": "C4 serves groups G3/G4 (east affinity per RB-01); PS2 is served by G2 which uses C1/C3 (west) \u2014 charger maintenance is unrelated. PS2 robot telemetry is also normal (E3, E4, E6)",
+          "ids": [
+            "E9",
+            "E21"
+          ]
+        },
+        {
+          "what": "WCS task-queue delays (E10\u2013E14) affecting PS2",
+          "why": "Those warnings involve R35, R36, R38, R40 and affect PS6 wait times (E14), not PS2. PS2 throughput shows no degradation (E15)",
+          "ids": [
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14"
+          ]
+        }
+      ],
+      "similar_incident": {
+        "ticket": "",
+        "why": "No past ticket in the evidence covers wrong product images on a pick station display."
+      },
+      "runbook": {
+        "id": "",
+        "next_step": "Log into the PS2 terminal and check which product image is displayed versus the tote/SKU currently at the station; then check the WCS product-image service or UI config for PS2 to see if a sync or cache refresh is needed."
+      },
+      "check_next": [
+        "Compare the SKU shown on the PS2 screen against the WCS task record for the tote currently at the station \u2014 confirm whether the mismatch is in the image asset, the SKU mapping, or the task assignment",
+        "Check the PS2 terminal application logs for any content-sync errors, failed image downloads, or UI configuration load failures around 22:00\u201322:10",
+        "Restart or refresh the PS2 display application (after confirming with the operator) and verify whether images correct themselves \u2014 if yes, a stale cache or failed sync is the cause"
+      ],
+      "prevention": "Add a monitoring alert that compares the SKU in the active WCS task against the product ID embedded in the displayed image asset on each pick station screen, triggering a warning on any mismatch; a simple rule-based check would suffice."
+    },
+    "usage": {
+      "input_tokens": 2673,
+      "output_tokens": 992,
+      "latency_ms": 13148
     }
   }
 }
