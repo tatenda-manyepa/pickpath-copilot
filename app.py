@@ -161,7 +161,7 @@ with st.container(border=True):
     st.markdown("**1.** Pick one of the shift’s open tickets below (start with **INC-0149**), or enter a ticket "
                 "number or incident description, as an on-call engineer would.  \n"
                 "**2.** Read the likely cause, the evidence behind it and what it ruled out.  \n"
-                "**3.** Approve or reject the recommendation.")
+                "**3.** Approve or reject the recommendation, or escalate it if you're not sure.")
     st.caption("Not every incident needs AI, and two are new problems with no history. Watch whether the copilot "
                "recommends a simple rule, an alert or a maintenance fix instead, and whether it admits when it "
                "doesn't know.")
@@ -337,7 +337,8 @@ if result:
 
         st.divider()
         st.markdown("#### Step 3: your decision")
-        st.caption("Nothing happens on site until an engineer acts. Your decision is logged for review.")
+        st.caption("Human in the loop: nothing happens on site until an engineer acts. Check the answer against "
+                   "what you see, then decide. Every decision is logged, so wrong answers can be reviewed and fixed.")
         note = st.text_input("Note (optional)", key="decision_note")
         a, r = st.columns(2)
         decision = None
@@ -345,6 +346,9 @@ if result:
             decision = "approved"
         if r.button("Reject", use_container_width=True, disabled=bool(result["logged"])):
             decision = "rejected"
+        if st.button("Not sure: escalate to a senior engineer", use_container_width=True,
+                     disabled=bool(result["logged"])):
+            decision = "escalated"
         if decision:
             LOG_FILE.parent.mkdir(exist_ok=True)
             new = not LOG_FILE.exists()
@@ -359,7 +363,10 @@ if result:
             result["logged"] = decision
             st.rerun()
         if result["logged"]:
-            st.success(f"Recommendation {result['logged']} and logged.")
+            st.success({"approved": "Recommendation approved and logged.",
+                        "rejected": "Recommendation rejected and logged for review.",
+                        "escalated": "Escalated to a senior engineer, with the evidence attached, and logged."}
+                       .get(result["logged"], "Decision logged."))
 
     with st.expander(f"All evidence gathered ({len(pack.items)} records)"):
         for e in pack.items:
