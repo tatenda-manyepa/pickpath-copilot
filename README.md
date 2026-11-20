@@ -4,6 +4,14 @@
 
 Built by [Tatenda Manyepa](https://tatenda-manyepa.github.io) as a portfolio project. Case study: [tatenda-manyepa.github.io/pickpath.html](https://tatenda-manyepa.github.io/pickpath.html). Everything in this repository is fictional: no real customer, system or data is used.
 
+**Prototype (built and live)**
+
+![PickPath Copilot prototype architecture](docs/prototype-architecture.png)
+
+**Target production architecture (design)**
+
+![PickPath Copilot target production architecture on AWS](docs/production-architecture.png)
+
 ## How it works
 
 1. **Gather evidence** (`copilot/evidence.py`). Pulls only records from before the incident was reported, so the copilot cannot read how it was fixed. Each record gets an ID (E1, E2, …).
