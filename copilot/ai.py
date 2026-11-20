@@ -59,7 +59,7 @@ def check_citations(answer: dict, pack: EvidencePack) -> list[str]:
     known_ids = {e.id for e in pack.items}
     bad_ids = sorted(set(re.findall(r"\bE\d+\b", text)) - known_ids, key=lambda x: int(x[1:]))
     known_tickets = set(re.findall(r"INC-\d{4}", " ".join(e.summary for e in pack.items)))
-    bad_tickets = sorted(set(re.findall(r"INC-\d{4}", text)) - known_tickets)
+    bad_tickets = sorted(set(re.findall(r"INC-\d{4}", text)) - known_tickets - {"INC-0000"})  # INC-0000 = "none"
     return bad_ids + bad_tickets
 
 

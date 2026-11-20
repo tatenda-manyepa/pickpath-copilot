@@ -1287,6 +1287,7 @@
 2026-11-11 19:18:59 | INFO  | CHARGER  | C2     | -        | CHARGE_START R24 SoC 15%
 2026-11-11 19:28:50 | INFO  | FLEET    | R13    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
 2026-11-11 19:29:20 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-566328 tote TT-78240 from L-07-28-6 to PS3
+2026-11-11 19:30:04 | INFO  | CONFIG   | -      | -        | WCS task allocator settings reloaded after scheduled restart (release 5.8.2)
 2026-11-11 19:30:15 | INFO  | WCS      | R19    | -        | TASK_ASSIGN T-566328 -> R19 (group G3)
 2026-11-11 19:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=38 charging=2 queued_charge=0 blocked=0 fault=0
 2026-11-11 19:31:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R13 SoC 15%
@@ -1313,17 +1314,25 @@
 2026-11-11 20:02:36 | INFO  | CHARGER  | C3     | -        | CHARGE_START R12 SoC 14%
 2026-11-11 20:05:14 | INFO  | FLEET    | R26    | -        | TASK_COMPLETE T-567353 tote TT-78332 delivered to PS4 in 5m51s
 2026-11-11 20:07:00 | INFO  | CHARGER  | C4     | -        | CHARGE_END R20 SoC 90%
+2026-11-11 20:08:11 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-567421 -> R36 (group G6)
+2026-11-11 20:08:12 | WARN  | FLEET    | R36    | -        | R36 rejected T-567421 from WCS: still executing T-567398. Task re-queued after 90 s assignment timeout
 2026-11-11 20:13:20 | INFO  | CHARGER  | C1     | -        | CHARGE_END R08 SoC 90%
 2026-11-11 20:13:52 | INFO  | CHARGER  | C1     | -        | CHARGE_START R31 SoC 14%
 2026-11-11 20:14:09 | INFO  | FLEET    | R09    | AMR-101  | Charge request at 15% (group G2, affinity C1,C3)
 2026-11-11 20:16:20 | INFO  | WMS      | PS1    | -        | TASK_CREATE T-567884 tote TT-78382 from L-04-05-6 to PS1
+2026-11-11 20:17:12 | INFO  | WCS      | R38    | -        | TASK_ASSIGN T-567812 -> R38 (group G6)
+2026-11-11 20:17:13 | WARN  | FLEET    | R38    | -        | R38 rejected T-567812 from WCS: still executing T-567790. Task re-queued after 90 s assignment timeout
 2026-11-11 20:17:30 | INFO  | WCS      | R07    | -        | TASK_ASSIGN T-567884 -> R07 (group G1)
 2026-11-11 20:19:49 | INFO  | FLEET    | R30    | AMR-101  | Charge request at 15% (group G5, affinity C1,C3)
 2026-11-11 20:21:11 | INFO  | FLEET    | R07    | -        | TASK_COMPLETE T-567884 tote TT-78382 delivered to PS1 in 6m52s
+2026-11-11 20:26:13 | INFO  | WCS      | R35    | -        | TASK_ASSIGN T-568105 -> R35 (group G6)
+2026-11-11 20:26:14 | WARN  | FLEET    | R35    | -        | R35 rejected T-568105 from WCS: still executing T-568077. Task re-queued after 90 s assignment timeout
 2026-11-11 20:27:55 | INFO  | FLEET    | R25    | AMR-101  | Charge request at 15% (group G4, affinity C2,C4)
 2026-11-11 20:30:30 | INFO  | FLEET    | -      | -        | FLEET_STATUS active=35 charging=3 queued_charge=2 blocked=0 fault=0
 2026-11-11 20:30:43 | INFO  | CHARGER  | C2     | -        | CHARGE_START R25 SoC 15%
 2026-11-11 20:33:09 | INFO  | CHARGER  | C3     | -        | CHARGE_END R12 SoC 90%
+2026-11-11 20:33:14 | INFO  | WCS      | R36    | -        | TASK_ASSIGN T-568388 -> R36 (group G6)
+2026-11-11 20:33:15 | WARN  | FLEET    | R36    | -        | R36 rejected T-568388 from WCS: still executing T-568361. Task re-queued after 90 s assignment timeout
 2026-11-11 20:33:43 | INFO  | CHARGER  | C3     | -        | CHARGE_START R09 SoC 14%
 2026-11-11 20:35:46 | INFO  | WMS      | PS6    | -        | TASK_CREATE T-568492 tote TT-78439 from L-11-20-1 to PS6
 2026-11-11 20:36:24 | INFO  | WCS      | R39    | -        | TASK_ASSIGN T-568492 -> R39 (group G6)
@@ -1331,8 +1340,11 @@
 2026-11-11 20:41:41 | INFO  | WMS      | PS3    | -        | TASK_CREATE T-568711 tote TT-78456 from L-02-15-6 to PS3
 2026-11-11 20:42:38 | INFO  | WCS      | R21    | -        | TASK_ASSIGN T-568711 -> R21 (group G3)
 2026-11-11 20:44:08 | INFO  | CHARGER  | C1     | -        | CHARGE_END R31 SoC 90%
+2026-11-11 20:44:15 | INFO  | WCS      | R40    | -        | TASK_ASSIGN T-568846 -> R40 (group G6)
+2026-11-11 20:44:16 | WARN  | FLEET    | R40    | -        | R40 rejected T-568846 from WCS: still executing T-568823. Task re-queued after 90 s assignment timeout
 2026-11-11 20:44:41 | INFO  | CHARGER  | C1     | -        | CHARGE_START R30 SoC 14%
 2026-11-11 20:46:59 | INFO  | FLEET    | R21    | -        | TASK_COMPLETE T-568711 tote TT-78456 delivered to PS3 in 3m40s
+2026-11-11 20:47:30 | WARN  | WCS      | PS6    | -        | PS6 tasks waited on average 3m40s for a robot over the last 30 min (normal under 30 s)
 2026-11-11 20:50:08 | INFO  | FLEET    | R37    | AMR-101  | Charge request at 15% (group G6, affinity C1,C3)
 2026-11-11 20:58:34 | INFO  | WMS      | PS4    | -        | TASK_CREATE T-569248 tote TT-78507 from L-09-03-3 to PS4
 2026-11-11 20:59:09 | INFO  | WCS      | R27    | -        | TASK_ASSIGN T-569248 -> R27 (group G4)

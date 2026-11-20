@@ -24,12 +24,16 @@ DEFAULT = EXAMPLES[0]
 # Labels describe the symptom only, so visitors watch the copilot find the cause
 SYMPTOM = {"TEST-01": "Pick station 3 idle", "TEST-02": "Robot stuck in an aisle",
            "TEST-03": "Errors on stations 4 and 6", "TEST-04": "Robot stopped in a lane",
-           "TEST-05": "Station 5 can't send totes"}
+           "TEST-05": "Station 5 can't send totes", "TEST-06": "Station 6 slow, totes in bursts",
+           "TEST-07": "Wrong images on station 2"}
 
 
 # Open tickets on the shift, numbered after the historical tickets (INC-0125 to INC-0144), in time order
 TICKET = {"TEST-02": "INC-0145", "TEST-03": "INC-0146", "TEST-04": "INC-0147", "TEST-05": "INC-0148",
-          "TEST-01": "INC-0149"}
+          "TEST-01": "INC-0149", "TEST-06": "INC-0150", "TEST-07": "INC-0151"}
+CONTACT = "mailto:t.manyepa@outlook.com?subject=PickPath%20Copilot%20access%20code"
+ASK_FOR_CODE = ("The open tickets replay real answers the AI gave earlier. To run the AI live on your own "
+                f"incident description, [email me for an access code]({CONTACT}).")
 
 
 def example_label(case: dict) -> str:
@@ -101,6 +105,7 @@ def use_example(case: dict):
     st.session_state.as_of = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
     st.session_state.ticket = TICKET.get(case["id"])
     st.session_state.active = case["id"]
+    st.session_state.notice = None
     st.session_state.pop("result", None)
     st.session_state.auto_run = True
 
@@ -115,8 +120,7 @@ def submit_input():
         use_example(case)
         return
     if not live_allowed():
-        st.session_state.notice = ("New incidents run live on the AI and need an access code (sidebar). "
-                                   "The open tickets above work for everyone.")
+        st.session_state.notice = ASK_FOR_CODE + " If you already have one, enter it in the sidebar."
         return
     st.session_state.incident = text
     st.session_state.as_of = datetime.combine(st.session_state.own_date, st.session_state.own_time)
@@ -142,8 +146,8 @@ with st.sidebar:
     st.caption("Model: Claude on Amazon Bedrock (EU inference profile)")
     if ACCESS_CODE:
         st.divider()
-        with st.expander("Have an access code?"):
-            st.caption("Enter the code from my message to investigate a new incident description with live AI.")
+        with st.expander("Want to try your own incident?"):
+            st.caption(ASK_FOR_CODE)
             st.text_input("Access code", key="code", type="password")
 
 # ------------------------------------------------------------------ header, instructions, input
@@ -156,8 +160,10 @@ with st.container(border=True):
                 "number or incident description, as an on-call engineer would.  \n"
                 "**2.** Read the likely cause, the evidence behind it and what it ruled out.  \n"
                 "**3.** Approve or reject the recommendation.")
-    st.caption("Only two of these incidents really need AI. For the others, watch whether the copilot says a "
-               "simple rule, an alert or a maintenance fix is the better answer.")
+    st.caption("Not every incident needs AI, and two are new problems with no history. Watch whether the copilot "
+               "recommends a simple rule, an alert or a maintenance fix instead, and whether it admits when it "
+               "doesn't know.  \nThe open tickets replay saved answers. Live AI on your own description needs an "
+               f"access code: [just ask]({CONTACT}).")
 
 st.markdown("""<style>
 button[kind^="primary"] p{color:#2A1B00;font-weight:600}
@@ -169,9 +175,11 @@ button[kind^="primary"] p{color:#2A1B00;font-weight:600}
 </style>""", unsafe_allow_html=True)
 st.markdown("**Open tickets this shift**")
 active = st.session_state.get("active")
-ordered = sorted(EXAMPLES, key=lambda c: TICKET.get(c["id"], ""), reverse=True)
+# Flagship demo first, then newest first. Tickets without a saved answer stay hidden in the public demo.
+shown_cases = [c for c in EXAMPLES if c["id"] in SAVED or not ACCESS_CODE]
+ordered = sorted(shown_cases, key=lambda c: (c["id"] != "TEST-01", [-ord(ch) for ch in TICKET.get(c["id"], "")]))
 tickets = st.container(key="tickets")
-for row in (ordered[:3], ordered[3:]):
+for row in (ordered[i:i + 3] for i in range(0, len(ordered), 3)):
     cols = tickets.columns(3)
     for col, case in zip(cols, row):
         when = datetime.strptime(case["as_of"], "%Y-%m-%d %H:%M")
@@ -205,7 +213,7 @@ with st.container(border=True):
 if st.session_state.pop("auto_run", False):
     example = matching_example(incident, as_of)
     if not example and not live_allowed():
-        st.info("Live investigations need an access code.")
+        st.info(ASK_FOR_CODE)
         st.stop()
     if not example and ACCESS_CODE and live_runs_today() >= DAILY_LIMIT:
         st.warning("Today’s live investigations are used up. Please try one of the example incidents.")
